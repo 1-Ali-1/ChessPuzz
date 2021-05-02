@@ -24,7 +24,7 @@ String getRandomMove(String fen) {
   return moves.first;
 }
 
-String makeMoveBot(String fen, String move) {
+String makeMoveBot(String fen, dynamic move) {
   final chess = ch.Chess.fromFEN(fen);
 
   if (chess.move(move)) {

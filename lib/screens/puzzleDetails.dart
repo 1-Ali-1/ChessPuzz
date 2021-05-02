@@ -1,10 +1,11 @@
 import 'dart:ui';
-
+import 'package:chess_puzz/chessPuzzels.dart';
+import 'package:chess_puzz/puzzles.dart';
+import 'package:provider/provider.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../chessPuzzels.dart';
 import 'levels.dart';
 
 class PuzzleDetail extends StatefulWidget {
@@ -16,8 +17,468 @@ class PuzzleDetail extends StatefulWidget {
 }
 
 class _PuzzleDetailState extends State<PuzzleDetail> {
-  @override
+  
   Widget build(BuildContext context) {
+    List<ChessPuzzle> checkMateInOne =
+        Provider.of<Puzzles>(context, listen: false).checkMateInOne;
+    List<ChessPuzzle> t2019 =
+        Provider.of<Puzzles>(context, listen: false).T2019;
+    List<ChessPuzzle> pin = Provider.of<Puzzles>(context, listen: false).pin;
+
+    Container goToPuzzlesMating() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Check Mate In One',
+                                puzzels: checkMateInOne,
+                              )));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: RichText(
+                            text: TextSpan(
+                                text: 'Check Mate In ',
+                                style: TextStyle(
+                                    color: kSecondary_color, fontSize: 20),
+                                children: [
+                                  TextSpan(
+                                    text: 'One',
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  )
+                                ]),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/check_mate_king.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: RichText(
+                          text: TextSpan(
+                              text: 'Check Mate In ',
+                              style: TextStyle(
+                                  color: kSecondary_color, fontSize: 20),
+                              children: [
+                                TextSpan(
+                                  text: 'Two',
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ]),
+                        )),
+                    Expanded(
+                        flex: 2,
+                        child: Image.asset('assets/img/check_mate_king.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: RichText(
+                          text: TextSpan(
+                              text: 'Check Mate In ',
+                              style: TextStyle(
+                                  color: kSecondary_color, fontSize: 19),
+                              children: [
+                                TextSpan(
+                                  text: 'Three',
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ]),
+                        )),
+                    Expanded(
+                        flex: 2,
+                        child: Image.asset('assets/img/check_mate_king.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: RichText(
+                          text: TextSpan(
+                              text: 'Check Mate In ',
+                              style: TextStyle(
+                                  color: kSecondary_color, fontSize: 20),
+                              children: [
+                                TextSpan(
+                                  text: 'Four',
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ]),
+                        )),
+                    Expanded(
+                        flex: 2,
+                        child: Image.asset('assets/img/check_mate_king.png'))
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Container goToPuzzlesTactics() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Levels(title: 'Pin', puzzels: pin)));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Pin',
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/idea.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Forks',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Discover Attack',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Sacrifice',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Container goToPuzzlesTopPlayers() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: '2019',
+                                puzzels: t2019,
+                              )));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            '2019',
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/player.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '2018',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        flex: 2, child: Image.asset('assets/img/player.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '2010',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        flex: 2, child: Image.asset('assets/img/player.png'))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 80,
+                width: 180,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: kPrimary_color.withOpacity(0.6),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        '2012',
+                        style: TextStyle(
+                          color: kSecondary_color,
+                          fontSize: 19,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        flex: 2, child: Image.asset('assets/img/player.png'))
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kthird_color,
       appBar: AppBar(
@@ -111,456 +572,6 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             Spacer(),
           ],
         ),
-      ),
-    );
-  }
-
-  Container goToPuzzlesMating() {
-    return Container(
-      height: 200,
-      child: ListView(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Levels(
-                              title: 'Check Mate In One',
-                              puzzels: checkMateInOne,
-                            )));
-              },
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: RichText(
-                          text: TextSpan(
-                              text: 'Check Mate In ',
-                              style: TextStyle(
-                                  color: kSecondary_color, fontSize: 20),
-                              children: [
-                                TextSpan(
-                                  text: 'One',
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                )
-                              ]),
-                        )),
-                    Expanded(
-                        flex: 2,
-                        child: Image.asset('assets/img/check_mate_king.png'))
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                      flex: 1,
-                      child: RichText(
-                        text: TextSpan(
-                            text: 'Check Mate In ',
-                            style: TextStyle(
-                                color: kSecondary_color, fontSize: 20),
-                            children: [
-                              TextSpan(
-                                text: 'Two',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              )
-                            ]),
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: Image.asset('assets/img/check_mate_king.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                      flex: 1,
-                      child: RichText(
-                        text: TextSpan(
-                            text: 'Check Mate In ',
-                            style: TextStyle(
-                                color: kSecondary_color, fontSize: 19),
-                            children: [
-                              TextSpan(
-                                text: 'Three',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              )
-                            ]),
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: Image.asset('assets/img/check_mate_king.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                      flex: 1,
-                      child: RichText(
-                        text: TextSpan(
-                            text: 'Check Mate In ',
-                            style: TextStyle(
-                                color: kSecondary_color, fontSize: 20),
-                            children: [
-                              TextSpan(
-                                text: 'Four',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              )
-                            ]),
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: Image.asset('assets/img/check_mate_king.png'))
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Container goToPuzzlesTactics() {
-    return Container(
-      height: 200,
-      child: ListView(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            Levels(title: 'Pin', puzzels: pin)));
-              },
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Pin',
-                          style: TextStyle(
-                            color: kSecondary_color,
-                            fontSize: 19,
-                          ),
-                        )),
-                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      'Forks',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      'Discover Attack',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      'Sacrifice',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Container goToPuzzlesTopPlayers() {
-    return Container(
-      height: 200,
-      child: ListView(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Levels(
-                              title: '2019',
-                              puzzels: T2019,
-                            )));
-              },
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: Text(
-                          '2019',
-                          style: TextStyle(
-                            color: kSecondary_color,
-                            fontSize: 19,
-                          ),
-                        )),
-                    Expanded(
-                        flex: 2, child: Image.asset('assets/img/player.png'))
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '2018',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/player.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '2010',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/player.png'))
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 80,
-              width: 180,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: kPrimary_color.withOpacity(0.6),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '2012',
-                      style: TextStyle(
-                        color: kSecondary_color,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Expanded(flex: 2, child: Image.asset('assets/img/player.png'))
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -1,15 +1,29 @@
 import 'package:chess_puzz/constants.dart';
+import 'package:chess_puzz/puzzles.dart';
 import 'package:chess_puzz/screens/puzzle.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../chessPuzzels.dart';
 
-class Levels extends StatelessWidget {
+class Levels extends StatefulWidget {
   final String title;
   final List<ChessPuzzle> puzzels;
+
   const Levels({Key key, this.title, this.puzzels}) : super(key: key);
+
+  @override
+  _LevelsState createState() => _LevelsState();
+}
+
+class _LevelsState extends State<Levels> {
   @override
   Widget build(BuildContext context) {
+    List<ChessPuzzle> pin = Provider.of<Puzzles>(context, listen: false).pin;
+    List<ChessPuzzle> t2019 =
+        Provider.of<Puzzles>(context, listen: false).T2019;
+    List<ChessPuzzle> checkMateInOne =
+        Provider.of<Puzzles>(context, listen: false).checkMateInOne;
+
     return Scaffold(
       backgroundColor: kthird_color,
       appBar: AppBar(
@@ -26,7 +40,7 @@ class Levels extends StatelessWidget {
         backgroundColor: kthird_color,
         elevation: 0.0,
         title: Text(
-          title,
+          widget.title,
           style: TextStyle(color: kSecondary_color, fontSize: 25.0),
         ),
         centerTitle: true,
@@ -49,25 +63,44 @@ class Levels extends StatelessWidget {
                   ),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  itemCount: puzzels.length,
+                  itemCount: widget.puzzels.length,
                   itemBuilder: (context, i) {
                     return InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Puzzle(
-                                      isWhiteToMove: puzzels[i].isWhiteToMove,
-                                      puzzle: puzzels[i].puzzle,
-                                      description: puzzels[i].description,
-                                      solution: puzzels[i].solution,
-                                      isSolved: puzzels[i].isSolved,
-                                      puzzleNumber: i,
-                                    )));
+                                builder: (context) =>
+                                    ChangeNotifierProvider.value(
+                                        value: widget.title == 'Pin'
+                                            ? pin[i]
+                                            : widget.title ==
+                                                    'Check Mate In One'
+                                                ? checkMateInOne[i]
+                                                : t2019[i],
+                                        child: Puzzle(
+                                          puzzle: widget.puzzels[i].puzzle,
+                                          rePuzzle: widget.puzzels[i].puzzle,
+                                          puzzleNumber: i,
+                                        )))).then((value) => setState(() {}));
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: kSecondary_color.withOpacity(0.7),
+                            color: widget.title == 'Pin'
+                                ? Provider.of<Puzzles>(context).pin[i].isSolved
+                                    ? Colors.green.withOpacity(0.7)
+                                    : kSecondary_color.withOpacity(0.7)
+                                : widget.title == 'Check Mate In One'
+                                    ? Provider.of<Puzzles>(context)
+                                            .checkMateInOne[i]
+                                            .isSolved
+                                        ? Colors.green.withOpacity(0.7)
+                                        : kSecondary_color.withOpacity(0.7)
+                                    : Provider.of<Puzzles>(context)
+                                            .T2019[i]
+                                            .isSolved
+                                        ? Colors.green.withOpacity(0.7)
+                                        : kSecondary_color.withOpacity(0.7),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(17.0))),
                         height: 50.0,

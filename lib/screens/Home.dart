@@ -2,6 +2,7 @@ import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/screens/puzzleDetails.dart';
 import 'package:chess_puzz/widget/puzzleType.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -52,9 +53,26 @@ class Home extends StatelessWidget {
                     )
                   ],
                 ),
-                Text(
-                  'FOR EVERYONE',
-                  style: TextStyle(fontSize: 20.0, color: kPrimary_color),
+                Row(
+                  children: [
+                    Text('FOR',
+                        style:
+                            TextStyle(fontSize: 20.0, color: kPrimary_color)),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    AnimatedTextKit(
+                      repeatForever: true,
+                      animatedTexts: [
+                        FadeAnimatedText('YOU',
+                            textStyle: TextStyle(
+                                fontSize: 20.0, color: kPrimary_color)),
+                        FadeAnimatedText('EVERY ONE',
+                            textStyle: TextStyle(
+                                fontSize: 20.0, color: kPrimary_color)),
+                      ],
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 40.0,

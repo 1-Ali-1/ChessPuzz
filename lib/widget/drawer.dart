@@ -16,7 +16,7 @@ class FirstPlace extends StatelessWidget {
         shadowAngle: -0.275,
         shadowSpeed: 550,
         openIcon: Icon(
-          Icons.menu_sharp,
+          Icons.menu_rounded,
           color: kPrimary_color,
           size: 30.0,
         ),

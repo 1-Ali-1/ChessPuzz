@@ -1,6 +1,11 @@
+import 'package:chess_puzz/chessPuzzels.dart';
+import 'package:chess_puzz/puzzles.dart';
+import 'package:chess_puzz/screens/Home.dart';
+
 import 'package:chess_puzz/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(Main());
@@ -9,12 +14,22 @@ void main() {
 class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        textTheme: GoogleFonts.ubuntuTextTheme(),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: FirstPlace(),
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => Puzzles(),
+            child: Home(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => ChessPuzzle(),
+            child: Home(),
+          )
+        ],
+        child: MaterialApp(
+            theme: ThemeData(
+              textTheme: GoogleFonts.ubuntuTextTheme(),
+            ),
+            debugShowCheckedModeBanner: false,
+            home: FirstPlace()));
   }
 }
