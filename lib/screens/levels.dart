@@ -9,13 +9,14 @@ class Levels extends StatefulWidget {
   final String title;
   final List<ChessPuzzle> puzzels;
 
-  const Levels({Key key, this.title, this.puzzels}) : super(key: key);
+  Levels({Key key, this.title, this.puzzels}) : super(key: key);
 
   @override
   _LevelsState createState() => _LevelsState();
 }
 
 class _LevelsState extends State<Levels> {
+  @override
   @override
   Widget build(BuildContext context) {
     List<ChessPuzzle> pin = Provider.of<Puzzles>(context, listen: false).pin;

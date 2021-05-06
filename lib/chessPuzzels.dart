@@ -7,6 +7,9 @@ class ChessPuzzle extends ChangeNotifier {
   final String description;
   final bool isWhiteToMove;
   String playersName;
+  
+
+
   ChessPuzzle(
       {this.isWhiteToMove,
       this.description,
@@ -15,8 +18,11 @@ class ChessPuzzle extends ChangeNotifier {
       this.solution,
       this.playersName});
 
+      
+
   void solved() {
     isSolved = true;
+
     notifyListeners();
   }
 }

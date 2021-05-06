@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import 'chessPuzzels.dart';
 
 class Puzzles extends ChangeNotifier {
@@ -101,13 +100,12 @@ class Puzzles extends ChangeNotifier {
 
   List<ChessPuzzle> T2019 = [
     ChessPuzzle(
-      playersName: 'Daniil Dubov vs Pierluigi Basso, Skopje, 2019',
+        playersName: 'Daniil Dubov vs Pierluigi Basso, Skopje, 2019',
         isWhiteToMove: true,
         puzzle: 'r1b1r1k1/1p1pnpPp/3Qp2B/p7/6P1/2N5/PqPK1PBP/7R w - - 0 1',
         isSolved: false,
         solution: ['b1', 'Ra6', 'g3', 'Qa3', 'e4'],
         description:
             'nf6 is check mate the most important thing is how you get there'),
-    
   ];
 }

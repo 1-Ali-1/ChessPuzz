@@ -1,12 +1,12 @@
 import 'dart:ui';
 import 'package:chess_puzz/chessPuzzels.dart';
 import 'package:chess_puzz/constants.dart';
-import 'package:chess_puzz/screens/levels.dart';
 import 'package:chess_puzz/widget/chess.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stateless_chessboard/flutter_stateless_chessboard.dart';
 import 'package:flutter_stateless_chessboard/types.dart' as types;
 import 'package:provider/provider.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
 class Puzzle extends StatefulWidget {
@@ -22,6 +22,7 @@ class Puzzle extends StatefulWidget {
 }
 
 class _PuzzleState extends State<Puzzle> {
+  AudioCache audio = AudioCache();
   int turn = 0;
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -34,7 +35,9 @@ class _PuzzleState extends State<Puzzle> {
           centerTitle: true,
           title: Text('puzzle ${(widget.puzzleNumber + 1).toString()}',
               style: TextStyle(
-                  color: kSecondary_color,
+                  color: Provider.of<ChessPuzzle>(context).isWhiteToMove
+                      ? Colors.white
+                      : kSecondary_color,
                   fontSize: 30.0,
                   shadows: [
                     Shadow(
@@ -79,14 +82,14 @@ class _PuzzleState extends State<Puzzle> {
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                     boxShadow: [
                       BoxShadow(
-                          blurRadius: 8,
+                          blurRadius: 7,
                           offset: Offset(2, 1),
                           spreadRadius: 7.0,
-                          color: kSecondary_color.withOpacity(0.6))
+                          color: kdeafultBlack.withOpacity(0.7))
                     ]),
                 child: Chessboard(
-                  darkSquareColor: kSecondary_color,
-                  lightSquareColor: kPrimary_color,
+                  darkSquareColor: kdeafultBlack,
+                  lightSquareColor: kdeafultWhite,
                   fen: widget.puzzle,
                   size: size.width * 0.93,
                   orientation: Provider.of<ChessPuzzle>(context).isWhiteToMove
@@ -96,14 +99,14 @@ class _PuzzleState extends State<Puzzle> {
                     List<dynamic> solutions =
                         Provider.of<ChessPuzzle>(context, listen: false)
                             .solution;
-                    print(solutions.length);
+                    
 
                     var nextFen = makeMove(widget.puzzle, {
                       'from': move.from,
                       'to': move.to,
                       'promotion': 'q',
                     });
-                    print(move.to);
+                    
                     if (nextFen != null) {
                       setState(() {
                         widget.puzzle = nextFen;
@@ -111,75 +114,29 @@ class _PuzzleState extends State<Puzzle> {
                     }
                     //if one solution move
                     if (solutions.length == 1) {
-                      print(move.to + solutions[0]);
+                    
                       if (move.to == solutions[0]) {
                         setState(() {
+                          audio.play('hero_simple-celebration-01.wav');
+
                           Provider.of<ChessPuzzle>(context, listen: false)
                               .solved();
                           // solved = true;
-                          showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (_) => AssetGiffyDialog(
-                                    image:
-                                        Image.asset('assets/img/success.gif'),
-                                    title: Text(
-                                      'great. well done',
-                                      style: TextStyle(
-                                          fontSize: 22.0,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    description: Text(
-                                      'you made best move here may be there are some good moves as well but only best move considered',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(),
-                                    ),
-                                    entryAnimation: EntryAnimation.TOP,
-                                    buttonCancelText: Text('go back'),
-                                    buttonCancelColor: Colors.green,
-                                    onCancelButtonPressed: () {
-                                      Navigator.pop(context);
-                                      Navigator.pop(context);
-                                    },
-                                    buttonOkText: Text('stay'),
-                                    onOkButtonPressed: () =>
-                                        Navigator.pop(context),
-                                  ));
+                          showDialogSuccess(
+                            sORw: 'success',
+                            title: 'great. well done',
+                            description:
+                                'you made best move here may be there are some good moves as well but only best move considered',
+                          );
                         });
                       } else {
-                        showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            builder: (_) => AssetGiffyDialog(
-                                  image: Image.asset('assets/img/wrong.gif'),
-                                  title: Text(
-                                    'mistak',
-                                    style: TextStyle(
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  description: Text(
-                                    'may be your move is not bad or may be its good but only best move considered here ',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(),
-                                  ),
-                                  entryAnimation: EntryAnimation.TOP,
-                                  buttonOkText: Text('try again'),
-                                  buttonOkColor: Colors.grey,
-                                  buttonCancelText: Text('go back'),
-                                  onOkButtonPressed: () {
-                                    setState(() {
-                                      widget.puzzle = widget.rePuzzle;
-                                      nextFen = widget.rePuzzle;
-                                      turn = 0;
-                                      Navigator.pop(context);
-                                    });
-                                  },
-                                  onCancelButtonPressed: () {
-                                    Navigator.pop(context);
-                                    Navigator.pop(context);
-                                  },
-                                ));
+                        audio.play('alert_error-01.wav');
+                        showDialogWrong(
+                          sORw: 'wrong',
+                          title: 'mistake',
+                          description:
+                              'may be your move is not bad  but only best move considered here ',
+                        );
                       }
 
                       // alert dialog to say success
@@ -191,7 +148,7 @@ class _PuzzleState extends State<Puzzle> {
                           if (move.to == solutions[0]) {
                             var nextFenn =
                                 makeMoveBot(widget.puzzle, solutions[1]);
-                            print(nextFenn);
+                            
                             if (nextFenn != null) {
                               setState(() {
                                 widget.puzzle = nextFenn;
@@ -200,40 +157,13 @@ class _PuzzleState extends State<Puzzle> {
                               });
                             }
                           } else {
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                      image:
-                                          Image.asset('assets/img/wrong.gif'),
-                                      title: Text(
-                                        'mistak',
-                                        style: TextStyle(
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      description: Text(
-                                        'may be your move is not bad or may be its good but only best move considered here ',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(),
-                                      ),
-                                      entryAnimation: EntryAnimation.TOP,
-                                      buttonOkText: Text('try again'),
-                                      buttonOkColor: Colors.grey,
-                                      buttonCancelText: Text('go back'),
-                                      onOkButtonPressed: () {
-                                        setState(() {
-                                          widget.puzzle = widget.rePuzzle;
-                                          nextFen = widget.rePuzzle;
-                                          turn = 0;
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      onCancelButtonPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                      },
-                                    ));
+                            audio.play('alert_error-01.wav');
+                            showDialogWrong(
+                              sORw: 'wrong',
+                              title: 'mistake',
+                              description:
+                                  'may be your move is not bad  but only best move considered here ',
+                            );
                           }
                           break;
 
@@ -244,69 +174,21 @@ class _PuzzleState extends State<Puzzle> {
                                   .solved();
                               turn++;
                             });
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                    image:
-                                        Image.asset('assets/img/success.gif'),
-                                    title: Text(
-                                      'great. well done',
-                                      style: TextStyle(
-                                          fontSize: 22.0,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    description: Text(
-                                      'you made best move here may be there are some good moves as well but only best move considered',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(),
-                                    ),
-                                    entryAnimation: EntryAnimation.TOP,
-                                    buttonCancelText: Text('go back'),
-                                    buttonCancelColor: Colors.green,
-                                    onCancelButtonPressed: () {
-                                      Navigator.pop(context);
-                                      Navigator.pop(context);
-                                    },
-                                    buttonOkText: Text('stay'),
-                                    onOkButtonPressed: () {
-                                      Navigator.pop(context);
-                                    }));
+                            audio.play('hero_simple-celebration-01.wav');
+                            showDialogSuccess(
+                              sORw: 'success',
+                              title: 'great. well done',
+                              description:
+                                  'you made best move here may be there are some good moves as well but only best move considered',
+                            );
                           } else {
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                      image:
-                                          Image.asset('assets/img/wrong.gif'),
-                                      title: Text(
-                                        'mistak',
-                                        style: TextStyle(
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      description: Text(
-                                        'may be your move is not bad or may be its good but only best move considered here ',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(),
-                                      ),
-                                      entryAnimation: EntryAnimation.TOP,
-                                      buttonOkText: Text('try again'),
-                                      buttonOkColor: Colors.grey,
-                                      buttonCancelText: Text('go back'),
-                                      onOkButtonPressed: () {
-                                        setState(() {
-                                          turn = 0;
-                                          widget.puzzle = widget.rePuzzle;
-                                          nextFen = widget.rePuzzle;
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      onCancelButtonPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                      },
-                                    ));
+                            audio.play('alert_error-01.wav');
+                            showDialogWrong(
+                              sORw: 'wrong',
+                              title: 'mistake',
+                              description:
+                                  'may be your move is not bad  but only best move considered here ',
+                            );
                           }
                           break;
 
@@ -328,40 +210,13 @@ class _PuzzleState extends State<Puzzle> {
                               });
                             }
                           } else {
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                      image:
-                                          Image.asset('assets/img/wrong.gif'),
-                                      title: Text(
-                                        'mistak',
-                                        style: TextStyle(
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      description: Text(
-                                        'may be your move is not bad or may be its good but only best move considered here ',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(),
-                                      ),
-                                      entryAnimation: EntryAnimation.TOP,
-                                      buttonOkText: Text('try again'),
-                                      buttonOkColor: Colors.grey,
-                                      buttonCancelText: Text('go back'),
-                                      onOkButtonPressed: () {
-                                        setState(() {
-                                          widget.puzzle = widget.rePuzzle;
-                                          nextFen = widget.rePuzzle;
-                                          turn = 0;
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      onCancelButtonPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                      },
-                                    ));
+                            audio.play('alert_error-01.wav');
+                            showDialogWrong(
+                              sORw: 'wrong',
+                              title: 'mistake',
+                              description:
+                                  'may be your move is not bad  but only best move considered here ',
+                            );
                           }
                           break;
 
@@ -378,40 +233,13 @@ class _PuzzleState extends State<Puzzle> {
                               });
                             }
                           } else {
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                      image:
-                                          Image.asset('assets/img/wrong.gif'),
-                                      title: Text(
-                                        'mistak',
-                                        style: TextStyle(
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      description: Text(
-                                        'may be your move is not bad or may be its good but only best move considered here ',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(),
-                                      ),
-                                      entryAnimation: EntryAnimation.TOP,
-                                      buttonOkText: Text('try again'),
-                                      buttonOkColor: Colors.grey,
-                                      buttonCancelText: Text('go back'),
-                                      onOkButtonPressed: () {
-                                        setState(() {
-                                          turn = 0;
-                                          widget.puzzle = widget.rePuzzle;
-                                          nextFen = widget.rePuzzle;
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      onCancelButtonPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                      },
-                                    ));
+                            audio.play('alert_error-01.wav');
+                            showDialogWrong(
+                              sORw: 'wrong',
+                              title: 'mistake',
+                              description:
+                                  'may be your move is not bad  but only best move considered here ',
+                            );
                           }
                           break;
                         case 2:
@@ -421,68 +249,21 @@ class _PuzzleState extends State<Puzzle> {
                                   .solved();
                               turn++;
                             });
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                    image:
-                                        Image.asset('assets/img/success.gif'),
-                                    title: Text(
-                                      'great. well done',
-                                      style: TextStyle(
-                                          fontSize: 22.0,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    description: Text(
-                                      'you made best move here may be there are some good moves as well but only best move considered',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(),
-                                    ),
-                                    entryAnimation: EntryAnimation.TOP,
-                                    buttonCancelText: Text('go back'),
-                                    buttonCancelColor: Colors.green,
-                                    onCancelButtonPressed: () {
-                                      Navigator.pop(context);
-                                      Navigator.pop(context);
-                                    },
-                                    buttonOkText: Text('stay'),
-                                    onOkButtonPressed: () {
-                                      Navigator.pop(context);
-                                    }));
+                            audio.play('hero_simple-celebration-01.wav');
+                            showDialogSuccess(
+                              sORw: 'success',
+                              title: 'great. well done',
+                              description:
+                                  'you made best move here may be there are some good moves as well but only best move considered',
+                            );
                           } else {
-                            showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (_) => AssetGiffyDialog(
-                                      image:
-                                          Image.asset('assets/img/wrong.gif'),
-                                      title: Text(
-                                        'not accurate answer',
-                                        style: TextStyle(
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      description: Text(
-                                        'may be your move is not bad or may be its good but only best move considered here ',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(),
-                                      ),
-                                      entryAnimation: EntryAnimation.TOP,
-                                      buttonOkText: Text('try again'),
-                                      buttonOkColor: Colors.grey,
-                                      buttonCancelText: Text('go back'),
-                                      onOkButtonPressed: () {
-                                        setState(() {
-                                          widget.puzzle = widget.rePuzzle;
-
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      onCancelButtonPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                      },
-                                    ));
+                            audio.play('alert_error-01.wav');
+                            showDialogWrong(
+                              sORw: 'wrong',
+                              title: 'mistake',
+                              description:
+                                  'may be your move is not bad  but only best move considered here ',
+                            );
                           }
                           break;
 
@@ -557,6 +338,66 @@ class _PuzzleState extends State<Puzzle> {
             Spacer(),
           ],
         ));
+  }
+
+  showDialogSuccess({sORw, title, description}) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (_) => AssetGiffyDialog(
+              image: Image.asset('assets/img/$sORw.gif'),
+              title: Text(
+                title,
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+              ),
+              description: Text(
+                description,
+                textAlign: TextAlign.center,
+                style: TextStyle(),
+              ),
+              entryAnimation: EntryAnimation.TOP,
+              buttonCancelText: Text('go back'),
+              buttonCancelColor: Colors.green,
+              onCancelButtonPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              buttonOkText: Text('stay'),
+              onOkButtonPressed: () => Navigator.pop(context),
+            ));
+  }
+
+  showDialogWrong({sORw, title, description}) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (_) => AssetGiffyDialog(
+              image: Image.asset('assets/img/$sORw.gif'),
+              title: Text(
+                title,
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+              ),
+              description: Text(
+                description,
+                textAlign: TextAlign.center,
+                style: TextStyle(),
+              ),
+              entryAnimation: EntryAnimation.TOP,
+              buttonOkText: Text('try again'),
+              buttonOkColor: Colors.grey,
+              buttonCancelText: Text('go back'),
+              onOkButtonPressed: () {
+                setState(() {
+                  widget.puzzle = widget.rePuzzle;
+
+                  Navigator.pop(context);
+                });
+              },
+              onCancelButtonPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+            ));
   }
 }
 

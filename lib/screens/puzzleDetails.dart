@@ -569,7 +569,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                 : widget.title == 'Tactics'
                     ? goToPuzzlesTactics()
                     : goToPuzzlesTopPlayers(),
-            Spacer(),
+            Spacer(flex: 2,),
           ],
         ),
       ),
