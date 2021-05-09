@@ -13,16 +13,6 @@ class Home extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Color(0xFF407093),
             shadowColor: Colors.transparent,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Icon(
-                  Icons.settings,
-                  color: kPrimary_color,
-                  size: 28.0,
-                ),
-              )
-            ],
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -36,7 +26,7 @@ class Home extends StatelessWidget {
                   children: [
                     Text(
                       'PUZZLES',
-                      style: TextStyle(fontSize: 40.0, color: kPrimary_color),
+                      style: TextStyle(fontSize: 36.0, color: kPrimary_color),
                     ),
                     Spacer(),
                     //this will be data state
@@ -92,7 +82,7 @@ class Home extends StatelessWidget {
                                         img: 'assets/img/checkmate.png',
                                       )));
                         },
-                        child: PuzzleType(
+                        child: PuzzleType(tag: 0,
                           img: 'assets/img/checkmate.png',
                           title: 'Mating King',
                         ),
@@ -107,7 +97,7 @@ class Home extends StatelessWidget {
                                         img: 'assets/img/tactic.png',
                                       )));
                         },
-                        child: PuzzleType(
+                        child: PuzzleType(tag: 1,
                           img: 'assets/img/tactic.png',
                           title: 'Tactics',
                         ),
@@ -122,7 +112,7 @@ class Home extends StatelessWidget {
                                           img: 'assets/img/chess-player.png',
                                         )));
                           },
-                          child: PuzzleType(
+                          child: PuzzleType(tag: 2,
                             img: 'assets/img/chess-player.png',
                             title: 'Tactics With Top Players',
                           )),

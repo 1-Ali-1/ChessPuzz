@@ -1,6 +1,7 @@
 import 'package:animated_drawer/views/animated_drawer.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/screens/Home.dart';
+import 'package:chess_puzz/screens/setting.dart';
 import 'package:flutter/material.dart';
 
 class FirstPlace extends StatelessWidget {
@@ -15,10 +16,13 @@ class FirstPlace extends StatelessWidget {
         shadowYValue: 110,
         shadowAngle: -0.275,
         shadowSpeed: 550,
-        openIcon: Icon(
-          Icons.menu_rounded,
-          color: kPrimary_color,
-          size: 30.0,
+        openIcon: Container(
+          height: 27,
+          width: 27,
+          child: Image.asset(
+            'assets/img/menu.png',
+            color: kPrimary_color,
+          ),
         ),
         closeIcon: Icon(
           Icons.arrow_back,
@@ -79,9 +83,13 @@ class FirstPlace extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),
                 ),
-                const Text(
-                  "Board theme",
-                  style: TextStyle(color: kSecondary_color, fontSize: 19),
+                GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Setting())),
+                  child: const Text(
+                    "Board theme",
+                    style: TextStyle(color: kSecondary_color, fontSize: 19),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),

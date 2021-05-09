@@ -1,6 +1,7 @@
 import 'dart:ui';
-import 'package:chess_puzz/chessPuzzels.dart';
-import 'package:chess_puzz/puzzles.dart';
+import 'package:chess_puzz/models/chessPuzzels.dart';
+import 'package:chess_puzz/models/puzzles.dart';
+import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:provider/provider.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +18,18 @@ class PuzzleDetail extends StatefulWidget {
 }
 
 class _PuzzleDetailState extends State<PuzzleDetail> {
-  
   Widget build(BuildContext context) {
     List<ChessPuzzle> checkMateInOne =
         Provider.of<Puzzles>(context, listen: false).checkMateInOne;
     List<ChessPuzzle> t2019 =
         Provider.of<Puzzles>(context, listen: false).T2019;
     List<ChessPuzzle> pin = Provider.of<Puzzles>(context, listen: false).pin;
+    List<ChessPuzzle> t2018 =
+        Provider.of<Puzzles>(context, listen: false).T2018;
+    List<ChessPuzzle> forks =
+        Provider.of<Puzzles>(context, listen: false).forks;
+    List<ChessPuzzle> checkMateInTwo =
+        Provider.of<Puzzles>(context, listen: false).checkMateInTwo;
 
     Container goToPuzzlesMating() {
       return Container(
@@ -42,7 +48,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           builder: (context) => Levels(
                                 title: 'Check Mate In One',
                                 puzzels: checkMateInOne,
-                              )));
+                              ))).then((value) => setState(() {}));
                 },
                 child: Container(
                   height: 80,
@@ -75,6 +81,58 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           )),
                       Expanded(
                           flex: 2,
+                          child: Hero(
+                              tag: 0,
+                              child: Image.asset(
+                                  'assets/img/check_mate_king.png')))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Check Mate In Two',
+                                puzzels: checkMateInTwo,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: RichText(
+                            text: TextSpan(
+                                text: 'Check Mate In ',
+                                style: TextStyle(
+                                    color: kSecondary_color, fontSize: 20),
+                                children: [
+                                  TextSpan(
+                                    text: 'Two',
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  )
+                                ]),
+                          )),
+                      Expanded(
+                          flex: 2,
                           child: Image.asset('assets/img/check_mate_king.png'))
                     ],
                   ),
@@ -83,77 +141,50 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: RichText(
-                          text: TextSpan(
-                              text: 'Check Mate In ',
-                              style: TextStyle(
-                                  color: kSecondary_color, fontSize: 20),
-                              children: [
-                                TextSpan(
-                                  text: 'Two',
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                )
-                              ]),
-                        )),
-                    Expanded(
-                        flex: 2,
-                        child: Image.asset('assets/img/check_mate_king.png'))
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: RichText(
-                          text: TextSpan(
-                              text: 'Check Mate In ',
-                              style: TextStyle(
-                                  color: kSecondary_color, fontSize: 19),
-                              children: [
-                                TextSpan(
-                                  text: 'Three',
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                )
-                              ]),
-                        )),
-                    Expanded(
-                        flex: 2,
-                        child: Image.asset('assets/img/check_mate_king.png'))
-                  ],
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Check Mate In Two',
+                                puzzels: checkMateInTwo,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: RichText(
+                            text: TextSpan(
+                                text: 'Check Mate In ',
+                                style: TextStyle(
+                                    color: kSecondary_color, fontSize: 19),
+                                children: [
+                                  TextSpan(
+                                    text: 'Three',
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  )
+                                ]),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/check_mate_king.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -212,10 +243,11 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
               child: InkWell(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              Levels(title: 'Pin', puzzels: pin)));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Levels(title: 'Pin', puzzels: pin)))
+                      .then((value) => setState(() {}));
                 },
                 child: Container(
                   height: 80,
@@ -239,7 +271,10 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             ),
                           )),
                       Expanded(
-                          flex: 2, child: Image.asset('assets/img/idea.png'))
+                          flex: 2,
+                          child: Hero(
+                              tag: 1,
+                              child: Image.asset('assets/img/idea.png')))
                     ],
                   ),
                 ),
@@ -247,30 +282,42 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Forks',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Forks',
+                                puzzels: forks,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'Forks',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/idea.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -352,9 +399,9 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => Levels(
-                                title: '2019',
+                                title: 'T2019',
                                 puzzels: t2019,
-                              )));
+                              ))).then((value) => setState(() {}));
                 },
                 child: Container(
                   height: 80,
@@ -378,7 +425,10 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             ),
                           )),
                       Expanded(
-                          flex: 2, child: Image.asset('assets/img/player.png'))
+                          flex: 2,
+                          child: Hero(
+                              tag: 2,
+                              child: Image.asset('assets/img/player.png')))
                     ],
                   ),
                 ),
@@ -386,31 +436,42 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        '2018',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'T2018',
+                                puzzels: t2018,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          '2018',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                        flex: 2, child: Image.asset('assets/img/player.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/player.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -502,76 +563,123 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Spacer(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Spacer(),
-                Container(
-                  height: 120,
-                  width: 120,
-                  child: Image.asset(
-                    widget.img,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Spacer(),
-                Text(
-                  widget.title == 'Mating King' ? '15%' : '70%',
-                  style: TextStyle(
-                      textBaseline: TextBaseline.ideographic,
-                      color: kSecondary_color,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
-              ],
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            Spacer(),
-            LinearPercentIndicator(
-              alignment: MainAxisAlignment.center,
-              width: 300.0,
-              lineHeight: 18.0,
-              percent: widget.title == 'Mating King' ? 0.15 : 0.70,
-              backgroundColor: Colors.grey,
-              progressColor: kSecondary_color,
-            ),
-            SizedBox(
-              height: 50.0,
-            ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60.0),
-              child: Divider(
-                color: kSecondary_color,
-                thickness: 2,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Puzzles',
-              style: TextStyle(fontSize: 30, color: kSecondary_color),
-            ),
-            SizedBox(
-              height: 25.0,
-            ),
-            Spacer(),
-            widget.title == 'Mating King'
-                ? goToPuzzlesMating()
-                : widget.title == 'Tactics'
-                    ? goToPuzzlesTactics()
-                    : goToPuzzlesTopPlayers(),
-            Spacer(flex: 2,),
-          ],
-        ),
+        child: FutureBuilder(
+            future: widget.title == 'Tactics'
+                ? StoreData().readForTactics()
+                : widget.title == 'Mating King'
+                    ? StoreData().readForCheckMate()
+                    : StoreData().readForTacticsWithTopPlayers(),
+            builder: (context, snapshot) => snapshot.connectionState ==
+                    ConnectionState.done
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Spacer(),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Spacer(),
+                          Container(
+                            height: 120,
+                            width: 120,
+                            child: Image.asset(
+                              widget.img,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            widget.title == 'Tactics'
+                                ? snapshot.data / (pin.length + forks.length) >
+                                        1
+                                    ? '100'
+                                    : '${(snapshot.data / (pin.length + forks.length) * 100).floor()}%'
+                                : widget.title == 'Mating King'
+                                    ? snapshot.data /
+                                                (checkMateInOne.length +
+                                                    checkMateInTwo.length) >
+                                            1
+                                        ? '100'
+                                        : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length) * 100).floor()}%'
+                                    : snapshot.data /
+                                                (t2019.length + t2018.length) >
+                                            1
+                                        ? '100'
+                                        : '${(snapshot.data / (t2019.length + t2018.length) * 100).floor()}%',
+                            style: TextStyle(
+                                textBaseline: TextBaseline.ideographic,
+                                color: kSecondary_color,
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Spacer(),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 40.0,
+                      ),
+                      Spacer(),
+                      LinearPercentIndicator(
+                        alignment: MainAxisAlignment.center,
+                        width: 300.0,
+                        lineHeight: 18.0,
+                        percent: widget.title == 'Tactics'
+                            ? snapshot.data / (pin.length + forks.length) > 1
+                                ? 1
+                                : snapshot.data / (pin.length + forks.length)
+                            : widget.title == 'Mating King'
+                                ? snapshot.data /
+                                            (checkMateInOne.length +
+                                                checkMateInTwo.length) >
+                                        1
+                                    ? 1
+                                    : snapshot.data /
+                                        (checkMateInOne.length +
+                                            checkMateInTwo.length)
+                                : snapshot.data /
+                                            (t2019.length + t2018.length) >
+                                        1
+                                    ? 1
+                                    : snapshot.data /
+                                        (t2019.length + t2018.length),
+                        backgroundColor: Colors.grey,
+                        progressColor: kSecondary_color,
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 60.0),
+                        child: Divider(
+                          color: kSecondary_color,
+                          thickness: 2,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Puzzles',
+                        style: TextStyle(fontSize: 30, color: kSecondary_color),
+                      ),
+                      SizedBox(
+                        height: 25.0,
+                      ),
+                      Spacer(),
+                      widget.title == 'Mating King'
+                          ? goToPuzzlesMating()
+                          : widget.title == 'Tactics'
+                              ? goToPuzzlesTactics()
+                              : goToPuzzlesTopPlayers(),
+                      Spacer(
+                        flex: 2,
+                      ),
+                    ],
+                  )
+                : Center(
+                    child: CircularProgressIndicator(),
+                  )),
       ),
     );
   }

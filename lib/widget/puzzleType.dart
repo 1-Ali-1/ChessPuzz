@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class PuzzleType extends StatelessWidget {
   final String img;
   final String title;
-
-  const PuzzleType({Key key, @required this.img, @required this.title})
+  final int tag;
+  const PuzzleType({Key key, @required this.img, @required this.title, this.tag})
       : super(key: key);
 
   @override
@@ -23,9 +23,12 @@ class PuzzleType extends StatelessWidget {
                 child: Container(
                   height: 90,
                   width: 90,
-                  child: Image.asset(
-                    img,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: tag,
+                    child: Image.asset(
+                      img,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

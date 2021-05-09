@@ -1,5 +1,5 @@
-import 'package:chess_puzz/chessPuzzels.dart';
-import 'package:chess_puzz/puzzles.dart';
+import 'package:chess_puzz/models/chessPuzzels.dart';
+import 'package:chess_puzz/models/puzzles.dart';
 import 'package:chess_puzz/screens/Home.dart';
 
 import 'package:chess_puzz/widget/drawer.dart';

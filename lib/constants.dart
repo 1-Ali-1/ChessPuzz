@@ -13,7 +13,13 @@ const Color kgreenBlack = Color(0xFF769656);
 const Color kgreenWhite = Color(0xFFEEEED2);
 
 const Color kbrownBlack = Color(0xFFB58863);
-const Color kbrownWhite = Color(0xFFF0D9B5);
+const Color kbrownWhite = Color(0xFFEDC9A2);
 
 const Color kredBlack = Color(0xFFBA5546);
 const Color kredWhite = Color(0xFFF0D8BF);
+
+const Color ktournmentblack = Color(0xFF32674B);
+const Color ktournmentwhite = Color(0xFFE6E8E5);
+
+const Color kpinkblack = Color(0xFFFCA8DD);
+const Color kpinkwhite = Color(0xFFFFFFFF);
