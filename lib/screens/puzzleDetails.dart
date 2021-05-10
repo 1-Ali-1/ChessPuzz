@@ -592,19 +592,19 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             widget.title == 'Tactics'
                                 ? snapshot.data / (pin.length + forks.length) >
                                         1
-                                    ? '100'
+                                    ? '100%'
                                     : '${(snapshot.data / (pin.length + forks.length) * 100).floor()}%'
                                 : widget.title == 'Mating King'
                                     ? snapshot.data /
                                                 (checkMateInOne.length +
                                                     checkMateInTwo.length) >
                                             1
-                                        ? '100'
+                                        ? '100%'
                                         : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length) * 100).floor()}%'
                                     : snapshot.data /
                                                 (t2019.length + t2018.length) >
                                             1
-                                        ? '100'
+                                        ? '100%'
                                         : '${(snapshot.data / (t2019.length + t2018.length) * 100).floor()}%',
                             style: TextStyle(
                                 textBaseline: TextBaseline.ideographic,

@@ -180,7 +180,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           'f3',
           {'from': 'g2', 'to': 'f3'},
-          'Qe5',
+          'e5',
           'Qe2',
           'c7'
         ],
