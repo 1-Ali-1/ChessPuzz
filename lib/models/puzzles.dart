@@ -2,6 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'chessPuzzels.dart';
 
 class Puzzles extends ChangeNotifier {
+  bool sound = true;
+
+  void mute() {
+    sound = !sound;
+    notifyListeners();
+  }
+
   List<ChessPuzzle> pin = [
     ChessPuzzle(
       isWhiteToMove: true,
@@ -86,6 +93,60 @@ class Puzzles extends ChangeNotifier {
         description: 'queen and the king are ready to be forked'),
   ];
 
+  List<ChessPuzzle> discoverAttack = [
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      solution: [
+        'f7',
+        {'from': 'e5', 'to': 'f7'},
+        'd6',
+        'Nxd6',
+        'f8'
+      ],
+      description: 'blacks queen is undefended',
+    ),
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: '2r1r2k/1b3ppp/pqN1pn2/1p6/PQ6/2R1PB2/1P3PPP/5RK1 w - - 0 1',
+        solution: [
+          'a5',
+          {'from': 'b6', 'to': 'c7'},
+          'a7'
+        ],
+        description: 'blacks queen restricted'),
+  ];
+
+  List<ChessPuzzle> sacrifice = [
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '2q4r/1Q2nk2/1R6/p4pR1/4pP2/7P/6P1/6K1 w - - 0 1',
+      solution: [
+        'g7',
+      ],
+      description: 'sacrifice to checkmate king',
+    ),
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: 'R7/2q2ppk/3bp2p/3p4/1n1P1N2/4PNP1/2r2P1P/3Q2K1 w - - 0 1',
+        solution: [
+          'g5',
+          {'from': 'h6', 'to': 'g5'},
+          'h5'
+        ],
+        description: 'the solution of this puzzle must end with checkmate'),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: '4k3/7p/b5p1/8/7N/2B2pbP/P4rP1/2R3KR b - - 0 1',
+      solution: [
+        'g2',
+        {'from': 'h4', 'to': 'g2'},
+        'f2'
+      ],
+      description: 'Black mates in 2',
+    ),
+  ];
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -150,6 +211,52 @@ class Puzzles extends ChangeNotifier {
         description: 'do you know queens are strong piece'),
   ];
 
+  List<ChessPuzzle> checkMateInThree = [
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: '1rb5/1p2k2r/p5n1/2p1pp2/2B5/6P1/PPPB1PP1/2KR4 w - - 0 1',
+        solution: [
+          'g5',
+          {'from': 'e7', 'to': 'f8'},
+          'd8',
+          {'from': 'f8', 'to': 'g7'},
+          'g8'
+        ],
+        description: 'it is more easier to checkmate king in the corner'),
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: 'r1b1k3/pp4pp/2n1p2b/2p1q1N1/8/1PP1B1P1/P2Q2BP/5RK1 w - - 0 1',
+        solution: [
+          'c6',
+          {'from': 'b7', 'to': 'c6'},
+          'f8',
+          'Kxf8',
+          'd8'
+        ],
+        description:
+            'firstly take that annoying knight out of the board then check mate him'),
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: '5rrk/2n2p1p/3q1PpQ/p2pNnR1/2pP2N1/P1P3R1/5P1P/7K w - - 0 1',
+        solution: ['h7', 'Kxh7', 'h3', 'Nh6', 'h6'],
+        description: 'open up the file'),
+  ];
+
+  List<ChessPuzzle> checkMateInFour = [
+    ChessPuzzle(
+        isWhiteToMove: true,
+        puzzle: 'r5rk/2p1Nppp/3p3P/pp2p1P1/4P3/2qnPQK1/8/R6R w - - 0 1',
+        solution: [
+          'g7',
+          {'from': 'g8', 'to': 'g7'},
+          'h7',
+          {'from': 'g7', 'to': 'h7'},
+          'f6',
+          {'from': 'h7', 'to': 'g7'},
+          'h1'
+        ],
+        description: 'there is very critical sacrifice'),
+  ];
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -191,5 +298,25 @@ class Puzzles extends ChangeNotifier {
         puzzle: '5rk1/R3r1p1/3p3p/3bqp2/4p3/2R1P1PP/5P2/2Q2BK1 w - - 0 1',
         solution: ['a5', 'Kh7', 'd2'],
         description: 'blacks bishop will be targeted'),
+  ];
+
+  List<ChessPuzzle> T2017 = [
+    ChessPuzzle(
+        playersName: 'Tamas Petenyi vs Aryan Tari, Antalya, 2017',
+        isWhiteToMove: true,
+        puzzle: '1k4nr/2p3pp/2pb1p2/8/RrN5/6P1/1P2PP1P/2B2RK1 w - - 0 1',
+        solution: ['d6', 'Rxa4', 'f7'],
+        description: 'there is one rook stuck in the right corner'),
+  ];
+
+  List<ChessPuzzle> T2016 = [
+    ChessPuzzle(
+        playersName: 'Hikaru Nakamura vs Jeffrey Xiong, Saint Louis, 4/24/2016',
+        isWhiteToMove: true,
+        puzzle: '4n1k1/6qp/1p1pp1p1/2p3P1/2PN4/2B5/1P3QPP/1b4K1 w - - 0 1',
+        solution: [
+          'f5',
+        ],
+        description: "we don't want pawn we need check mate or queen"),
   ];
 }

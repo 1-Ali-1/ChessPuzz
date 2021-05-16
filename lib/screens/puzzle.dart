@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'GenerateAd.dart';
 
 class Puzzle extends StatefulWidget {
   String puzzle;
@@ -27,6 +27,7 @@ class Puzzle extends StatefulWidget {
 
 class _PuzzleState extends State<Puzzle> {
   int attempt = 15;
+  bool a = false;
 
   void initState() {
     super.initState();
@@ -40,13 +41,16 @@ class _PuzzleState extends State<Puzzle> {
 
   AudioCache audio = AudioCache();
   Widget build(BuildContext context) {
+    StoreData().getAttempt().then((value) => setState(() {
+          attempt = value;
+        }));
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
         backgroundColor: kthird_color,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('puzzle ${(widget.puzzleNumber + 1).toString()}',
+          title: Text('Puzzle ${(widget.puzzleNumber + 1).toString()}',
               style: TextStyle(
                   color: Provider.of<ChessPuzzle>(context).isWhiteToMove
                       ? Colors.white
@@ -55,8 +59,8 @@ class _PuzzleState extends State<Puzzle> {
                   shadows: [
                     Shadow(
                         color: Colors.black87,
-                        blurRadius: 2,
-                        offset: Offset(0, 1))
+                        blurRadius: 1,
+                        offset: Offset(0, 0.4))
                   ])),
           leading: GestureDetector(
             onTap: () {
@@ -117,7 +121,35 @@ class _PuzzleState extends State<Puzzle> {
                                     fontWeight: FontWeight.bold),
                               ),
                             )
-                          : Text(''),
+                          : widget.title == 'T2017'
+                              ? Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 26.0, horizontal: 20.0),
+                                  child: Text(
+                                    Provider.of<ChessPuzzle>(context)
+                                        .playersName,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: kSecondary_color,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              : widget.title == 'T2016'
+                                  ? Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 26.0, horizontal: 20.0),
+                                      child: Text(
+                                        Provider.of<ChessPuzzle>(context)
+                                            .playersName,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: kSecondary_color,
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
+                                  : Text(''),
                   SizedBox(
                     height: 15.0,
                   ),
@@ -212,9 +244,26 @@ class _PuzzleState extends State<Puzzle> {
                                                       ? StoreData().save(
                                                           'Check Mate In Two${widget.puzzleNumber}',
                                                           true)
-                                                      : StoreData().save(
-                                                          'T2018${widget.puzzleNumber}',
-                                                          true);
+                                                      : widget.title == 'T2017'
+                                                          ? StoreData().save(
+                                                              'T2017${widget.puzzleNumber}',
+                                                              true)
+                                                          : widget.title ==
+                                                                  'T2016'
+                                                              ? StoreData().save(
+                                                                  'T2016${widget.puzzleNumber}',
+                                                                  true)
+                                                              : widget.title ==
+                                                                      'Check Mate In Four'
+                                                                  ? StoreData()
+                                                                      .save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                  : widget.title == 'Check Mate In Three'
+                                                                      ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                      : widget.title == 'Sacrifice'
+                                                                          ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                          : widget.title == 'Discover Attack'
+                                                                              ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
                                   ///////////
                                   widget.title == 'Pin'
                                       ? StoreData().saveForTactics()
@@ -229,8 +278,29 @@ class _PuzzleState extends State<Puzzle> {
                                                   : widget.title == 'Forks'
                                                       ? StoreData()
                                                           .saveForTactics()
-                                                      : StoreData()
-                                                          .saveForCheckMate();
+                                                      : widget.title ==
+                                                              'Check Mate In Four'
+                                                          ? StoreData()
+                                                              .saveForCheckMate()
+                                                          : widget.title ==
+                                                                  'Check Mate In Three'
+                                                              ? StoreData()
+                                                                  .saveForCheckMate()
+                                                              : widget.title ==
+                                                                      'T2017'
+                                                                  ? StoreData()
+                                                                      .saveForTacticsWithTopPlayers()
+                                                                  : widget.title ==
+                                                                          'T2016'
+                                                                      ? StoreData()
+                                                                          .saveForTacticsWithTopPlayers()
+                                                                      : widget.title ==
+                                                                              'Discover Attack'
+                                                                          ? StoreData()
+                                                                              .saveForTactics()
+                                                                          : widget.title == 'Sacrifice'
+                                                                              ? StoreData().saveForTactics()
+                                                                              : StoreData().saveForCheckMate();
 
                                   // solved = true;
                                   showDialogSuccess(
@@ -288,9 +358,10 @@ class _PuzzleState extends State<Puzzle> {
                                     if (move.to == solutions[2]) {
                                       setState(() {
                                         widget.title == 'Pin'
-                                            ? StoreData().save(
-                                                'Pin${widget.puzzleNumber}',
-                                                true)
+                                            ? StoreData()
+                                                .save(
+                                                    'Pin${widget.puzzleNumber}',
+                                                    true)
                                             : widget.title ==
                                                     'Check Mate In One'
                                                 ? StoreData().save(
@@ -309,9 +380,25 @@ class _PuzzleState extends State<Puzzle> {
                                                             ? StoreData().save(
                                                                 'Check Mate In Two${widget.puzzleNumber}',
                                                                 true)
-                                                            : StoreData().save(
-                                                                'T2018${widget.puzzleNumber}',
-                                                                true);
+                                                            : widget.title ==
+                                                                    'T2017'
+                                                                ? StoreData().save(
+                                                                    'T2017${widget.puzzleNumber}',
+                                                                    true)
+                                                                : widget.title ==
+                                                                        'T2016'
+                                                                    ? StoreData().save(
+                                                                        'T2016${widget.puzzleNumber}',
+                                                                        true)
+                                                                    : widget.title == 'Check Mate In Four'
+                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                        : widget.title == 'Check Mate In Three'
+                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                            : widget.title == 'Sacrifice'
+                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                                : widget.title == 'Discover Attack'
+                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
                                         ///////////
                                         widget.title == 'Pin'
                                             ? StoreData().saveForTactics()
@@ -328,8 +415,26 @@ class _PuzzleState extends State<Puzzle> {
                                                                 'Forks'
                                                             ? StoreData()
                                                                 .saveForTactics()
-                                                            : StoreData()
-                                                                .saveForCheckMate();
+                                                            : widget.title ==
+                                                                    'Check Mate In Four'
+                                                                ? StoreData()
+                                                                    .saveForCheckMate()
+                                                                : widget.title ==
+                                                                        'Check Mate In Three'
+                                                                    ? StoreData()
+                                                                        .saveForCheckMate()
+                                                                    : widget.title ==
+                                                                            'T2017'
+                                                                        ? StoreData()
+                                                                            .saveForTacticsWithTopPlayers()
+                                                                        : widget.title ==
+                                                                                'T2016'
+                                                                            ? StoreData().saveForTacticsWithTopPlayers()
+                                                                            : widget.title == 'Discover Attack'
+                                                                                ? StoreData().saveForTactics()
+                                                                                : widget.title == 'Sacrifice'
+                                                                                    ? StoreData().saveForTactics()
+                                                                                    : StoreData().saveForCheckMate();
                                       });
 
                                       audio.play(
@@ -417,9 +522,10 @@ class _PuzzleState extends State<Puzzle> {
                                     if (move.to == solutions[4]) {
                                       setState(() {
                                         widget.title == 'Pin'
-                                            ? StoreData().save(
-                                                'Pin${widget.puzzleNumber}',
-                                                true)
+                                            ? StoreData()
+                                                .save(
+                                                    'Pin${widget.puzzleNumber}',
+                                                    true)
                                             : widget.title ==
                                                     'Check Mate In One'
                                                 ? StoreData().save(
@@ -438,9 +544,25 @@ class _PuzzleState extends State<Puzzle> {
                                                             ? StoreData().save(
                                                                 'Check Mate In Two${widget.puzzleNumber}',
                                                                 true)
-                                                            : StoreData().save(
-                                                                'T2018${widget.puzzleNumber}',
-                                                                true);
+                                                            : widget.title ==
+                                                                    'T2017'
+                                                                ? StoreData().save(
+                                                                    'T2017${widget.puzzleNumber}',
+                                                                    true)
+                                                                : widget.title ==
+                                                                        'T2016'
+                                                                    ? StoreData().save(
+                                                                        'T2016${widget.puzzleNumber}',
+                                                                        true)
+                                                                    : widget.title == 'Check Mate In Four'
+                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                        : widget.title == 'Check Mate In Three'
+                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                            : widget.title == 'Sacrifice'
+                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                                : widget.title == 'Discover Attack'
+                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
                                         ///////////
                                         widget.title == 'Pin'
                                             ? StoreData().saveForTactics()
@@ -457,8 +579,26 @@ class _PuzzleState extends State<Puzzle> {
                                                                 'Forks'
                                                             ? StoreData()
                                                                 .saveForTactics()
-                                                            : StoreData()
-                                                                .saveForCheckMate();
+                                                            : widget.title ==
+                                                                    'Check Mate In Four'
+                                                                ? StoreData()
+                                                                    .saveForCheckMate()
+                                                                : widget.title ==
+                                                                        'Check Mate In Three'
+                                                                    ? StoreData()
+                                                                        .saveForCheckMate()
+                                                                    : widget.title ==
+                                                                            'T2017'
+                                                                        ? StoreData()
+                                                                            .saveForTacticsWithTopPlayers()
+                                                                        : widget.title ==
+                                                                                'T2016'
+                                                                            ? StoreData().saveForTacticsWithTopPlayers()
+                                                                            : widget.title == 'Discover Attack'
+                                                                                ? StoreData().saveForTactics()
+                                                                                : widget.title == 'Sacrifice'
+                                                                                    ? StoreData().saveForTactics()
+                                                                                    : StoreData().saveForCheckMate();
                                       });
 
                                       audio.play(
@@ -489,7 +629,196 @@ class _PuzzleState extends State<Puzzle> {
                                   default:
                                 }
                               }
-                              print(attempt.toString());
+
+                              if (solutions.length == 7) {
+                                switch (turn) {
+                                  case 0:
+                                    if (move.to == solutions[0]) {
+                                      var nextFenn = makeMoveBot(
+                                          widget.puzzle, solutions[1]);
+
+                                      if (nextFenn != null) {
+                                        setState(() {
+                                          widget.puzzle = nextFenn;
+
+                                          turn++;
+                                        });
+                                      }
+                                    } else {
+                                      StoreData().looseAttempt();
+                                      audio.play('alert_error-01.wav',
+                                          mode: PlayerMode.LOW_LATENCY,
+                                          volume: 5);
+                                      showDialogWrong(
+                                        sORw: 'wrong',
+                                        title: 'mistake',
+                                        description:
+                                            'may be your move is not bad  but only best move considered here ',
+                                      );
+                                    }
+                                    break;
+
+                                  case 1:
+                                    if (move.to == solutions[2]) {
+                                      var nextFenn = makeMoveBot(
+                                          widget.puzzle, solutions[3]);
+
+                                      if (nextFenn != null) {
+                                        setState(() {
+                                          widget.puzzle = nextFenn;
+
+                                          turn++;
+                                        });
+                                      }
+                                    } else {
+                                      StoreData().looseAttempt();
+                                      audio.play('alert_error-01.wav',
+                                          mode: PlayerMode.LOW_LATENCY,
+                                          volume: 5);
+                                      showDialogWrong(
+                                        sORw: 'wrong',
+                                        title: 'mistake',
+                                        description:
+                                            'may be your move is not bad  but only best move considered here ',
+                                      );
+                                    }
+                                    break;
+                                  case 2:
+                                    if (move.to == solutions[4]) {
+                                      var nextFenn = makeMoveBot(
+                                          widget.puzzle, solutions[5]);
+
+                                      if (nextFenn != null) {
+                                        setState(() {
+                                          widget.puzzle = nextFenn;
+
+                                          turn++;
+                                        });
+                                      }
+                                    } else {
+                                      StoreData().looseAttempt();
+                                      audio.play('alert_error-01.wav',
+                                          mode: PlayerMode.LOW_LATENCY,
+                                          volume: 5);
+                                      showDialogWrong(
+                                        sORw: 'wrong',
+                                        title: 'mistake',
+                                        description:
+                                            'may be your move is not bad  but only best move considered here ',
+                                      );
+                                    }
+                                    break;
+                                  case 3:
+                                    if (move.to == solutions[6]) {
+                                      setState(() {
+                                        widget.title == 'Pin'
+                                            ? StoreData()
+                                                .save(
+                                                    'Pin${widget.puzzleNumber}',
+                                                    true)
+                                            : widget.title ==
+                                                    'Check Mate In One'
+                                                ? StoreData().save(
+                                                    'Check Mate In One${widget.puzzleNumber}',
+                                                    true)
+                                                : widget.title == 'T2019'
+                                                    ? StoreData().save(
+                                                        'T2019${widget.puzzleNumber}',
+                                                        true)
+                                                    : widget.title == 'Forks'
+                                                        ? StoreData().save(
+                                                            'Forks${widget.puzzleNumber}',
+                                                            true)
+                                                        : widget.title ==
+                                                                'Check Mate In Two'
+                                                            ? StoreData().save(
+                                                                'Check Mate In Two${widget.puzzleNumber}',
+                                                                true)
+                                                            : widget.title ==
+                                                                    'T2017'
+                                                                ? StoreData().save(
+                                                                    'T2017${widget.puzzleNumber}',
+                                                                    true)
+                                                                : widget.title ==
+                                                                        'T2016'
+                                                                    ? StoreData().save(
+                                                                        'T2016${widget.puzzleNumber}',
+                                                                        true)
+                                                                    : widget.title == 'Check Mate In Four'
+                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                        : widget.title == 'Check Mate In Three'
+                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                            : widget.title == 'Sacrifice'
+                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                                : widget.title == 'Discover Attack'
+                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
+                                        ///////////
+                                        widget.title == 'Pin'
+                                            ? StoreData().saveForTactics()
+                                            : widget.title ==
+                                                    'Check Mate In One'
+                                                ? StoreData().saveForCheckMate()
+                                                : widget.title == 'T2019'
+                                                    ? StoreData()
+                                                        .saveForTacticsWithTopPlayers()
+                                                    : widget.title == 'T2018'
+                                                        ? StoreData()
+                                                            .saveForTacticsWithTopPlayers()
+                                                        : widget.title ==
+                                                                'Forks'
+                                                            ? StoreData()
+                                                                .saveForTactics()
+                                                            : widget.title ==
+                                                                    'Check Mate In Four'
+                                                                ? StoreData()
+                                                                    .saveForCheckMate()
+                                                                : widget.title ==
+                                                                        'Check Mate In Three'
+                                                                    ? StoreData()
+                                                                        .saveForCheckMate()
+                                                                    : widget.title ==
+                                                                            'T2017'
+                                                                        ? StoreData()
+                                                                            .saveForTacticsWithTopPlayers()
+                                                                        : widget.title ==
+                                                                                'T2016'
+                                                                            ? StoreData().saveForTacticsWithTopPlayers()
+                                                                            : widget.title == 'Discover Attack'
+                                                                                ? StoreData().saveForTactics()
+                                                                                : widget.title == 'Sacrifice'
+                                                                                    ? StoreData().saveForTactics()
+                                                                                    : StoreData().saveForCheckMate();
+                                      });
+
+                                      audio.play(
+                                          'hero_simple-celebration-01.wav',
+                                          mode: PlayerMode.LOW_LATENCY,
+                                          volume: 5);
+                                      showDialogSuccess(
+                                        sORw: 'success',
+                                        title: 'great. well done',
+                                        description:
+                                            'you made best move here may be there are some good moves as well but only best move considered',
+                                      );
+                                      StoreData().looseAttempt();
+                                    } else {
+                                      StoreData().looseAttempt();
+                                      audio.play('alert_error-01.wav',
+                                          mode: PlayerMode.LOW_LATENCY,
+                                          volume: 5);
+                                      showDialogWrong(
+                                        sORw: 'wrong',
+                                        title: 'mistake',
+                                        description:
+                                            'may be your move is not bad  but only best move considered here ',
+                                      );
+                                    }
+                                    break;
+
+                                  default:
+                                }
+                              }
                             }),
                       ),
                     ),
@@ -539,20 +868,37 @@ class _PuzzleState extends State<Puzzle> {
                         // dummy data used for attempt
                         FutureBuilder(
                           future: StoreData().getAttempt(),
-                          builder: (context, snapshot) => Text(
-                              snapshot.data.toString(),
-                              style: TextStyle(
-                                  fontSize: 28.0,
-                                  color: kSecondary_color,
-                                  fontWeight: FontWeight.bold)),
+                          builder: (context, snapshot) => GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AdScreen()))
+                                  .then((value) => setState(() {}));
+                            },
+                            child: Text(snapshot.data.toString(),
+                                style: TextStyle(
+                                    fontSize: 28.0,
+                                    color: kSecondary_color,
+                                    fontWeight: FontWeight.bold)),
+                          ),
                         ),
                         SizedBox(
                           width: 5.0,
                         ),
-                        Icon(
-                          Icons.vpn_key,
-                          color: kSecondary_color,
-                          size: 30.0,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AdScreen()))
+                                .then((value) => setState(() {}));
+                          },
+                          child: Icon(
+                            Icons.vpn_key,
+                            color: kSecondary_color,
+                            size: 30.0,
+                          ),
                         )
                       ],
                     ),
@@ -576,7 +922,6 @@ class _PuzzleState extends State<Puzzle> {
                   Spacer(),
                 ],
               )
-            ////////////////////////////// if uset get out of keys        ///////////////////////////
             : Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10.0,
@@ -588,14 +933,14 @@ class _PuzzleState extends State<Puzzle> {
                         decoration: BoxDecoration(boxShadow: [
                           BoxShadow(
                               offset: Offset(1, -1),
-                              color: kSecondary_color.withOpacity(0.7),
+                              color: kadpage.withOpacity(0.7),
                               blurRadius: 14,
                               spreadRadius: 5)
                         ]),
-                        height: size.height * 0.4,
+                        height: size.height * 0.5,
                         width: size.width * 0.94,
                         child: Card(
-                          color: kPrimary_color,
+                          color: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(15.0))),
@@ -614,10 +959,11 @@ class _PuzzleState extends State<Puzzle> {
                                       children: [
                                         TextSpan(
                                             text:
-                                                'Now you have zero key watch short vedio to get ',
+                                                'You have zero key watch short vedio to get ',
                                             style: TextStyle(
                                                 fontSize: 21,
-                                                color: kSecondary_color)),
+                                                fontWeight: FontWeight.bold,
+                                                color: kadpage)),
                                         TextSpan(
                                           text: '15',
                                           style: TextStyle(
@@ -628,8 +974,9 @@ class _PuzzleState extends State<Puzzle> {
                                         TextSpan(
                                           text: ' keys',
                                           style: TextStyle(
+                                              fontWeight: FontWeight.bold,
                                               fontSize: 20,
-                                              color: kSecondary_color),
+                                              color: kadpage),
                                         ),
                                       ],
                                     )),
@@ -640,35 +987,37 @@ class _PuzzleState extends State<Puzzle> {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: size.width / 4),
-                                child: OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
-                                      side:
-                                          BorderSide(color: kSecondary_color)),
-                                  onPressed: () {},
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      AnimatedTextKit(
-                                        repeatForever: true,
-                                        animatedTexts: [
-                                          ScaleAnimatedText('vedio',
-                                              duration: Duration(seconds: 4),
-                                              textStyle: TextStyle(
-                                                  fontSize: 20.0,
-                                                  color: kSecondary_color,
-                                                  fontWeight: FontWeight.bold)),
-                                        ],
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 160,
+                                      height: 160,
+                                      child: Image.asset(
+                                        'assets/img/videoAd.gif',
+                                        fit: BoxFit.cover,
                                       ),
-                                      SizedBox(
-                                        width: 10.0,
-                                      ),
-                                      Icon(
-                                        Icons.video_library_rounded,
-                                        color: kSecondary_color,
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                            side: BorderSide(
+                                                color: kSecondary_color)),
+                                        onPressed: () {
+                                          // * navigator
+                                          Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AdScreen()))
+                                              .then((value) => setState(() {}));
+                                        },
+                                        child: Text(
+                                          'video',
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              color: kadpage,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                  ],
                                 ),
                               ),
                               Spacer(
@@ -682,8 +1031,12 @@ class _PuzzleState extends State<Puzzle> {
                     ),
                     Center(
                       child: Text(
-                        'any time you can get more keys and solving more puzzles by tapping key button as much as you like',
+                        'any time you can get more keys and solving more puzzles by tapping key icon as much as you like',
                         textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                     Spacer(),

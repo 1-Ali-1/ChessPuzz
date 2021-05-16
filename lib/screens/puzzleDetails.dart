@@ -30,6 +30,18 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
         Provider.of<Puzzles>(context, listen: false).forks;
     List<ChessPuzzle> checkMateInTwo =
         Provider.of<Puzzles>(context, listen: false).checkMateInTwo;
+    List<ChessPuzzle> checkMateInThree =
+        Provider.of<Puzzles>(context, listen: false).checkMateInThree;
+    List<ChessPuzzle> checkMateInFour =
+        Provider.of<Puzzles>(context, listen: false).checkMateInFour;
+    List<ChessPuzzle> sacrifice =
+        Provider.of<Puzzles>(context, listen: false).sacrifice;
+    List<ChessPuzzle> discoverAttack =
+        Provider.of<Puzzles>(context, listen: false).discoverAttack;
+    List<ChessPuzzle> t2017 =
+        Provider.of<Puzzles>(context, listen: false).T2017;
+    List<ChessPuzzle> t2016 =
+        Provider.of<Puzzles>(context, listen: false).T2016;
 
     Container goToPuzzlesMating() {
       return Container(
@@ -147,8 +159,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => Levels(
-                                title: 'Check Mate In Two',
-                                puzzels: checkMateInTwo,
+                                title: 'Check Mate In Three',
+                                puzzels: checkMateInThree,
                               ))).then((value) => setState(() {}));
                 },
                 child: Container(
@@ -190,39 +202,50 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: RichText(
-                          text: TextSpan(
-                              text: 'Check Mate In ',
-                              style: TextStyle(
-                                  color: kSecondary_color, fontSize: 20),
-                              children: [
-                                TextSpan(
-                                  text: 'Four',
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                )
-                              ]),
-                        )),
-                    Expanded(
-                        flex: 2,
-                        child: Image.asset('assets/img/check_mate_king.png'))
-                  ],
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Check Mate In Four',
+                                puzzels: checkMateInFour,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: RichText(
+                            text: TextSpan(
+                                text: 'Check Mate In ',
+                                style: TextStyle(
+                                    color: kSecondary_color, fontSize: 20),
+                                children: [
+                                  TextSpan(
+                                    text: 'Four',
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  )
+                                ]),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/check_mate_king.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -323,59 +346,82 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Discover Attack',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Levels(
+                                  title: 'Discover Attack',
+                                  puzzels: discoverAttack)))
+                      .then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'Discover Attack',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/idea.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Sacrifice',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Levels(
+                                  title: 'Sacrifice', puzzels: sacrifice)))
+                      .then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'Sacrifice',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(flex: 2, child: Image.asset('assets/img/idea.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/idea.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -477,61 +523,81 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        '2010',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Levels(title: 'T2017', puzzels: t2017)))
+                      .then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          '2017',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                        flex: 2, child: Image.asset('assets/img/player.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/player.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Container(
-                height: 80,
-                width: 180,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: kPrimary_color.withOpacity(0.6),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        '2012',
-                        style: TextStyle(
-                          color: kSecondary_color,
-                          fontSize: 19,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Levels(title: 'T2016', puzzels: t2016)))
+                      .then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          '2016',
+                          style: TextStyle(
+                            color: kSecondary_color,
+                            fontSize: 19,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                        flex: 2, child: Image.asset('assets/img/player.png'))
-                  ],
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/player.png'))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -590,22 +656,31 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           Spacer(),
                           Text(
                             widget.title == 'Tactics'
-                                ? snapshot.data / (pin.length + forks.length) >
+                                ? snapshot.data /
+                                            (pin.length +
+                                                forks.length +
+                                                discoverAttack.length +
+                                                sacrifice.length) >
                                         1
                                     ? '100%'
-                                    : '${(snapshot.data / (pin.length + forks.length) * 100).floor()}%'
+                                    : '${(snapshot.data / (pin.length + forks.length + discoverAttack.length + sacrifice.length) * 100).floor()}%'
                                 : widget.title == 'Mating King'
                                     ? snapshot.data /
                                                 (checkMateInOne.length +
-                                                    checkMateInTwo.length) >
+                                                    checkMateInTwo.length +
+                                                    checkMateInFour.length +
+                                                    checkMateInThree.length) >
                                             1
                                         ? '100%'
-                                        : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length) * 100).floor()}%'
+                                        : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length + checkMateInThree.length + checkMateInFour.length) * 100).floor()}%'
                                     : snapshot.data /
-                                                (t2019.length + t2018.length) >
+                                                (t2019.length +
+                                                    t2018.length +
+                                                    t2017.length +
+                                                    t2016.length) >
                                             1
                                         ? '100%'
-                                        : '${(snapshot.data / (t2019.length + t2018.length) * 100).floor()}%',
+                                        : '${(snapshot.data / (t2019.length + t2018.length + t2017.length + t2016.length) * 100).floor()}%',
                             style: TextStyle(
                                 textBaseline: TextBaseline.ideographic,
                                 color: kSecondary_color,
@@ -624,24 +699,43 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                         width: 300.0,
                         lineHeight: 18.0,
                         percent: widget.title == 'Tactics'
-                            ? snapshot.data / (pin.length + forks.length) > 1
+                            ? snapshot.data /
+                                        (pin.length +
+                                            forks.length +
+                                            discoverAttack.length +
+                                            sacrifice.length) >
+                                    1
                                 ? 1
-                                : snapshot.data / (pin.length + forks.length)
+                                : snapshot.data /
+                                    (pin.length +
+                                        forks.length +
+                                        sacrifice.length +
+                                        discoverAttack.length)
                             : widget.title == 'Mating King'
                                 ? snapshot.data /
                                             (checkMateInOne.length +
-                                                checkMateInTwo.length) >
+                                                checkMateInTwo.length +
+                                                checkMateInFour.length +
+                                                checkMateInThree.length) >
                                         1
                                     ? 1
                                     : snapshot.data /
                                         (checkMateInOne.length +
-                                            checkMateInTwo.length)
+                                            checkMateInTwo.length +
+                                            checkMateInFour.length +
+                                            checkMateInThree.length)
                                 : snapshot.data /
-                                            (t2019.length + t2018.length) >
+                                            (t2019.length +
+                                                t2018.length +
+                                                t2017.length +
+                                                t2016.length) >
                                         1
                                     ? 1
                                     : snapshot.data /
-                                        (t2019.length + t2018.length),
+                                        (t2019.length +
+                                            t2018.length +
+                                            t2017.length +
+                                            t2016.length),
                         backgroundColor: Colors.grey,
                         progressColor: kSecondary_color,
                       ),

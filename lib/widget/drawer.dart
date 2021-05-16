@@ -1,8 +1,11 @@
 import 'package:animated_drawer/views/animated_drawer.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/screens/Home.dart';
+import 'package:chess_puzz/screens/howkeyworks.dart';
 import 'package:chess_puzz/screens/setting.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:chess_puzz/models/puzzles.dart';
 
 class FirstPlace extends StatelessWidget {
   @override
@@ -74,7 +77,7 @@ class FirstPlace extends StatelessWidget {
                       style: TextStyle(color: kSecondary_color, fontSize: 19),
                     ),
                     Switch(
-                      value: false,
+                      value: Provider.of<Puzzles>(context).sound,
                       onChanged: (v) {},
                       inactiveThumbColor: Color(0xFFBE6B51),
                     )
@@ -94,16 +97,15 @@ class FirstPlace extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),
                 ),
-                const Text(
-                  "Puzzle lesson",
-                  style: TextStyle(color: kSecondary_color, fontSize: 19),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                ),
-                const Text(
-                  "Get more key",
-                  style: TextStyle(color: kSecondary_color, fontSize: 19),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => KeyInf()));
+                  },
+                  child: const Text(
+                    "How key works",
+                    style: TextStyle(color: kSecondary_color, fontSize: 19),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),
@@ -120,7 +122,7 @@ class FirstPlace extends StatelessWidget {
                   thickness: 1.5,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 60),
+                  padding: EdgeInsets.only(bottom: 70),
                 ),
                 const Text(
                   "keep improving\n have fun",

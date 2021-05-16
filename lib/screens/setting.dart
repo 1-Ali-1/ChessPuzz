@@ -36,6 +36,7 @@ class _SettingState extends State<Setting> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: ListView(
+          scrollDirection: Axis.vertical,
           children: [
             SizedBox(
               height: 50.0,

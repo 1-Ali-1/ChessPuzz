@@ -5,6 +5,7 @@ const Color kSecondary_color = Color(0xFF407093);
 const Color kthird_color = Color(0xFFBAD1E2);
 const double kpading = 20.0;
 const Color kwhiteToMo = Color(0xFFFFF000);
+const Color kadpage = Color(0xFF479C95);
 
 const Color kdeafultBlack = Color(0xFF6A9AAA);
 const Color kdeafultWhite = Color(0xFFEEEED2);

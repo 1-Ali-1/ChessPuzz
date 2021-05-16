@@ -7,6 +7,7 @@ class ChessPuzzle extends ChangeNotifier {
   final String description;
   final bool isWhiteToMove;
   String playersName;
+  
 
   ChessPuzzle(
       {this.isWhiteToMove,

@@ -5,6 +5,8 @@ import 'package:chess_puzz/widget/puzzleType.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'GenerateAd.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -38,9 +40,18 @@ class _HomeState extends State<Home> {
                   FutureBuilder(
                     future: StoreData().getAttempt(),
                     builder: (context, snapshot) => snapshot.hasData
-                        ? Text(snapshot.data.toString(),
-                            style: TextStyle(
-                                fontSize: 25.0, color: kPrimary_color))
+                        ? GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AdScreen()))
+                                  .then((value) => setState(() {}));
+                            },
+                            child: Text(snapshot.data.toString(),
+                                style: TextStyle(
+                                    fontSize: 25.0, color: kPrimary_color)),
+                          )
                         : Text('Key',
                             style: TextStyle(
                                 fontSize: 25.0, color: kPrimary_color)),
@@ -48,10 +59,19 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     width: 5.0,
                   ),
-                  Icon(
-                    Icons.vpn_key,
-                    color: kPrimary_color,
-                    size: 30.0,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AdScreen()))
+                          .then((value) => setState(() {}));
+                    },
+                    child: Icon(
+                      Icons.vpn_key,
+                      color: kPrimary_color,
+                      size: 30.0,
+                    ),
                   )
                 ],
               ),
@@ -91,7 +111,7 @@ class _HomeState extends State<Home> {
                                 builder: (context) => PuzzleDetail(
                                       title: 'Mating King',
                                       img: 'assets/img/checkmate.png',
-                                    ))).then((value) => setState((){}));
+                                    ))).then((value) => setState(() {}));
                       },
                       child: PuzzleType(
                         tag: 0,
@@ -107,7 +127,7 @@ class _HomeState extends State<Home> {
                                 builder: (context) => PuzzleDetail(
                                       title: 'Tactics',
                                       img: 'assets/img/tactic.png',
-                                    ))).then((value) => setState((){}));
+                                    ))).then((value) => setState(() {}));
                       },
                       child: PuzzleType(
                         tag: 1,
@@ -123,7 +143,7 @@ class _HomeState extends State<Home> {
                                   builder: (context) => PuzzleDetail(
                                         title: 'Tactics With Top Players',
                                         img: 'assets/img/chess-player.png',
-                                      ))).then((value) => setState((){}));
+                                      ))).then((value) => setState(() {}));
                         },
                         child: PuzzleType(
                           tag: 2,

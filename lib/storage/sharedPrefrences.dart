@@ -85,7 +85,13 @@ class StoreData {
   void winAttempt() async {
     final p = await SharedPreferences.getInstance();
     var value = p.getInt('attempt') ?? 15;
-    value++;
+    value += 15;
     p.setInt('attempt', value);
+  }
+
+  Future<bool> tempRead() async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getBool('temp') ?? false;
+    return value;
   }
 }
