@@ -66,6 +66,45 @@ class StoreData {
     return p.getInt('tacticWithTopPlayer') ?? 0;
   }
 
+  void saveForBeginnerTactics() async {
+    final p = await SharedPreferences.getInstance();
+    var value = p.getInt('beginnerTactics') ?? 0;
+    value++;
+    p.setInt('beginnerTactics', value);
+  }
+
+//////////////
+  Future<int> readForBeginnerTactics() async {
+    final p = await SharedPreferences.getInstance();
+    return p.getInt('beginnerTactics') ?? 0;
+  }
+
+  void saveForMasterTactics() async {
+    final p = await SharedPreferences.getInstance();
+    var value = p.getInt('masterTactics') ?? 0;
+    value++;
+    p.setInt('masterTactics', value);
+  }
+
+//////////////
+  Future<int> readForMasterTactics() async {
+    final p = await SharedPreferences.getInstance();
+    return p.getInt('masterTactics') ?? 0;
+  }
+
+  void saveForOpeningTactics() async {
+    final p = await SharedPreferences.getInstance();
+    var value = p.getInt('openingTactics') ?? 0;
+    value++;
+    p.setInt('openingTactics', value);
+  }
+
+//////////////
+  Future<int> readForOpeningTactics() async {
+    final p = await SharedPreferences.getInstance();
+    return p.getInt('openingTactics') ?? 0;
+  }
+
   Future<int> getAttempt() async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getInt('attempt') ?? 15;

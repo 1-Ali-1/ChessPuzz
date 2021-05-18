@@ -1,7 +1,7 @@
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
+import 'package:animated_text_kit/animated_text_kit.dart';
 import '../constants.dart';
 
 class AdScreen extends StatefulWidget {
@@ -10,8 +10,6 @@ class AdScreen extends StatefulWidget {
 }
 
 class _AdState extends State<AdScreen> {
-
-  
   int i = 0;
   bool loaded = false;
   bool isFailed = false;
@@ -31,7 +29,7 @@ class _AdState extends State<AdScreen> {
 
     rewardedAd = RewardedAd(
       // !
-      // ! test rewarded vedio ad real mine 'ca-app-pub-4888683541781775/1543387392'
+      // ! test rewarded video ad real mine 'ca-app-pub-4888683541781775/1543387392'
       adUnitId: RewardedAd.testAdUnitId,
       // !
       //!
@@ -109,7 +107,13 @@ class _AdState extends State<AdScreen> {
             return snapshot.data ?? false
                 ? Center(
                     child: Container(
-                      child: Text('AD'),
+                      child:
+                          AnimatedTextKit(repeatForever: true, animatedTexts: [
+                        FadeAnimatedText('15',
+                            duration: Duration(seconds: 2),
+                            textStyle: TextStyle(
+                                fontSize: 30.0, color: kSecondary_color)),
+                      ]),
                     ),
                   )
                 : isFailed

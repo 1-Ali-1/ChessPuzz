@@ -5,7 +5,8 @@ class PuzzleType extends StatelessWidget {
   final String img;
   final String title;
   final int tag;
-  const PuzzleType({Key key, @required this.img, @required this.title, this.tag})
+  const PuzzleType(
+      {Key key, @required this.img, @required this.title, this.tag})
       : super(key: key);
 
   @override

@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'GenerateAd.dart';
 
 class Puzzle extends StatefulWidget {
@@ -38,9 +39,12 @@ class _PuzzleState extends State<Puzzle> {
   }
 
   int turn = 0;
+ AudioCache audio = AudioCache();
+ final assetsAudioPlayer = AssetsAudioPlayer();
 
-  AudioCache audio = AudioCache();
+
   Widget build(BuildContext context) {
+   
     StoreData().getAttempt().then((value) => setState(() {
           attempt = value;
         }));
@@ -149,7 +153,127 @@ class _PuzzleState extends State<Puzzle> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     )
-                                  : Text(''),
+                                  : widget.title == 'English'
+                                      ? Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 26.0, horizontal: 20.0),
+                                          child: Text(
+                                            Provider.of<ChessPuzzle>(context)
+                                                .playersName,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: kSecondary_color,
+                                                fontSize: 19,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        )
+                                      : widget.title == 'Caro-Kann'
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 26.0,
+                                                  horizontal: 20.0),
+                                              child: Text(
+                                                Provider.of<ChessPuzzle>(
+                                                        context)
+                                                    .playersName,
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    color: kSecondary_color,
+                                                    fontSize: 19,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            )
+                                          : widget.title == 'French'
+                                              ? Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 26.0,
+                                                      horizontal: 20.0),
+                                                  child: Text(
+                                                    Provider.of<ChessPuzzle>(
+                                                            context)
+                                                        .playersName,
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: kSecondary_color,
+                                                        fontSize: 19,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                )
+                                              : widget.title ==
+                                                      "King's Indian Defense"
+                                                  ? Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 26.0,
+                                                              horizontal: 20.0),
+                                                      child: Text(
+                                                        Provider.of<ChessPuzzle>(
+                                                                context)
+                                                            .playersName,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            color:
+                                                                kSecondary_color,
+                                                            fontSize: 19,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    )
+                                                  : widget.title ==
+                                                          'Nimzo-Indian'
+                                                      ? Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      26.0,
+                                                                  horizontal:
+                                                                      20.0),
+                                                          child: Text(
+                                                            Provider.of<ChessPuzzle>(
+                                                                    context)
+                                                                .playersName,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                                color:
+                                                                    kSecondary_color,
+                                                                fontSize: 19,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        )
+                                                      : widget.title ==
+                                                              'Ruy Lopez'
+                                                          ? Padding(
+                                                              padding: EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          26.0,
+                                                                      horizontal:
+                                                                          20.0),
+                                                              child: Text(
+                                                                Provider.of<ChessPuzzle>(
+                                                                        context)
+                                                                    .playersName,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        kSecondary_color,
+                                                                    fontSize:
+                                                                        19,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            )
+                                                          : Text(''),
                   SizedBox(
                     height: 15.0,
                   ),
@@ -221,8 +345,12 @@ class _PuzzleState extends State<Puzzle> {
                               //if one solution move
                               if (solutions.length == 1) {
                                 if (move.to == solutions[0]) {
-                                  audio.play('hero_simple-celebration-01.wav',
-                                      mode: PlayerMode.LOW_LATENCY, volume: 5);
+                                  // audio.play('hero_simple-celebration-01.mp3',
+                                  //    mode: PlayerMode.LOW_LATENCY, volume: 5,stayAwake: false);
+                                      
+assetsAudioPlayer.open(
+    Audio("assets/hero_simple-celebration-01.mp3",),
+);
 
                                   widget.title == 'Pin'
                                       ? StoreData().save(
@@ -263,7 +391,23 @@ class _PuzzleState extends State<Puzzle> {
                                                                           ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
                                                                           : widget.title == 'Discover Attack'
                                                                               ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
-                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().save('Tactics for beginner${widget.puzzleNumber}', true)
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().save('Master chess puzzles${widget.puzzleNumber}', true)
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().save('English${widget.puzzleNumber}', true)
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().save('CaroKann${widget.puzzleNumber}', true)
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().save('French${widget.puzzleNumber}', true)
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().save('Kings Indian Defense${widget.puzzleNumber}', true)
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().save('NimzoIndian${widget.puzzleNumber}', true)
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().save('Ruy Lopez${widget.puzzleNumber}', true)
+                                                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
                                   ///////////
                                   widget.title == 'Pin'
                                       ? StoreData().saveForTactics()
@@ -300,12 +444,28 @@ class _PuzzleState extends State<Puzzle> {
                                                                               .saveForTactics()
                                                                           : widget.title == 'Sacrifice'
                                                                               ? StoreData().saveForTactics()
-                                                                              : StoreData().saveForCheckMate();
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().saveForBeginnerTactics()
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().saveForMasterTactics()
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().saveForOpeningTactics()
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().saveForOpeningTactics()
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                                              : StoreData().saveForCheckMate();
 
                                   // solved = true;
                                   showDialogSuccess(
                                     sORw: 'success',
-                                    title: 'great. well done',
+                                    title: 'Well Done',
                                     description:
                                         'you made best move here may be there are some good moves as well but only best move considered',
                                   );
@@ -313,8 +473,12 @@ class _PuzzleState extends State<Puzzle> {
                                   StoreData().looseAttempt();
                                 } else {
                                   StoreData().looseAttempt();
-                                  audio.play('alert_error-01.wav',
-                                      mode: PlayerMode.LOW_LATENCY, volume: 5);
+                                  // audio.play('alert_error-01.mp3',
+                                  //   mode: PlayerMode.LOW_LATENCY, volume: 5,stayAwake: false);
+                                                                         
+assetsAudioPlayer.open(
+    Audio("assets/'alert_error-01.mp3'"),
+);
                                   showDialogWrong(
                                     sORw: 'wrong',
                                     title: 'mistake',
@@ -344,7 +508,7 @@ class _PuzzleState extends State<Puzzle> {
                                       StoreData().looseAttempt();
                                       audio.play('alert_error-01.wav',
                                           mode: PlayerMode.LOW_LATENCY,
-                                          volume: 5);
+                                          volume: 5,stayAwake: false);
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -357,100 +521,132 @@ class _PuzzleState extends State<Puzzle> {
                                   case 1:
                                     if (move.to == solutions[2]) {
                                       setState(() {
-                                        widget.title == 'Pin'
-                                            ? StoreData()
-                                                .save(
-                                                    'Pin${widget.puzzleNumber}',
-                                                    true)
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().save(
-                                                    'Check Mate In One${widget.puzzleNumber}',
-                                                    true)
-                                                : widget.title == 'T2019'
-                                                    ? StoreData().save(
-                                                        'T2019${widget.puzzleNumber}',
-                                                        true)
-                                                    : widget.title == 'Forks'
-                                                        ? StoreData().save(
-                                                            'Forks${widget.puzzleNumber}',
-                                                            true)
-                                                        : widget.title ==
-                                                                'Check Mate In Two'
-                                                            ? StoreData().save(
-                                                                'Check Mate In Two${widget.puzzleNumber}',
-                                                                true)
-                                                            : widget.title ==
-                                                                    'T2017'
-                                                                ? StoreData().save(
-                                                                    'T2017${widget.puzzleNumber}',
-                                                                    true)
-                                                                : widget.title ==
-                                                                        'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
-                                                                    : widget.title == 'Check Mate In Four'
-                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
-                                                                        : widget.title == 'Check Mate In Three'
-                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
-                                                                            : widget.title == 'Sacrifice'
-                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
-                                                                                : widget.title == 'Discover Attack'
-                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
-                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
-                                        ///////////
-                                        widget.title == 'Pin'
-                                            ? StoreData().saveForTactics()
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().saveForCheckMate()
-                                                : widget.title == 'T2019'
-                                                    ? StoreData()
-                                                        .saveForTacticsWithTopPlayers()
-                                                    : widget.title == 'T2018'
-                                                        ? StoreData()
-                                                            .saveForTacticsWithTopPlayers()
-                                                        : widget.title ==
-                                                                'Forks'
-                                                            ? StoreData()
-                                                                .saveForTactics()
-                                                            : widget.title ==
-                                                                    'Check Mate In Four'
-                                                                ? StoreData()
-                                                                    .saveForCheckMate()
-                                                                : widget.title ==
-                                                                        'Check Mate In Three'
-                                                                    ? StoreData()
-                                                                        .saveForCheckMate()
-                                                                    : widget.title ==
-                                                                            'T2017'
-                                                                        ? StoreData()
-                                                                            .saveForTacticsWithTopPlayers()
-                                                                        : widget.title ==
-                                                                                'T2016'
-                                                                            ? StoreData().saveForTacticsWithTopPlayers()
-                                                                            : widget.title == 'Discover Attack'
-                                                                                ? StoreData().saveForTactics()
-                                                                                : widget.title == 'Sacrifice'
-                                                                                    ? StoreData().saveForTactics()
-                                                                                    : StoreData().saveForCheckMate();
+                                         widget.title == 'Pin'
+                                      ? StoreData().save(
+                                          'Pin${widget.puzzleNumber}', true)
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().save(
+                                              'Check Mate In One${widget.puzzleNumber}',
+                                              true)
+                                          : widget.title == 'T2019'
+                                              ? StoreData().save(
+                                                  'T2019${widget.puzzleNumber}',
+                                                  true)
+                                              : widget.title == 'Forks'
+                                                  ? StoreData().save(
+                                                      'Forks${widget.puzzleNumber}',
+                                                      true)
+                                                  : widget.title ==
+                                                          'Check Mate In Two'
+                                                      ? StoreData().save(
+                                                          'Check Mate In Two${widget.puzzleNumber}',
+                                                          true)
+                                                      : widget.title == 'T2017'
+                                                          ? StoreData().save(
+                                                              'T2017${widget.puzzleNumber}',
+                                                              true)
+                                                          : widget.title ==
+                                                                  'T2016'
+                                                              ? StoreData().save(
+                                                                  'T2016${widget.puzzleNumber}',
+                                                                  true)
+                                                              : widget.title ==
+                                                                      'Check Mate In Four'
+                                                                  ? StoreData()
+                                                                      .save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                  : widget.title == 'Check Mate In Three'
+                                                                      ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                      : widget.title == 'Sacrifice'
+                                                                          ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                          : widget.title == 'Discover Attack'
+                                                                              ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().save('Tactics for beginner${widget.puzzleNumber}', true)
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().save('Master chess puzzles${widget.puzzleNumber}', true)
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().save('English${widget.puzzleNumber}', true)
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().save('CaroKann${widget.puzzleNumber}', true)
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().save('French${widget.puzzleNumber}', true)
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().save('Kings Indian Defense${widget.puzzleNumber}', true)
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().save('NimzoIndian${widget.puzzleNumber}', true)
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().save('Ruy Lopez${widget.puzzleNumber}', true)
+                                                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
+                                  ///////////
+                                  widget.title == 'Pin'
+                                      ? StoreData().saveForTactics()
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().saveForCheckMate()
+                                          : widget.title == 'T2019'
+                                              ? StoreData()
+                                                  .saveForTacticsWithTopPlayers()
+                                              : widget.title == 'T2018'
+                                                  ? StoreData()
+                                                      .saveForTacticsWithTopPlayers()
+                                                  : widget.title == 'Forks'
+                                                      ? StoreData()
+                                                          .saveForTactics()
+                                                      : widget.title ==
+                                                              'Check Mate In Four'
+                                                          ? StoreData()
+                                                              .saveForCheckMate()
+                                                          : widget.title ==
+                                                                  'Check Mate In Three'
+                                                              ? StoreData()
+                                                                  .saveForCheckMate()
+                                                              : widget.title ==
+                                                                      'T2017'
+                                                                  ? StoreData()
+                                                                      .saveForTacticsWithTopPlayers()
+                                                                  : widget.title ==
+                                                                          'T2016'
+                                                                      ? StoreData()
+                                                                          .saveForTacticsWithTopPlayers()
+                                                                      : widget.title ==
+                                                                              'Discover Attack'
+                                                                          ? StoreData()
+                                                                              .saveForTactics()
+                                                                          : widget.title == 'Sacrifice'
+                                                                              ? StoreData().saveForTactics()
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().saveForBeginnerTactics()
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().saveForMasterTactics()
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().saveForOpeningTactics()
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().saveForOpeningTactics()
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                                              : StoreData().saveForCheckMate();
+
                                       });
 
                                       audio.play(
                                           'hero_simple-celebration-01.wav',
-                                          mode: PlayerMode.LOW_LATENCY,
+                                          mode: PlayerMode.LOW_LATENCY,stayAwake: false,
                                           volume: 5);
                                       showDialogSuccess(
                                         sORw: 'success',
-                                        title: 'great. well done',
+                                        title: 'Well Done',
                                         description:
                                             'you made best move here may be there are some good moves as well but only best move considered',
                                       );
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -481,7 +677,7 @@ class _PuzzleState extends State<Puzzle> {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -507,7 +703,7 @@ class _PuzzleState extends State<Puzzle> {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -521,100 +717,132 @@ class _PuzzleState extends State<Puzzle> {
                                   case 2:
                                     if (move.to == solutions[4]) {
                                       setState(() {
-                                        widget.title == 'Pin'
-                                            ? StoreData()
-                                                .save(
-                                                    'Pin${widget.puzzleNumber}',
-                                                    true)
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().save(
-                                                    'Check Mate In One${widget.puzzleNumber}',
-                                                    true)
-                                                : widget.title == 'T2019'
-                                                    ? StoreData().save(
-                                                        'T2019${widget.puzzleNumber}',
-                                                        true)
-                                                    : widget.title == 'Forks'
-                                                        ? StoreData().save(
-                                                            'Forks${widget.puzzleNumber}',
-                                                            true)
-                                                        : widget.title ==
-                                                                'Check Mate In Two'
-                                                            ? StoreData().save(
-                                                                'Check Mate In Two${widget.puzzleNumber}',
-                                                                true)
-                                                            : widget.title ==
-                                                                    'T2017'
-                                                                ? StoreData().save(
-                                                                    'T2017${widget.puzzleNumber}',
-                                                                    true)
-                                                                : widget.title ==
-                                                                        'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
-                                                                    : widget.title == 'Check Mate In Four'
-                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
-                                                                        : widget.title == 'Check Mate In Three'
-                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
-                                                                            : widget.title == 'Sacrifice'
-                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
-                                                                                : widget.title == 'Discover Attack'
-                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
-                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
-                                        ///////////
-                                        widget.title == 'Pin'
-                                            ? StoreData().saveForTactics()
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().saveForCheckMate()
-                                                : widget.title == 'T2019'
-                                                    ? StoreData()
-                                                        .saveForTacticsWithTopPlayers()
-                                                    : widget.title == 'T2018'
-                                                        ? StoreData()
-                                                            .saveForTacticsWithTopPlayers()
-                                                        : widget.title ==
-                                                                'Forks'
-                                                            ? StoreData()
-                                                                .saveForTactics()
-                                                            : widget.title ==
-                                                                    'Check Mate In Four'
-                                                                ? StoreData()
-                                                                    .saveForCheckMate()
-                                                                : widget.title ==
-                                                                        'Check Mate In Three'
-                                                                    ? StoreData()
-                                                                        .saveForCheckMate()
-                                                                    : widget.title ==
-                                                                            'T2017'
-                                                                        ? StoreData()
-                                                                            .saveForTacticsWithTopPlayers()
-                                                                        : widget.title ==
-                                                                                'T2016'
-                                                                            ? StoreData().saveForTacticsWithTopPlayers()
-                                                                            : widget.title == 'Discover Attack'
-                                                                                ? StoreData().saveForTactics()
-                                                                                : widget.title == 'Sacrifice'
-                                                                                    ? StoreData().saveForTactics()
-                                                                                    : StoreData().saveForCheckMate();
+                                         widget.title == 'Pin'
+                                      ? StoreData().save(
+                                          'Pin${widget.puzzleNumber}', true)
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().save(
+                                              'Check Mate In One${widget.puzzleNumber}',
+                                              true)
+                                          : widget.title == 'T2019'
+                                              ? StoreData().save(
+                                                  'T2019${widget.puzzleNumber}',
+                                                  true)
+                                              : widget.title == 'Forks'
+                                                  ? StoreData().save(
+                                                      'Forks${widget.puzzleNumber}',
+                                                      true)
+                                                  : widget.title ==
+                                                          'Check Mate In Two'
+                                                      ? StoreData().save(
+                                                          'Check Mate In Two${widget.puzzleNumber}',
+                                                          true)
+                                                      : widget.title == 'T2017'
+                                                          ? StoreData().save(
+                                                              'T2017${widget.puzzleNumber}',
+                                                              true)
+                                                          : widget.title ==
+                                                                  'T2016'
+                                                              ? StoreData().save(
+                                                                  'T2016${widget.puzzleNumber}',
+                                                                  true)
+                                                              : widget.title ==
+                                                                      'Check Mate In Four'
+                                                                  ? StoreData()
+                                                                      .save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                  : widget.title == 'Check Mate In Three'
+                                                                      ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                      : widget.title == 'Sacrifice'
+                                                                          ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                          : widget.title == 'Discover Attack'
+                                                                              ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().save('Tactics for beginner${widget.puzzleNumber}', true)
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().save('Master chess puzzles${widget.puzzleNumber}', true)
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().save('English${widget.puzzleNumber}', true)
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().save('CaroKann${widget.puzzleNumber}', true)
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().save('French${widget.puzzleNumber}', true)
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().save('Kings Indian Defense${widget.puzzleNumber}', true)
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().save('NimzoIndian${widget.puzzleNumber}', true)
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().save('Ruy Lopez${widget.puzzleNumber}', true)
+                                                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
+                                  ///////////
+                                  widget.title == 'Pin'
+                                      ? StoreData().saveForTactics()
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().saveForCheckMate()
+                                          : widget.title == 'T2019'
+                                              ? StoreData()
+                                                  .saveForTacticsWithTopPlayers()
+                                              : widget.title == 'T2018'
+                                                  ? StoreData()
+                                                      .saveForTacticsWithTopPlayers()
+                                                  : widget.title == 'Forks'
+                                                      ? StoreData()
+                                                          .saveForTactics()
+                                                      : widget.title ==
+                                                              'Check Mate In Four'
+                                                          ? StoreData()
+                                                              .saveForCheckMate()
+                                                          : widget.title ==
+                                                                  'Check Mate In Three'
+                                                              ? StoreData()
+                                                                  .saveForCheckMate()
+                                                              : widget.title ==
+                                                                      'T2017'
+                                                                  ? StoreData()
+                                                                      .saveForTacticsWithTopPlayers()
+                                                                  : widget.title ==
+                                                                          'T2016'
+                                                                      ? StoreData()
+                                                                          .saveForTacticsWithTopPlayers()
+                                                                      : widget.title ==
+                                                                              'Discover Attack'
+                                                                          ? StoreData()
+                                                                              .saveForTactics()
+                                                                          : widget.title == 'Sacrifice'
+                                                                              ? StoreData().saveForTactics()
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().saveForBeginnerTactics()
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().saveForMasterTactics()
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().saveForOpeningTactics()
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().saveForOpeningTactics()
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                                              : StoreData().saveForCheckMate();
+
                                       });
 
                                       audio.play(
-                                          'hero_simple-celebration-01.wav',
+                                          'hero_simple-celebration-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogSuccess(
                                         sORw: 'success',
-                                        title: 'great. well done',
+                                        title: 'Well Done',
                                         description:
                                             'you made best move here may be there are some good moves as well but only best move considered',
                                       );
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -646,7 +874,7 @@ class _PuzzleState extends State<Puzzle> {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -672,7 +900,7 @@ class _PuzzleState extends State<Puzzle> {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -697,7 +925,7 @@ class _PuzzleState extends State<Puzzle> {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(
@@ -712,99 +940,131 @@ class _PuzzleState extends State<Puzzle> {
                                     if (move.to == solutions[6]) {
                                       setState(() {
                                         widget.title == 'Pin'
-                                            ? StoreData()
-                                                .save(
-                                                    'Pin${widget.puzzleNumber}',
-                                                    true)
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().save(
-                                                    'Check Mate In One${widget.puzzleNumber}',
-                                                    true)
-                                                : widget.title == 'T2019'
-                                                    ? StoreData().save(
-                                                        'T2019${widget.puzzleNumber}',
-                                                        true)
-                                                    : widget.title == 'Forks'
-                                                        ? StoreData().save(
-                                                            'Forks${widget.puzzleNumber}',
-                                                            true)
-                                                        : widget.title ==
-                                                                'Check Mate In Two'
-                                                            ? StoreData().save(
-                                                                'Check Mate In Two${widget.puzzleNumber}',
-                                                                true)
-                                                            : widget.title ==
-                                                                    'T2017'
-                                                                ? StoreData().save(
-                                                                    'T2017${widget.puzzleNumber}',
-                                                                    true)
-                                                                : widget.title ==
-                                                                        'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
-                                                                    : widget.title == 'Check Mate In Four'
-                                                                        ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
-                                                                        : widget.title == 'Check Mate In Three'
-                                                                            ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
-                                                                            : widget.title == 'Sacrifice'
-                                                                                ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
-                                                                                : widget.title == 'Discover Attack'
-                                                                                    ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
-                                                                                    : StoreData().save('T2018${widget.puzzleNumber}', true);
-                                        ///////////
-                                        widget.title == 'Pin'
-                                            ? StoreData().saveForTactics()
-                                            : widget.title ==
-                                                    'Check Mate In One'
-                                                ? StoreData().saveForCheckMate()
-                                                : widget.title == 'T2019'
-                                                    ? StoreData()
-                                                        .saveForTacticsWithTopPlayers()
-                                                    : widget.title == 'T2018'
-                                                        ? StoreData()
-                                                            .saveForTacticsWithTopPlayers()
-                                                        : widget.title ==
-                                                                'Forks'
-                                                            ? StoreData()
-                                                                .saveForTactics()
-                                                            : widget.title ==
-                                                                    'Check Mate In Four'
-                                                                ? StoreData()
-                                                                    .saveForCheckMate()
-                                                                : widget.title ==
-                                                                        'Check Mate In Three'
-                                                                    ? StoreData()
-                                                                        .saveForCheckMate()
-                                                                    : widget.title ==
-                                                                            'T2017'
-                                                                        ? StoreData()
-                                                                            .saveForTacticsWithTopPlayers()
-                                                                        : widget.title ==
-                                                                                'T2016'
-                                                                            ? StoreData().saveForTacticsWithTopPlayers()
-                                                                            : widget.title == 'Discover Attack'
-                                                                                ? StoreData().saveForTactics()
-                                                                                : widget.title == 'Sacrifice'
-                                                                                    ? StoreData().saveForTactics()
-                                                                                    : StoreData().saveForCheckMate();
+                                      ? StoreData().save(
+                                          'Pin${widget.puzzleNumber}', true)
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().save(
+                                              'Check Mate In One${widget.puzzleNumber}',
+                                              true)
+                                          : widget.title == 'T2019'
+                                              ? StoreData().save(
+                                                  'T2019${widget.puzzleNumber}',
+                                                  true)
+                                              : widget.title == 'Forks'
+                                                  ? StoreData().save(
+                                                      'Forks${widget.puzzleNumber}',
+                                                      true)
+                                                  : widget.title ==
+                                                          'Check Mate In Two'
+                                                      ? StoreData().save(
+                                                          'Check Mate In Two${widget.puzzleNumber}',
+                                                          true)
+                                                      : widget.title == 'T2017'
+                                                          ? StoreData().save(
+                                                              'T2017${widget.puzzleNumber}',
+                                                              true)
+                                                          : widget.title ==
+                                                                  'T2016'
+                                                              ? StoreData().save(
+                                                                  'T2016${widget.puzzleNumber}',
+                                                                  true)
+                                                              : widget.title ==
+                                                                      'Check Mate In Four'
+                                                                  ? StoreData()
+                                                                      .save('Check Mate In Four${widget.puzzleNumber}', true)
+                                                                  : widget.title == 'Check Mate In Three'
+                                                                      ? StoreData().save('Check Mate In Three${widget.puzzleNumber}', true)
+                                                                      : widget.title == 'Sacrifice'
+                                                                          ? StoreData().save('Sacrifice${widget.puzzleNumber}', true)
+                                                                          : widget.title == 'Discover Attack'
+                                                                              ? StoreData().save('Discover Attack${widget.puzzleNumber}', true)
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().save('Tactics for beginner${widget.puzzleNumber}', true)
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().save('Master chess puzzles${widget.puzzleNumber}', true)
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().save('English${widget.puzzleNumber}', true)
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().save('CaroKann${widget.puzzleNumber}', true)
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().save('French${widget.puzzleNumber}', true)
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().save('Kings Indian Defense${widget.puzzleNumber}', true)
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().save('NimzoIndian${widget.puzzleNumber}', true)
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().save('Ruy Lopez${widget.puzzleNumber}', true)
+                                                                                                              : StoreData().save('T2018${widget.puzzleNumber}', true);
+                                  ///////////
+                                  widget.title == 'Pin'
+                                      ? StoreData().saveForTactics()
+                                      : widget.title == 'Check Mate In One'
+                                          ? StoreData().saveForCheckMate()
+                                          : widget.title == 'T2019'
+                                              ? StoreData()
+                                                  .saveForTacticsWithTopPlayers()
+                                              : widget.title == 'T2018'
+                                                  ? StoreData()
+                                                      .saveForTacticsWithTopPlayers()
+                                                  : widget.title == 'Forks'
+                                                      ? StoreData()
+                                                          .saveForTactics()
+                                                      : widget.title ==
+                                                              'Check Mate In Four'
+                                                          ? StoreData()
+                                                              .saveForCheckMate()
+                                                          : widget.title ==
+                                                                  'Check Mate In Three'
+                                                              ? StoreData()
+                                                                  .saveForCheckMate()
+                                                              : widget.title ==
+                                                                      'T2017'
+                                                                  ? StoreData()
+                                                                      .saveForTacticsWithTopPlayers()
+                                                                  : widget.title ==
+                                                                          'T2016'
+                                                                      ? StoreData()
+                                                                          .saveForTacticsWithTopPlayers()
+                                                                      : widget.title ==
+                                                                              'Discover Attack'
+                                                                          ? StoreData()
+                                                                              .saveForTactics()
+                                                                          : widget.title == 'Sacrifice'
+                                                                              ? StoreData().saveForTactics()
+                                                                              : widget.title == 'Tactics for beginner'
+                                                                                  ? StoreData().saveForBeginnerTactics()
+                                                                                  : widget.title == 'Master chess puzzles'
+                                                                                      ? StoreData().saveForMasterTactics()
+                                                                                      : widget.title == 'English'
+                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                          : widget.title == 'Caro-Kann'
+                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                              : widget.title == 'French'
+                                                                                                  ? StoreData().saveForOpeningTactics()
+                                                                                                  : widget.title == "King's Indian Defense"
+                                                                                                      ? StoreData().saveForOpeningTactics()
+                                                                                                      : widget.title == 'Nimzo-Indian'
+                                                                                                          ? StoreData().saveForOpeningTactics()
+                                                                                                          : widget.title == 'Ruy Lopez'
+                                                                                                              ? StoreData().saveForOpeningTactics()
+                                                                                                              : StoreData().saveForCheckMate();
+
                                       });
 
                                       audio.play(
                                           'hero_simple-celebration-01.wav',
-                                          mode: PlayerMode.LOW_LATENCY,
+                                          mode: PlayerMode.LOW_LATENCY,stayAwake: false,
                                           volume: 5);
                                       showDialogSuccess(
                                         sORw: 'success',
-                                        title: 'great. well done',
+                                        title: 'Well Done',
                                         description:
                                             'you made best move here may be there are some good moves as well but only best move considered',
                                       );
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-                                      audio.play('alert_error-01.wav',
+                                      audio.play('alert_error-01.wav',stayAwake: false,
                                           mode: PlayerMode.LOW_LATENCY,
                                           volume: 5);
                                       showDialogWrong(

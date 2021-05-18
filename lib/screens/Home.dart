@@ -104,6 +104,21 @@ class _HomeState extends State<Home> {
                   scrollDirection: Axis.vertical,
                   children: [
                     InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PuzzleDetail(
+                                        title: 'Tactics for beginner',
+                                        img: 'assets/img/beginner.png',
+                                      ))).then((value) => setState(() {}));
+                        },
+                        child: PuzzleType(
+                          tag: 5,
+                          img: 'assets/img/beginner.png',
+                          title: 'Tactics for beginner',
+                        )),
+                    InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
@@ -149,6 +164,36 @@ class _HomeState extends State<Home> {
                           tag: 2,
                           img: 'assets/img/chess-player.png',
                           title: 'Tactics With Top Players',
+                        )),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PuzzleDetail(
+                                        title: 'Master Chess Puzzle',
+                                        img: 'assets/img/insane.png',
+                                      ))).then((value) => setState(() {}));
+                        },
+                        child: PuzzleType(
+                          tag: 3,
+                          img: 'assets/img/insane.png',
+                          title: 'Master Chess Puzzle',
+                        )),
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PuzzleDetail(
+                                        title: 'Tactics In Openings',
+                                        img: 'assets/img/opening.png',
+                                      ))).then((value) => setState(() {}));
+                        },
+                        child: PuzzleType(
+                          tag: 4,
+                          img: 'assets/img/opening.png',
+                          title: 'Tactics In Openings',
                         )),
                   ],
                 ),

@@ -42,6 +42,22 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
         Provider.of<Puzzles>(context, listen: false).T2017;
     List<ChessPuzzle> t2016 =
         Provider.of<Puzzles>(context, listen: false).T2016;
+    List<ChessPuzzle> beginnerTactics =
+        Provider.of<Puzzles>(context, listen: false).beginnerTactics;
+    List<ChessPuzzle> masterTactics =
+        Provider.of<Puzzles>(context, listen: false).masterTactics;
+    List<ChessPuzzle> english =
+        Provider.of<Puzzles>(context, listen: false).english;
+    List<ChessPuzzle> caroKann =
+        Provider.of<Puzzles>(context, listen: false).caroKann;
+    List<ChessPuzzle> french =
+        Provider.of<Puzzles>(context, listen: false).french;
+    List<ChessPuzzle> kingsIndianDefence =
+        Provider.of<Puzzles>(context, listen: false).kingsIndianDefence;
+    List<ChessPuzzle> ruyLopez =
+        Provider.of<Puzzles>(context, listen: false).ruyLopez;
+    List<ChessPuzzle> nimzoIndian =
+        Provider.of<Puzzles>(context, listen: false).nimzoIndian;
 
     Container goToPuzzlesMating() {
       return Container(
@@ -244,6 +260,374 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 2,
                           child: Image.asset('assets/img/check_mate_king.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Container goToBeginnerPuzzle() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Tactics for beginner',
+                                puzzels: beginnerTactics,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            "Beginner Puzzles",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/beginner2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Container goToMasterPuzzle() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Master chess puzzles',
+                                puzzels: masterTactics,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            "Master chess puzzles",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2, child: Image.asset('assets/img/insane2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Container goToOpeningPuzzle() {
+      return Container(
+        height: 200,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Ruy Lopez',
+                                puzzels: ruyLopez,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Ruy Lopez',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Nimzo-Indian',
+                                puzzels: nimzoIndian,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Nimzo-Indian',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: "King's Indian Defense",
+                                puzzels: kingsIndianDefence,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            "King's Indian Defense",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'French',
+                                puzzels: french,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'French',
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'Caro-Kann',
+                                puzzels: caroKann,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Caro-Kann',
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Levels(
+                                title: 'English',
+                                puzzels: english,
+                              ))).then((value) => setState(() {}));
+                },
+                child: Container(
+                  height: 80,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: kPrimary_color.withOpacity(0.6),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                          flex: 1,
+                          child: Text(
+                            'English',
+                            style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 19,
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Image.asset('assets/img/opening2.png'))
                     ],
                   ),
                 ),
@@ -634,7 +1018,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                 ? StoreData().readForTactics()
                 : widget.title == 'Mating King'
                     ? StoreData().readForCheckMate()
-                    : StoreData().readForTacticsWithTopPlayers(),
+                    :widget.title == 'Tactics for beginner'?  StoreData().readForBeginnerTactics(): widget.title == 'Master Chess Puzzle'?StoreData().readForMasterTactics()  : widget.title ==  'Tactics In Openings' ?  StoreData().readForOpeningTactics():  StoreData().readForTacticsWithTopPlayers(),
             builder: (context, snapshot) => snapshot.connectionState ==
                     ConnectionState.done
                 ? Column(
@@ -673,7 +1057,30 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             1
                                         ? '100%'
                                         : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length + checkMateInThree.length + checkMateInFour.length) * 100).floor()}%'
-                                    : snapshot.data /
+                                    : widget.title == 'Tactics In Openings'
+                                ? snapshot.data /
+                                            (french.length +
+                                                english.length +
+                                                kingsIndianDefence.length +
+                                                nimzoIndian.length + caroKann.length + ruyLopez.length) >
+                                        1
+                                    ? '100%'
+                                    : '${(snapshot.data / (french.length +english.length + kingsIndianDefence.length +nimzoIndian.length + caroKann.length + ruyLopez.length) * 100).floor()}%'
+                                : widget.title == 'Master Chess Puzzle'
+                                ? snapshot.data /
+                                            (
+                                                masterTactics.length) >
+                                        1
+                                    ? '100%'
+                                    : '${(snapshot.data / ( masterTactics.length) * 100).floor()}%'
+                                : widget.title == 'Tactics for beginner'
+                                ? snapshot.data /
+                                            (
+                                                beginnerTactics.length) >
+                                        1
+                                    ? '100%'
+                                    : '${(snapshot.data / ( beginnerTactics.length) * 100).floor()}%'
+                                : snapshot.data /
                                                 (t2019.length +
                                                     t2018.length +
                                                     t2017.length +
@@ -724,7 +1131,36 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             checkMateInTwo.length +
                                             checkMateInFour.length +
                                             checkMateInThree.length)
+                                :widget.title == 'Tactics for beginner' ?   snapshot.data /
+                                            (
+                                                beginnerTactics.length) >
+                                        1
+                                    ? 1
+                                    : snapshot.data /
+                                        (
+                                            beginnerTactics.length):
+                                            widget.title == 'Master Chess Puzzle' ? snapshot.data /
+                                        (
+                                            masterTactics.length) >
+                                    1
+                                ? 1
+                                :widget.title == 'Tactics In Openings'  ?  snapshot.data /
+                                        (french.length +
+                                            english.length +
+                                            caroKann.length +
+                                            nimzoIndian.length + ruyLopez.length + kingsIndianDefence.length
+                                            ) >
+                                    1
+                                ? 1
                                 : snapshot.data /
+                                    (french.length +
+                                            english.length +
+                                            caroKann.length +
+                                            nimzoIndian.length + ruyLopez.length + kingsIndianDefence.length): snapshot.data /
+                                    (
+                                        masterTactics.length) :
+
+                                             snapshot.data /
                                             (t2019.length +
                                                 t2018.length +
                                                 t2017.length +
@@ -765,7 +1201,13 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           ? goToPuzzlesMating()
                           : widget.title == 'Tactics'
                               ? goToPuzzlesTactics()
-                              : goToPuzzlesTopPlayers(),
+                              : widget.title == 'Tactics for beginner'
+                                  ? goToBeginnerPuzzle()
+                                  : widget.title == 'Master Chess Puzzle'
+                                      ? goToMasterPuzzle()
+                                      : widget.title == 'Tactics In Openings'
+                                          ? goToOpeningPuzzle()
+                                          : goToPuzzlesTopPlayers(),
                       Spacer(
                         flex: 2,
                       ),

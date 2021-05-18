@@ -43,6 +43,22 @@ class _LevelsState extends State<Levels> {
         Provider.of<Puzzles>(context, listen: false).T2017;
     List<ChessPuzzle> t2016 =
         Provider.of<Puzzles>(context, listen: false).T2016;
+    List<ChessPuzzle> beginnerTactics =
+        Provider.of<Puzzles>(context, listen: false).beginnerTactics;
+    List<ChessPuzzle> masterTactics =
+        Provider.of<Puzzles>(context, listen: false).masterTactics;
+    List<ChessPuzzle> english =
+        Provider.of<Puzzles>(context, listen: false).english;
+    List<ChessPuzzle> caroKann =
+        Provider.of<Puzzles>(context, listen: false).caroKann;
+    List<ChessPuzzle> french =
+        Provider.of<Puzzles>(context, listen: false).french;
+    List<ChessPuzzle> kingsIndianDefence =
+        Provider.of<Puzzles>(context, listen: false).kingsIndianDefence;
+    List<ChessPuzzle> ruyLopez =
+        Provider.of<Puzzles>(context, listen: false).ruyLopez;
+    List<ChessPuzzle> nimzoIndian =
+        Provider.of<Puzzles>(context, listen: false).nimzoIndian;
 
     return Scaffold(
       backgroundColor: kthird_color,
@@ -113,7 +129,23 @@ class _LevelsState extends State<Levels> {
                                                                             ? checkMateInThree[i]
                                                                             : widget.title == 'Check Mate In Four'
                                                                                 ? checkMateInFour[i]
-                                                                                : checkMateInTwo[i],
+                                                                                : widget.title == 'Tactics for beginner'
+                                                                                    ? beginnerTactics[i]
+                                                                                    : widget.title == 'Master chess puzzles'
+                                                                                        ? masterTactics[i]
+                                                                                        : widget.title == 'English'
+                                                                                            ? english[i]
+                                                                                            : widget.title == 'Caro-Kann'
+                                                                                                ? caroKann[i]
+                                                                                                : widget.title == 'French'
+                                                                                                    ? french[i]
+                                                                                                    : widget.title == "King's Indian Defense"
+                                                                                                        ? kingsIndianDefence[i]
+                                                                                                        : widget.title == 'Nimzo-Indian'
+                                                                                                            ? nimzoIndian[i]
+                                                                                                            : widget.title == 'Ruy Lopez'
+                                                                                                                ? ruyLopez[i]
+                                                                                                                : checkMateInTwo[i],
                                     child: Puzzle(
                                       puzzle: widget.puzzels[i].puzzle,
                                       rePuzzle: widget.puzzels[i].puzzle,
@@ -158,29 +190,49 @@ class _LevelsState extends State<Levels> {
                                                                       ? StoreData()
                                                                           .read(
                                                                               'T2017$i')
-                                                                      : StoreData()
-                                                                          .read(
-                                                                              'Check Mate In Two$i'),
+                                                                      : widget.title ==
+                                                                              'Tactics for beginner'
+                                                                          ? StoreData()
+                                                                              .read('Tactics for beginner$i')
+                                                                          : widget.title == 'Master chess puzzles'
+                                                                              ? StoreData().read('Master chess puzzles$i')
+                                                                              : widget.title == 'English'
+                                                                                  ? StoreData().read('English$i')
+                                                                                  : widget.title == 'Caro-Kann'
+                                                                                      ? StoreData().read('CaroKann$i')
+                                                                                      : widget.title == 'French'
+                                                                                          ? StoreData().read('French$i')
+                                                                                          : widget.title == "King's Indian Defense"
+                                                                                              ? StoreData().read("Kings Indian Defense$i")
+                                                                                              : widget.title == 'Nimzo-Indian'
+                                                                                                  ? StoreData().read('NimzoIndian$i')
+                                                                                                  : widget.title == 'Ruy Lopez'
+                                                                                                      ? StoreData().read('Ruy Lopez$i')
+                                                                                                      : StoreData().read('Check Mate In Two$i'),
                           builder: (context, snapshot) {
                             return snapshot.connectionState ==
                                     ConnectionState.done
-                                ? Container(
-                                    decoration: BoxDecoration(
-                                        color: snapshot.data
-                                            ? Colors.green.withOpacity(0.7)
-                                            : kSecondary_color.withOpacity(0.7),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(17.0))),
-                                    height: 50.0,
-                                    width: 50.0,
-                                    child: Center(
-                                        child: Text(
-                                      (1 + i).toString(),
-                                      style: TextStyle(
-                                          color: kPrimary_color,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                    )),
+                                ? Padding(
+                                    padding: const EdgeInsets.only(bottom: 5),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: snapshot.data
+                                              ? Colors.green.withOpacity(0.7)
+                                              : kSecondary_color
+                                                  .withOpacity(0.7),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(17.0))),
+                                      height: 50.0,
+                                      width: 50.0,
+                                      child: Center(
+                                          child: Text(
+                                        (1 + i).toString(),
+                                        style: TextStyle(
+                                            color: kPrimary_color,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                    ),
                                   )
                                 : Center(
                                     child: CircularProgressIndicator(),
