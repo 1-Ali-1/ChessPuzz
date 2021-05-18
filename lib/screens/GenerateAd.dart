@@ -118,7 +118,8 @@ class _AdState extends State<AdScreen> {
                   )
                 : isFailed
                     ? Center(
-                        child: Text('some error occured'),
+                        child:
+                            Text('you must have internet on while getting key'),
                       )
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,

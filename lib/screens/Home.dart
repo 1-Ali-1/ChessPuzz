@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:chess_puzz/constants.dart';
+import 'package:chess_puzz/models/puzzles.dart';
 import 'package:chess_puzz/screens/puzzleDetails.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:chess_puzz/widget/puzzleType.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'GenerateAd.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,8 +17,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+ 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
         backgroundColor: Color(0xFF407093),
         appBar: AppBar(

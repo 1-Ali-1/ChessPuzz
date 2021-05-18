@@ -1,11 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'chessPuzzels.dart';
 
 class Puzzles extends ChangeNotifier {
-  bool sound = true;
+  bool soundFx = true;
+  bool music = true;
+  int randomIndex = Random().nextInt(6);
 
-  void mute() {
-    sound = !sound;
+  void muteFx() {
+    soundFx = !soundFx;
+    notifyListeners();
+  }
+
+  void muteMusic() {
+    music = !music;
     notifyListeners();
   }
 

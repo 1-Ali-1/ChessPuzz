@@ -73,13 +73,33 @@ class FirstPlace extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Sound",
+                      "Sound FX",
                       style: TextStyle(color: kSecondary_color, fontSize: 19),
                     ),
                     Switch(
-                      value: Provider.of<Puzzles>(context).sound,
-                      onChanged: (v) {},
+                      value: Provider.of<Puzzles>(context).soundFx,
+                      onChanged: (v) {
+                        Provider.of<Puzzles>(context, listen: false).muteFx();
+                      },
                       inactiveThumbColor: Color(0xFFBE6B51),
+                      activeColor: kSecondary_color,
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Music",
+                      style: TextStyle(color: kSecondary_color, fontSize: 19),
+                    ),
+                    Switch(
+                      value: Provider.of<Puzzles>(context).music,
+                      onChanged: (v) {
+                        Provider.of<Puzzles>(context, listen: false)
+                            .muteMusic();
+                      },
+                      inactiveThumbColor: Color(0xFFBE6B51),
+                      activeColor: kSecondary_color,
                     )
                   ],
                 ),
@@ -122,7 +142,7 @@ class FirstPlace extends StatelessWidget {
                   thickness: 1.5,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 70),
+                  padding: EdgeInsets.only(bottom: 50),
                 ),
                 const Text(
                   "keep improving\n have fun",
