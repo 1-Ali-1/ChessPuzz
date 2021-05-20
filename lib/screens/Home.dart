@@ -1,15 +1,12 @@
 import 'dart:math';
 
 import 'package:chess_puzz/constants.dart';
-import 'package:chess_puzz/models/puzzles.dart';
 import 'package:chess_puzz/screens/puzzleDetails.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:chess_puzz/widget/puzzleType.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'GenerateAd.dart';
-import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -114,7 +111,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(
+                                  builder: (context) => PuzzleDetail( tag: 5,
                                         title: 'Tactics for beginner',
                                         img: 'assets/img/beginner.png',
                                       ))).then((value) => setState(() {}));
@@ -129,7 +126,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PuzzleDetail(
+                                builder: (context) => PuzzleDetail(tag: 0,
                                       title: 'Mating King',
                                       img: 'assets/img/checkmate.png',
                                     ))).then((value) => setState(() {}));
@@ -145,7 +142,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PuzzleDetail(
+                                builder: (context) => PuzzleDetail(tag: 1,
                                       title: 'Tactics',
                                       img: 'assets/img/tactic.png',
                                     ))).then((value) => setState(() {}));
@@ -161,7 +158,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(
+                                  builder: (context) => PuzzleDetail(tag: 2,
                                         title: 'Tactics With Top Players',
                                         img: 'assets/img/chess-player.png',
                                       ))).then((value) => setState(() {}));
@@ -176,7 +173,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(
+                                  builder: (context) => PuzzleDetail(tag: 3,
                                         title: 'Master Chess Puzzle',
                                         img: 'assets/img/insane.png',
                                       ))).then((value) => setState(() {}));
@@ -191,7 +188,7 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(
+                                  builder: (context) => PuzzleDetail(tag: 4,
                                         title: 'Tactics In Openings',
                                         img: 'assets/img/opening.png',
                                       ))).then((value) => setState(() {}));

@@ -39,7 +39,7 @@ class PuzzleType extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyle(color: kSecondary_color, fontSize: 27.0),
+                  style: TextStyle(color: kSecondary_color, fontSize: 23.0),
                 ),
               )
             ],

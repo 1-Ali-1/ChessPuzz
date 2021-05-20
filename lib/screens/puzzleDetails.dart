@@ -10,11 +10,12 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'levels.dart';
 
 class PuzzleDetail extends StatefulWidget {
-  const PuzzleDetail({Key key, this.title, this.img}) : super(key: key);
+  const PuzzleDetail({Key key, this.title, this.img, this.tag}) : super(key: key);
 
   _PuzzleDetailState createState() => _PuzzleDetailState();
   final title;
   final img;
+  final tag;
 }
 
 class _PuzzleDetailState extends State<PuzzleDetail> {
@@ -109,10 +110,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           )),
                       Expanded(
                           flex: 2,
-                          child: Hero(
-                              tag: 0,
-                              child: Image.asset(
-                                  'assets/img/check_mate_king.png')))
+                          child: Image.asset(
+                              'assets/img/check_mate_king.png'))
                     ],
                   ),
                 ),
@@ -679,9 +678,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           )),
                       Expanded(
                           flex: 2,
-                          child: Hero(
-                              tag: 1,
-                              child: Image.asset('assets/img/idea.png')))
+                          child: Image.asset('assets/img/idea.png'))
                     ],
                   ),
                 ),
@@ -856,9 +853,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           )),
                       Expanded(
                           flex: 2,
-                          child: Hero(
-                              tag: 2,
-                              child: Image.asset('assets/img/player.png')))
+                          child: Image.asset('assets/img/player.png'))
                     ],
                   ),
                 ),
@@ -1018,7 +1013,13 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                 ? StoreData().readForTactics()
                 : widget.title == 'Mating King'
                     ? StoreData().readForCheckMate()
-                    :widget.title == 'Tactics for beginner'?  StoreData().readForBeginnerTactics(): widget.title == 'Master Chess Puzzle'?StoreData().readForMasterTactics()  : widget.title ==  'Tactics In Openings' ?  StoreData().readForOpeningTactics():  StoreData().readForTacticsWithTopPlayers(),
+                    : widget.title == 'Tactics for beginner'
+                        ? StoreData().readForBeginnerTactics()
+                        : widget.title == 'Master Chess Puzzle'
+                            ? StoreData().readForMasterTactics()
+                            : widget.title == 'Tactics In Openings'
+                                ? StoreData().readForOpeningTactics()
+                                : StoreData().readForTacticsWithTopPlayers(),
             builder: (context, snapshot) => snapshot.connectionState ==
                     ConnectionState.done
                 ? Column(
@@ -1032,9 +1033,11 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           Container(
                             height: 120,
                             width: 120,
-                            child: Image.asset(
-                              widget.img,
-                              fit: BoxFit.cover,
+                            child: Hero(
+                                           tag: widget.tag,               child: Image.asset(
+                                widget.img,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           Spacer(),
@@ -1058,36 +1061,39 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                         ? '100%'
                                         : '${(snapshot.data / (checkMateInOne.length + checkMateInTwo.length + checkMateInThree.length + checkMateInFour.length) * 100).floor()}%'
                                     : widget.title == 'Tactics In Openings'
-                                ? snapshot.data /
-                                            (french.length +
-                                                english.length +
-                                                kingsIndianDefence.length +
-                                                nimzoIndian.length + caroKann.length + ruyLopez.length) >
-                                        1
-                                    ? '100%'
-                                    : '${(snapshot.data / (french.length +english.length + kingsIndianDefence.length +nimzoIndian.length + caroKann.length + ruyLopez.length) * 100).floor()}%'
-                                : widget.title == 'Master Chess Puzzle'
-                                ? snapshot.data /
-                                            (
-                                                masterTactics.length) >
-                                        1
-                                    ? '100%'
-                                    : '${(snapshot.data / ( masterTactics.length) * 100).floor()}%'
-                                : widget.title == 'Tactics for beginner'
-                                ? snapshot.data /
-                                            (
-                                                beginnerTactics.length) >
-                                        1
-                                    ? '100%'
-                                    : '${(snapshot.data / ( beginnerTactics.length) * 100).floor()}%'
-                                : snapshot.data /
-                                                (t2019.length +
-                                                    t2018.length +
-                                                    t2017.length +
-                                                    t2016.length) >
-                                            1
-                                        ? '100%'
-                                        : '${(snapshot.data / (t2019.length + t2018.length + t2017.length + t2016.length) * 100).floor()}%',
+                                        ? snapshot.data /
+                                                    (french.length +
+                                                        english.length +
+                                                        kingsIndianDefence
+                                                            .length +
+                                                        nimzoIndian.length +
+                                                        caroKann.length +
+                                                        ruyLopez.length) >
+                                                1
+                                            ? '100%'
+                                            : '${(snapshot.data / (french.length + english.length + kingsIndianDefence.length + nimzoIndian.length + caroKann.length + ruyLopez.length) * 100).floor()}%'
+                                        : widget.title == 'Master Chess Puzzle'
+                                            ? snapshot.data /
+                                                        (masterTactics.length) >
+                                                    1
+                                                ? '100%'
+                                                : '${(snapshot.data / (masterTactics.length) * 100).floor()}%'
+                                            : widget.title ==
+                                                    'Tactics for beginner'
+                                                ? snapshot.data /
+                                                            (beginnerTactics
+                                                                .length) >
+                                                        1
+                                                    ? '100%'
+                                                    : '${(snapshot.data / (beginnerTactics.length) * 100).floor()}%'
+                                                : snapshot.data /
+                                                            (t2019.length +
+                                                                t2018.length +
+                                                                t2017.length +
+                                                                t2016.length) >
+                                                        1
+                                                    ? '100%'
+                                                    : '${(snapshot.data / (t2019.length + t2018.length + t2017.length + t2016.length) * 100).floor()}%',
                             style: TextStyle(
                                 textBaseline: TextBaseline.ideographic,
                                 color: kSecondary_color,
@@ -1131,47 +1137,54 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             checkMateInTwo.length +
                                             checkMateInFour.length +
                                             checkMateInThree.length)
-                                :widget.title == 'Tactics for beginner' ?   snapshot.data /
-                                            (
-                                                beginnerTactics.length) >
-                                        1
-                                    ? 1
-                                    : snapshot.data /
-                                        (
-                                            beginnerTactics.length):
-                                            widget.title == 'Master Chess Puzzle' ? snapshot.data /
-                                        (
-                                            masterTactics.length) >
-                                    1
-                                ? 1
-                                :widget.title == 'Tactics In Openings'  ?  snapshot.data /
-                                        (french.length +
-                                            english.length +
-                                            caroKann.length +
-                                            nimzoIndian.length + ruyLopez.length + kingsIndianDefence.length
-                                            ) >
-                                    1
-                                ? 1
-                                : snapshot.data /
-                                    (french.length +
-                                            english.length +
-                                            caroKann.length +
-                                            nimzoIndian.length + ruyLopez.length + kingsIndianDefence.length): snapshot.data /
-                                    (
-                                        masterTactics.length) :
-
-                                             snapshot.data /
-                                            (t2019.length +
-                                                t2018.length +
-                                                t2017.length +
-                                                t2016.length) >
-                                        1
-                                    ? 1
-                                    : snapshot.data /
-                                        (t2019.length +
-                                            t2018.length +
-                                            t2017.length +
-                                            t2016.length),
+                                : widget.title == 'Tactics for beginner'
+                                    ? snapshot.data / (beginnerTactics.length) >
+                                            1
+                                        ? 1
+                                        : snapshot.data /
+                                            (beginnerTactics.length)
+                                    : widget.title == 'Master Chess Puzzle'
+                                        ? snapshot.data /
+                                                    (masterTactics.length) >
+                                                1
+                                            ? 1
+                                            : widget.title ==
+                                                    'Tactics In Openings'
+                                                ? snapshot.data /
+                                                            (french.length +
+                                                                english.length +
+                                                                caroKann
+                                                                    .length +
+                                                                nimzoIndian
+                                                                    .length +
+                                                                ruyLopez
+                                                                    .length +
+                                                                kingsIndianDefence
+                                                                    .length) >
+                                                        1
+                                                    ? 1
+                                                    : snapshot.data /
+                                                        (french.length +
+                                                            english.length +
+                                                            caroKann.length +
+                                                            nimzoIndian.length +
+                                                            ruyLopez.length +
+                                                            kingsIndianDefence
+                                                                .length)
+                                                : snapshot.data /
+                                                    (masterTactics.length)
+                                        : snapshot.data /
+                                                    (t2019.length +
+                                                        t2018.length +
+                                                        t2017.length +
+                                                        t2016.length) >
+                                                1
+                                            ? 1
+                                            : snapshot.data /
+                                                (t2019.length +
+                                                    t2018.length +
+                                                    t2017.length +
+                                                    t2016.length),
                         backgroundColor: Colors.grey,
                         progressColor: kSecondary_color,
                       ),

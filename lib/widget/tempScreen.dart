@@ -13,7 +13,6 @@ class Temp extends StatelessWidget {
           Playlist(
               startIndex: Provider.of<Puzzles>(context).randomIndex,
               audios: [
-                Audio('assets/sb_beautifuloblivion.mp3'),
                 Audio("assets/sb_jul.mp3"),
                 Audio("assets/sb_monomyth_12_therestoration.mp3"),
                 Audio("assets/sb_monomyth_1_thedistantsun.mp3"),

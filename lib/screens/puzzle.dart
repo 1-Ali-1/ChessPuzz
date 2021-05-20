@@ -340,7 +340,7 @@ class _PuzzleState extends State<Puzzle> {
                               }
                               //if one solution move
                               if (solutions.length == 1) {
-                                if (move.to == solutions[0]) {
+                                if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
                                   // audio.play('hero_simple-celebration-01.mp3',
                                   //    mode: PlayerMode.LOW_LATENCY, volume: 5,stayAwake: false);
 
@@ -682,7 +682,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                               if (solutions.length == 5) {
                                 switch (turn) {
                                   case 0:
-                                    if (move.to == solutions[0]) {
+                                    if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[1]);
 
@@ -711,7 +711,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     break;
 
                                   case 1:
-                                    if (move.to == solutions[2]) {
+                                    if (move.to == solutions[2][1] && move.from == solutions[2][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[3]);
 
@@ -739,7 +739,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 2:
-                                    if (move.to == solutions[4]) {
+                                    if (move.to == solutions[4][1] && move.from == solutions[4][0]) {
                                       setState(() {
                                         widget.title == 'Pin'
                                             ? StoreData()
@@ -889,7 +889,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                               if (solutions.length == 7) {
                                 switch (turn) {
                                   case 0:
-                                    if (move.to == solutions[0]) {
+                                    if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[1]);
 
@@ -918,7 +918,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     break;
 
                                   case 1:
-                                    if (move.to == solutions[2]) {
+                                    if (move.to == solutions[2][1] && move.from == solutions[2][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[3]);
 
@@ -946,7 +946,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 2:
-                                    if (move.to == solutions[4]) {
+                                    if (move.to == solutions[4][1] && move.from == solutions[4][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[5]);
 
@@ -974,7 +974,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 3:
-                                    if (move.to == solutions[6]) {
+                                    if (move.to == solutions[6][1] && move.from == solutions[6][0]) {
                                       setState(() {
                                         widget.title == 'Pin'
                                             ? StoreData()
