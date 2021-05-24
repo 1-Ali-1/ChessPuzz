@@ -340,7 +340,8 @@ class _PuzzleState extends State<Puzzle> {
                               }
                               //if one solution move
                               if (solutions.length == 1) {
-                                if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
+                                if (move.to == solutions[0][1] &&
+                                    move.from == solutions[0][0]) {
                                   // audio.play('hero_simple-celebration-01.mp3',
                                   //    mode: PlayerMode.LOW_LATENCY, volume: 5,stayAwake: false);
 
@@ -365,7 +366,7 @@ class _PuzzleState extends State<Puzzle> {
                                               ? StoreData().save(
                                                   'T2019${widget.puzzleNumber}',
                                                   true)
-                                              : widget.title == 'Forks'
+                                              : widget.title == 'Double Attack'
                                                   ? StoreData().save(
                                                       'Forks${widget.puzzleNumber}',
                                                       true)
@@ -421,7 +422,7 @@ class _PuzzleState extends State<Puzzle> {
                                               : widget.title == 'T2018'
                                                   ? StoreData()
                                                       .saveForTacticsWithTopPlayers()
-                                                  : widget.title == 'Forks'
+                                                  : widget.title == 'Double Attack'
                                                       ? StoreData()
                                                           .saveForTactics()
                                                       : widget.title ==
@@ -498,7 +499,8 @@ class _PuzzleState extends State<Puzzle> {
                               if (solutions.length == 3) {
                                 switch (turn) {
                                   case 0:
-                                    if (move.to == solutions[0]) {
+                                    if (move.to == solutions[0][1] &&
+                                        move.from == solutions[0][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[1]);
 
@@ -530,7 +532,8 @@ class _PuzzleState extends State<Puzzle> {
                                     break;
 
                                   case 1:
-                                    if (move.to == solutions[2]) {
+                                    if (move.to == solutions[2][1] &&
+                                        move.from == solutions[2][0]) {
                                       setState(() {
                                         widget.title == 'Pin'
                                             ? StoreData()
@@ -546,7 +549,7 @@ class _PuzzleState extends State<Puzzle> {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Forks'
+                                                    : widget.title == 'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -603,7 +606,7 @@ class _PuzzleState extends State<Puzzle> {
                                                         ? StoreData()
                                                             .saveForTacticsWithTopPlayers()
                                                         : widget.title ==
-                                                                'Forks'
+                                                                'Double Attack'
                                                             ? StoreData()
                                                                 .saveForTactics()
                                                             : widget.title ==
@@ -661,12 +664,15 @@ class _PuzzleState extends State<Puzzle> {
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -682,7 +688,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                               if (solutions.length == 5) {
                                 switch (turn) {
                                   case 0:
-                                    if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
+                                    if (move.to == solutions[0][1] &&
+                                        move.from == solutions[0][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[1]);
 
@@ -695,12 +702,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -711,7 +721,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     break;
 
                                   case 1:
-                                    if (move.to == solutions[2][1] && move.from == solutions[2][0]) {
+                                    if (move.to == solutions[2][1] &&
+                                        move.from == solutions[2][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[3]);
 
@@ -724,12 +735,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -739,7 +753,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 2:
-                                    if (move.to == solutions[4][1] && move.from == solutions[4][0]) {
+                                    if (move.to == solutions[4][1] &&
+                                        move.from == solutions[4][0]) {
                                       setState(() {
                                         widget.title == 'Pin'
                                             ? StoreData()
@@ -755,7 +770,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Forks'
+                                                    : widget.title == 'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -812,7 +827,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                         ? StoreData()
                                                             .saveForTacticsWithTopPlayers()
                                                         : widget.title ==
-                                                                'Forks'
+                                                                'Double Attack'
                                                             ? StoreData()
                                                                 .saveForTactics()
                                                             : widget.title ==
@@ -852,12 +867,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                                                                                     ? StoreData().saveForOpeningTactics()
                                                                                                                     : StoreData().saveForCheckMate();
                                       });
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/hero_simple-celebration-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/hero_simple-celebration-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogSuccess(
                                         sORw: 'success',
                                         title: 'Well Done',
@@ -867,12 +885,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -889,7 +910,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                               if (solutions.length == 7) {
                                 switch (turn) {
                                   case 0:
-                                    if (move.to == solutions[0][1] && move.from == solutions[0][0]) {
+                                    if (move.to == solutions[0][1] &&
+                                        move.from == solutions[0][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[1]);
 
@@ -902,12 +924,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -918,7 +943,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     break;
 
                                   case 1:
-                                    if (move.to == solutions[2][1] && move.from == solutions[2][0]) {
+                                    if (move.to == solutions[2][1] &&
+                                        move.from == solutions[2][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[3]);
 
@@ -931,12 +957,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -946,7 +975,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 2:
-                                    if (move.to == solutions[4][1] && move.from == solutions[4][0]) {
+                                    if (move.to == solutions[4][1] &&
+                                        move.from == solutions[4][0]) {
                                       var nextFenn = makeMoveBot(
                                           widget.puzzle, solutions[5]);
 
@@ -959,12 +989,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       }
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -974,7 +1007,8 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                     }
                                     break;
                                   case 3:
-                                    if (move.to == solutions[6][1] && move.from == solutions[6][0]) {
+                                    if (move.to == solutions[6][1] &&
+                                        move.from == solutions[6][0]) {
                                       setState(() {
                                         widget.title == 'Pin'
                                             ? StoreData()
@@ -990,7 +1024,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Forks'
+                                                    : widget.title == 'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -1047,7 +1081,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                         ? StoreData()
                                                             .saveForTacticsWithTopPlayers()
                                                         : widget.title ==
-                                                                'Forks'
+                                                                'Double Attack'
                                                             ? StoreData()
                                                                 .saveForTactics()
                                                             : widget.title ==
@@ -1087,12 +1121,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                                                                                                     ? StoreData().saveForOpeningTactics()
                                                                                                                     : StoreData().saveForCheckMate();
                                       });
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/hero_simple-celebration-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/hero_simple-celebration-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogSuccess(
                                         sORw: 'success',
                                         title: 'Well Done',
@@ -1102,12 +1139,15 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                                       StoreData().looseAttempt();
                                     } else {
                                       StoreData().looseAttempt();
-if (Provider.of<Puzzles>(context,listen: false).soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/alert_error-01.mp3",
-                                        ),
-                                      );}
+                                      if (Provider.of<Puzzles>(context,
+                                              listen: false)
+                                          .soundFx) {
+                                        assetsAudioPlayer.open(
+                                          Audio(
+                                            "assets/alert_error-01.mp3",
+                                          ),
+                                        );
+                                      }
                                       showDialogWrong(
                                         sORw: 'wrong',
                                         title: 'mistake',
@@ -1389,7 +1429,7 @@ if (Provider.of<Puzzles>(context,listen: false).soundFx) {
                 style: TextStyle(),
               ),
               entryAnimation: EntryAnimation.TOP,
-              buttonOkText: Text('try again'),
+              buttonOkText: Text('return'),
               buttonOkColor: Colors.grey,
               buttonCancelText: Text('go back'),
               onOkButtonPressed: () {
@@ -1424,8 +1464,8 @@ showAlertDialog(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Hint"),
-    content: Text(Provider.of<ChessPuzzle>(context, listen: false).description),
+    title: Text("Hint",style: TextStyle(color: kSecondary_color,fontSize: 20),),
+    content: Text(Provider.of<ChessPuzzle>(context, listen: false).description,style: TextStyle(color: kSecondary_color,fontSize: 16)),
     actions: [
       cancelButton,
       continueButton,

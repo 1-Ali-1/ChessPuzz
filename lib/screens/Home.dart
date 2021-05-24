@@ -14,10 +14,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
- 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
         backgroundColor: Color(0xFF407093),
         appBar: AppBar(
@@ -111,7 +109,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail( tag: 5,
+                                  builder: (context) => PuzzleDetail(
+                                        tag: 5,
                                         title: 'Tactics for beginner',
                                         img: 'assets/img/beginner.png',
                                       ))).then((value) => setState(() {}));
@@ -126,7 +125,8 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PuzzleDetail(tag: 0,
+                                builder: (context) => PuzzleDetail(
+                                      tag: 0,
                                       title: 'Mating King',
                                       img: 'assets/img/checkmate.png',
                                     ))).then((value) => setState(() {}));
@@ -142,7 +142,8 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PuzzleDetail(tag: 1,
+                                builder: (context) => PuzzleDetail(
+                                      tag: 1,
                                       title: 'Tactics',
                                       img: 'assets/img/tactic.png',
                                     ))).then((value) => setState(() {}));
@@ -158,7 +159,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(tag: 2,
+                                  builder: (context) => PuzzleDetail(
+                                        tag: 2,
                                         title: 'Tactics With Top Players',
                                         img: 'assets/img/chess-player.png',
                                       ))).then((value) => setState(() {}));
@@ -173,7 +175,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(tag: 3,
+                                  builder: (context) => PuzzleDetail(
+                                        tag: 3,
                                         title: 'Master Chess Puzzle',
                                         img: 'assets/img/insane.png',
                                       ))).then((value) => setState(() {}));
@@ -188,7 +191,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PuzzleDetail(tag: 4,
+                                  builder: (context) => PuzzleDetail(
+                                        tag: 4,
                                         title: 'Tactics In Openings',
                                         img: 'assets/img/opening.png',
                                       ))).then((value) => setState(() {}));

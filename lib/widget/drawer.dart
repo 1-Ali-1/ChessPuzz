@@ -104,7 +104,7 @@ class FirstPlace extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 20),
+                  padding: EdgeInsets.only(bottom: 10),
                 ),
                 GestureDetector(
                   onTap: () => Navigator.push(context,

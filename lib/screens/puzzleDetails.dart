@@ -692,7 +692,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => Levels(
-                                title: 'Forks',
+                                title: 'Double Attack',
                                 puzzels: forks,
                               ))).then((value) => setState(() {}));
                 },
@@ -711,7 +711,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                         flex: 1,
                         child: Text(
-                          'Forks',
+                          'Double Attack',
                           style: TextStyle(
                             color: kSecondary_color,
                             fontSize: 19,

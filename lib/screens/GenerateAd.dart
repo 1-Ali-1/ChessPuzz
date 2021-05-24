@@ -112,14 +112,22 @@ class _AdState extends State<AdScreen> {
                         FadeAnimatedText('15',
                             duration: Duration(seconds: 2),
                             textStyle: TextStyle(
-                                fontSize: 30.0, color: kSecondary_color)),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 45.0,
+                                color: kSecondary_color)),
                       ]),
                     ),
                   )
                 : isFailed
                     ? Center(
-                        child:
-                            Text('you must have internet on while getting key'),
+                        child: Text(
+                          'You must have internet connection to get keys',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: kSecondary_color,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold),
+                        ),
                       )
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,

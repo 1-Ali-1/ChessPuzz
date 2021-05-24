@@ -113,7 +113,7 @@ class _LevelsState extends State<Levels> {
                                             ? checkMateInOne[i]
                                             : widget.title == 'T2019'
                                                 ? t2019[i]
-                                                : widget.title == 'Forks'
+                                                : widget.title == 'Double Attack'
                                                     ? forks[i]
                                                     : widget.title == 'T2018'
                                                         ? t2018[i]
@@ -160,7 +160,7 @@ class _LevelsState extends State<Levels> {
                                   ? StoreData().read('Check Mate In One$i')
                                   : widget.title == 'T2019'
                                       ? StoreData().read('T2019$i')
-                                      : widget.title == 'Forks'
+                                      : widget.title == 'Double Attack'
                                           ? StoreData().read('Forks$i')
                                           : widget.title == 'T2018'
                                               ? StoreData().read('T2018$i')

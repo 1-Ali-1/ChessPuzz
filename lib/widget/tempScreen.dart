@@ -7,17 +7,18 @@ import 'package:provider/provider.dart';
 class Temp extends StatelessWidget {
   final assetsAudioPlayer = AssetsAudioPlayer();
   Widget build(BuildContext context) {
+    
     print(Provider.of<Puzzles>(context).music);
     if (Provider.of<Puzzles>(context).music) {
       assetsAudioPlayer.open(
           Playlist(
               startIndex: Provider.of<Puzzles>(context).randomIndex,
               audios: [
-                Audio("assets/sb_jul.mp3"),
+                Audio("assets/sb_reverie.mp3"),
                 Audio("assets/sb_monomyth_12_therestoration.mp3"),
                 Audio("assets/sb_monomyth_1_thedistantsun.mp3"),
                 Audio("assets/sb_monomyth_3_thethingsthatbindushere.mp3"),
-                Audio("assets/sb_petrichor.mp3"),
+                Audio("assets/sb_lifeis.mp3"),
               ]),
           loopMode: LoopMode.playlist //loop the full playlist
           );
