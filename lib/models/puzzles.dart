@@ -3096,15 +3096,225 @@ class Puzzles extends ChangeNotifier {
         playersName: 'Daniil Dubov vs Pierluigi Basso, Skopje, 2019',
         isWhiteToMove: true,
         puzzle: 'r1b1r1k1/1p1pnpPp/3Qp2B/p7/6P1/2N5/PqPK1PBP/7R w - - 0 1',
-        solution: ['b1', 'Ra6', 'g3', 'Qa3', 'e4'],
+        solution: [
+          ['h1', 'b1'],
+          'Ra6',
+          ['d6', 'g3'],
+          'Qa3',
+          ['c3', 'e4']
+        ],
         description:
             'one check with night is a check mate the most important things how you get there'),
     ChessPuzzle(
         playersName: 'Boris Grachev vs Ramil Faizrakhmanov, Sochi, 2019',
         isWhiteToMove: true,
         puzzle: '4rr1k/1pb1R2p/p4p2/2P3N1/1P4Q1/P7/1B1q1PPP/6K1 w - - 0 1',
-        solution: ['f7', 'Rxf7', 'e8'],
+        solution: [
+          ['g5', 'f7'],
+          'Rxf7',
+          ['e7', 'e8']
+        ],
         description: 'blacks king is stuck seek for check mate'),
+    ChessPuzzle(
+        playersName: 'Babu Lalith vs Alexander Donchenko, Stockholm, 2019',
+        isWhiteToMove: true,
+        puzzle: '7r/pp2qPkp/2p5/5Qb1/P3B3/1P4P1/7P/5R1K w - - 0 1',
+        solution: [
+          ['f7', 'f8'],
+          'Rxf8',
+          ['f5', 'h7']
+        ],
+        description: 'mate in two'),
+    ChessPuzzle(
+        playersName: 'Magnus Carlsen vs Viswanathan Anand, Stavanger, 2019',
+        isWhiteToMove: true,
+        puzzle: '1Q6/3q1r2/2pP3R/4kp1p/4p1pP/4P3/5PP1/6K1 w - - 0 1',
+        solution: [
+          ['b8', 'b2'],
+          'Kd5',
+          ['b2', 'd4']
+        ],
+        description: 'mate in two'),
+    ChessPuzzle(
+        playersName: 'Parham Maghsoodloo vs Kaido Kulaots, Moscow, 2019',
+        isWhiteToMove: false,
+        puzzle: '1r4k1/5p2/3p3p/p2P2pP/4B1P1/1r3P2/KPR4Q/4q3 b - - 0 1',
+        solution: [
+          ['b3', 'a3'],
+          'Kxa3',
+          ['e1', 'a1']
+        ],
+        description: 'mate in two, with a very beautiful sacrifice'),
+    ChessPuzzle(
+        playersName: 'Alexander Grischuk vs Nikita Vitiugov, Riga, 2019',
+        isWhiteToMove: true,
+        puzzle: 'r1bbqrk1/pp3ppp/2p1pB2/4N3/3PP3/1R6/P3QPPP/3R2K1 w - - 0 1',
+        solution: [
+          ['f6', 'g7'],
+          'Kxg7',
+          ['b3', 'g3'],
+          'Kh8',
+          ['e2', 'h5'],
+          'Bf6',
+          ['g3', 'h3']
+        ],
+        description:
+            'its good to have rook on third rank and brave bishop with a very dangers queen simply go for the blacks king'),
+    ChessPuzzle(
+        playersName: 'Peter Leko vs Sebastian Bogner, Biel, 2019',
+        isWhiteToMove: true,
+        puzzle: '5rk1/1p4n1/p1p5/2P4p/1P4Q1/P6P/q2BR2K/8 w - - 0 1',
+        solution: [
+          ['g4', 'g7'],
+          'Kxg7',
+          ['d2', 'c3']
+        ],
+        description: 'discover attack with check'),
+    ChessPuzzle(
+        playersName: 'Shakhriyar Mamedyarov vs Anish Giri, Paris, 2019',
+        isWhiteToMove: true,
+        puzzle: '8/p2q2p1/3Prp1k/6p1/2Q5/6PP/P2R3K/8 w - - 0 1',
+        solution: [
+          ['c4', 'e6'],
+          'Qxe6',
+          ['d6', 'd7']
+        ],
+        description: 'whites passed pawn is just unstoppable'),
+    ChessPuzzle(
+        playersName:
+            'Ian Nepomniachtchi vs Maxime Vachier-Lagrave, Paris, 2019',
+        isWhiteToMove: true,
+        puzzle: '4r3/1p2n1bk/pq2p1pp/4p3/4P2B/1BP5/PP4PP/3R1Q1K w - - 0 1',
+        solution: [
+          ['f1', 'f7']
+        ],
+        description: 'one move threats every blacks piece '),
+    ChessPuzzle(
+        playersName: 'Magnus Carlsen vs Lenier Dominguez, Saint Louis, 2019',
+        isWhiteToMove: true,
+        puzzle: '3r4/pp1b2pk/6Np/3P1pqP/2Bnr3/6Q1/P4PP1/2RR2K1 w - - 0 1',
+        solution: [
+          ['g3', 'g5'],
+          {'from': 'h6', 'to': 'g5'},
+          ['f2', 'f3'],
+          'Ne2',
+          ['g1', 'f2'],
+          'Nxc1',
+          ['f3', 'e4']
+        ],
+        description:
+            'this one hard because its magnus so exchange queen and dont be scared of blacks knight fork on you'),
+    ChessPuzzle(
+        playersName: 'Emilio Cordova vs Haik Der Manuelian, Sturbridge, 2019',
+        isWhiteToMove: true,
+        puzzle:
+            'r2q1rk1/pp3ppp/3b1n2/3pn3/6b1/1PN1PN2/PB2BPPP/R2QK2R w KQ - 0 1',
+        solution: [
+          ['f3', 'e5'],
+          'Bxe2',
+          ['c3', 'e2'],
+          'Bxe5',
+          ['b2', 'e5']
+        ],
+        description: 'you can win a piece thanks for your dark squared bishop'),
+    ChessPuzzle(
+        playersName: 'Liren Ding vs Kirill Alekseenko, Khanty Mansyisk, 2019',
+        isWhiteToMove: true,
+        puzzle:
+            '4rrk1/1ppq1pb1/p2p1np1/3Pn1Bp/2P3bP/1PN3P1/P2QNPB1/4RRK1 w - - 0 1',
+        solution: [
+          ['g5', 'f6'],
+          'Bxe2',
+          ['f6', 'g7'],
+          'Bxf1',
+          ['d2', 'h6']
+        ],
+        description: 'first move is taking knight'),
+    ChessPuzzle(
+        playersName: 'Hikaru Nakamura vs Axel Bachmann, Douglas, 2019',
+        isWhiteToMove: true,
+        puzzle: '6k1/5ppp/1BBnp3/8/4P3/1P6/n5PP/6K1 w - - 0 1',
+        solution: [
+          ['b6', 'c5'],
+          'Nc8',
+          ['c6', 'b7']
+        ],
+        description: 'trap one of the knight'),
+    ChessPuzzle(
+        playersName: "Bassem Amin vs Etienne Bacrot, Cap d'Agde, 2019",
+        isWhiteToMove: true,
+        puzzle: '1r4k1/2p2ppp/2p5/8/2Q1n3/2P1PN1P/PP4q1/2KR4 w - - 0 1',
+        solution: [
+          ['c4', 'b4'],
+        ],
+        description:
+            'if you attacked sometimes best thing to do is counter attack'),
+    ChessPuzzle(
+        playersName:
+            'Timur Gareev vs Vitaliy Bernadskiy, Gmund am Tegerns, 2019',
+        isWhiteToMove: true,
+        puzzle: '6k1/pp3rp1/2p2p1p/3n1P2/P2P2b1/BP1B2P1/5PK1/4R3 w - - 0 1',
+        solution: [
+          ['f2', 'f3'],
+          'Bh5',
+          ['e1', 'h1']
+        ],
+        description: 'trap the bishop but you need accuracy'),
+    ChessPuzzle(
+        playersName: 'Liren Ding vs Levon Aronian, Kolkata, 2019',
+        isWhiteToMove: true,
+        puzzle:
+            '1rbq2k1/4brn1/p2p1npB/2pPpp2/PpP1P3/2NB1PP1/1PKQN2R/7R w - - 0 1',
+        solution: [
+          ['h6', 'g7'],
+          'Kxg7',
+          ['d2', 'h6']
+        ],
+        description: 'opposite kings castled ,  who attacks first win '),
+    ChessPuzzle(
+        playersName: 'David Anton Guijarro vs Rasmus Svane, Germany, 2019',
+        isWhiteToMove: true,
+        puzzle: '3rr1k1/4nppp/p5b1/2q5/2PN4/1PB1R1P1/P2P1QBP/6K1 w - - 0 1',
+        solution: [
+          ['d4', 'c6'],
+          'Nxc6',
+          ['e3', 'e8'],
+          'Rxe8',
+          ['f2', 'c5']
+        ],
+        description: 'first move is just brilliant its with knight'),
+    ChessPuzzle(
+        playersName: 'Liren Ding vs Maxime Vachier-Lagrave, London, 2019',
+        isWhiteToMove: true,
+        puzzle: '3q1k2/8/3pB2n/2pPp2R/4Pp2/3P4/pr3P1P/6QK w - - 0 1',
+        solution: [
+          ['h5', 'f5'],
+        ],
+        description: 'rook'),
+    ChessPuzzle(
+        playersName:
+            'Alexander Grischuk vs Maxime Vachier-Lagrave, Paris, 2019',
+        isWhiteToMove: true,
+        puzzle: '8/4r1Bk/1pKpB1pP/p2P4/Pr3b2/7R/8/8 w - - 0 1',
+        solution: [
+          ['e6', 'g8'],
+          'Kxg8',
+          ['h6', 'h7']
+        ],
+        description: 'move blacks king away'),
+    ChessPuzzle(
+        playersName: 'Levon Aronian vs Magnus Carlsen, London, 2019',
+        isWhiteToMove: true,
+        puzzle: '8/7p/4Q1pk/1r3p2/1B2p3/Pp1r2P1/5PKP/2q5 w - - 0 1',
+        solution: [
+          ['b4', 'f8'],
+          'Kh5',
+          ['e6', 'e7'],
+          'Qg5',
+          ['e7', 'h7']
+        ],
+        description:
+            'first move is about your bishop but second move is the most important '),
   ];
 
   List<ChessPuzzle> T2018 = [
