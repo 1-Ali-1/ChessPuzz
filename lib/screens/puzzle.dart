@@ -94,7 +94,7 @@ class _PuzzleState extends State<Puzzle> {
         body: attempt != 0
             ? Column(
                 children: [
-                  Spacer(),
+                  Spacer(flex: 2,),
                   widget.title == 'T2019'
                       ? Padding(
                           padding: EdgeInsets.symmetric(
@@ -274,19 +274,33 @@ class _PuzzleState extends State<Puzzle> {
                     height: 15.0,
                   ),
                   Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          boxShadow: [
-                            BoxShadow(
+                    child: FutureBuilder(
+                      future: StoreData().readColor('color'),
+                      builder: (context, snapshot) => Container(
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
+                            boxShadow: [
+                              BoxShadow(
                                 blurRadius: 7,
-                                offset: Offset(2, 1),
+                                offset: Offset(1, 1),
                                 spreadRadius: 7.0,
-                                color: kdeafultBlack.withOpacity(0.7))
-                          ]),
-                      child: FutureBuilder(
-                        future: StoreData().readColor('color'),
-                        builder: (context, snapshot) => Chessboard(
+                                color: snapshot.data == 0
+                                    ? kdeafultBlack.withOpacity(0.8)
+                                    : snapshot.data == 1
+                                        ? kgreenBlack.withOpacity(0.8)
+                                        : snapshot.data == 2
+                                            ? kredBlack.withOpacity(0.8)
+                                            : snapshot.data == 3
+                                                ? ktournmentblack.withOpacity(0.8)
+                                                : snapshot.data == 4
+                                                    ? kbrownBlack.withOpacity(0.8)
+                                                    : snapshot.data == 5
+                                                        ? kpinkblack.withOpacity(0.8)
+                                                        : null,
+                              )
+                            ]),
+                        child: Chessboard(
                             darkSquareColor: snapshot.data == 0
                                 ? kdeafultBlack
                                 : snapshot.data == 1
@@ -422,7 +436,8 @@ class _PuzzleState extends State<Puzzle> {
                                               : widget.title == 'T2018'
                                                   ? StoreData()
                                                       .saveForTacticsWithTopPlayers()
-                                                  : widget.title == 'Double Attack'
+                                                  : widget.title ==
+                                                          'Double Attack'
                                                       ? StoreData()
                                                           .saveForTactics()
                                                       : widget.title ==
@@ -549,7 +564,8 @@ class _PuzzleState extends State<Puzzle> {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Double Attack'
+                                                    : widget.title ==
+                                                            'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -565,9 +581,9 @@ class _PuzzleState extends State<Puzzle> {
                                                                     true)
                                                                 : widget.title ==
                                                                         'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
+                                                                    ? StoreData()
+                                                                        .save(
+                                                                            'T2016${widget.puzzleNumber}', true)
                                                                     : widget.title == 'Check Mate In Four'
                                                                         ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
                                                                         : widget.title == 'Check Mate In Three'
@@ -770,7 +786,8 @@ class _PuzzleState extends State<Puzzle> {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Double Attack'
+                                                    : widget.title ==
+                                                            'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -786,9 +803,9 @@ class _PuzzleState extends State<Puzzle> {
                                                                     true)
                                                                 : widget.title ==
                                                                         'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
+                                                                    ? StoreData()
+                                                                        .save(
+                                                                            'T2016${widget.puzzleNumber}', true)
                                                                     : widget.title == 'Check Mate In Four'
                                                                         ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
                                                                         : widget.title == 'Check Mate In Three'
@@ -1024,7 +1041,8 @@ class _PuzzleState extends State<Puzzle> {
                                                     ? StoreData().save(
                                                         'T2019${widget.puzzleNumber}',
                                                         true)
-                                                    : widget.title == 'Double Attack'
+                                                    : widget.title ==
+                                                            'Double Attack'
                                                         ? StoreData().save(
                                                             'Forks${widget.puzzleNumber}',
                                                             true)
@@ -1040,9 +1058,9 @@ class _PuzzleState extends State<Puzzle> {
                                                                     true)
                                                                 : widget.title ==
                                                                         'T2016'
-                                                                    ? StoreData().save(
-                                                                        'T2016${widget.puzzleNumber}',
-                                                                        true)
+                                                                    ? StoreData()
+                                                                        .save(
+                                                                            'T2016${widget.puzzleNumber}', true)
                                                                     : widget.title == 'Check Mate In Four'
                                                                         ? StoreData().save('Check Mate In Four${widget.puzzleNumber}', true)
                                                                         : widget.title == 'Check Mate In Three'
@@ -1195,17 +1213,19 @@ class _PuzzleState extends State<Puzzle> {
                                 'White To Play',
                                 style: TextStyle(
                                     color: kSecondary_color,
-                                    fontSize: 25,
+                                    fontSize: 23,
                                     fontWeight: FontWeight.bold),
                               )
                             : Text(
                                 'Black To Play',
                                 style: TextStyle(
                                     color: kSecondary_color,
-                                    fontSize: 25,
+                                    fontSize: 23,
                                     fontWeight: FontWeight.bold),
                               ),
-                        Spacer(),
+                        Spacer(
+                          flex: 2,
+                        ),
                         // dummy data used for attempt
                         FutureBuilder(
                           future: StoreData().getAttempt(),
@@ -1244,7 +1264,9 @@ class _PuzzleState extends State<Puzzle> {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  Spacer(
+                    flex: 1,
+                  ),
                   OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(
@@ -1402,7 +1424,7 @@ class _PuzzleState extends State<Puzzle> {
                 style: TextStyle(),
               ),
               entryAnimation: EntryAnimation.TOP,
-              buttonCancelText: Text('go back'),
+              buttonCancelText: Text('return'),
               buttonCancelColor: Colors.green,
               onCancelButtonPressed: () {
                 Navigator.pop(context);
@@ -1429,9 +1451,9 @@ class _PuzzleState extends State<Puzzle> {
                 style: TextStyle(),
               ),
               entryAnimation: EntryAnimation.TOP,
-              buttonOkText: Text('return'),
+              buttonOkText: Text('try again'),
               buttonOkColor: Colors.grey,
-              buttonCancelText: Text('go back'),
+              buttonCancelText: Text('return'),
               onOkButtonPressed: () {
                 setState(() {
                   widget.puzzle = widget.rePuzzle;
@@ -1464,8 +1486,12 @@ showAlertDialog(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Hint",style: TextStyle(color: kSecondary_color,fontSize: 20),),
-    content: Text(Provider.of<ChessPuzzle>(context, listen: false).description,style: TextStyle(color: kSecondary_color,fontSize: 16)),
+    title: Text(
+      "Hint",
+      style: TextStyle(color: kSecondary_color, fontSize: 20),
+    ),
+    content: Text(Provider.of<ChessPuzzle>(context, listen: false).description,
+        style: TextStyle(color: kSecondary_color, fontSize: 16)),
     actions: [
       cancelButton,
       continueButton,

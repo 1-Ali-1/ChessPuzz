@@ -81,8 +81,8 @@ class FirstPlace extends StatelessWidget {
                       onChanged: (v) {
                         Provider.of<Puzzles>(context, listen: false).muteFx();
                       },
-                      inactiveThumbColor: Color(0xFFBE6B51),
-                      activeColor: kSecondary_color,
+                      inactiveThumbColor: kSecondary_color,
+                      activeColor: Color(0xFFBE6B51),
                     )
                   ],
                 ),
@@ -98,8 +98,8 @@ class FirstPlace extends StatelessWidget {
                         Provider.of<Puzzles>(context, listen: false)
                             .muteMusic();
                       },
-                      inactiveThumbColor: Color(0xFFBE6B51),
-                      activeColor: kSecondary_color,
+                      inactiveThumbColor: kSecondary_color,
+                      activeColor: Color(0xFFBE6B51),
                     )
                   ],
                 ),

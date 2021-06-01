@@ -3324,39 +3324,725 @@ class Puzzles extends ChangeNotifier {
         isWhiteToMove: false,
         puzzle: 'r1b2rk1/ppR3pp/4pq2/1B1pn3/3b4/5NN1/P2B1PPP/3QK2R b K - 0 1',
         solution: [
-          'f3',
+          ['e5', 'f3'],
           {'from': 'g2', 'to': 'f3'},
-          'e5',
+          ['g6', 'e5'],
           'Qe2',
-          'c7'
+          ['e5', 'c7']
         ],
         description: 'there is undefended rook'),
+
     ChessPuzzle(
         playersName: 'Hao Wang vs Vladimir Potkin, Porto Carras, 2018',
         isWhiteToMove: true,
         puzzle: '5rk1/R3r1p1/3p3p/3bqp2/4p3/2R1P1PP/5P2/2Q2BK1 w - - 0 1',
-        solution: ['a5', 'Kh7', 'd2'],
+        solution: [
+          ['a7', 'a5'],
+          'Kh7',
+          ['c1', 'd2']
+        ],
         description: 'blacks bishop will be targeted'),
+
+    ChessPuzzle(
+        playersName:
+            'Davaademberel Nominerdene vs Ogulcan Kanmazalp, Graz, 2018',
+        isWhiteToMove: true,
+        puzzle: '3q3k/2p5/P1Pp4/3P3b/4Pp1p/r6P/2BQ2P1/4N2K w - - 0 1',
+        solution: [
+          ['c2', 'd1'],
+          'Bxd1',
+          ['d2', 'b2']
+        ],
+        description:
+            'first move is just amazing hint for you is blacks rook is undefended and there is an open diagonal to the blacks king'),
+
+    ChessPuzzle(
+        playersName: 'David Paravyan vs Arjun Erigaisi, Moscow, 2018',
+        isWhiteToMove: true,
+        puzzle: '8/p3kp2/4pn1p/1p1qQ3/5P1B/P1P5/KP6/8 w - - 0 1',
+        solution: [
+          ['e5', 'd5'],
+          {'from': 'e6', 'to': 'd5'},
+          ['f4', 'f5']
+        ],
+        description:
+            'this one is long term win after blacks pawn run out of moves'),
+
+    ChessPuzzle(
+        playersName: 'Shakhriyar Mamedyarov vs Daniil Dubov, Moscow, 2018',
+        isWhiteToMove: false,
+        puzzle: '5rk1/1b3p1p/p4p2/5q2/QP2N3/3pKBP1/P1r4P/3RR3 b - - 0 1',
+        solution: [
+          ['b7', 'e4'],
+          'Bxe4',
+          ['f5', 'f2'],
+          'Kxd3',
+          ['f8', 'd8']
+        ],
+        description: 'bishop'),
+
+    ChessPuzzle(
+        playersName: 'Sergiy Zavgorodniy vs Anton Korobov, Batumi, 2018',
+        isWhiteToMove: false,
+        puzzle: '3qrbk1/p1p2ppp/1r6/2pn1Q2/3P4/1P6/PBP1NPPP/2KR3R b - - 0 1',
+        solution: [
+          ['b6', 'f6'],
+          'Qd3',
+          ['f6', 'f2'],
+          {'from': 'h1', 'to': 'e1'},
+          ['e8', 'e2'],
+          'Rxe2',
+          ['d5', 'f4']
+        ],
+        description: 'chase the queen'),
+
+    ChessPuzzle(
+        playersName: 'Ivan Cheparinov vs Yan Fang, China, 2018',
+        isWhiteToMove: true,
+        puzzle: '1nr2k2/4Rpp1/1p6/1P1r4/3P2p1/2p3P1/5P1P/2B1R1K1 w - - 0 1',
+        solution: [
+          ['c1', 'a3'],
+          'Kg8',
+          ['e7', 'e8']
+        ],
+        description: "don't you think your bishop need better square"),
+
+    ChessPuzzle(
+        playersName: 'Alexei Shirov vs Xianliang Xu, Karlsruhe, 2018',
+        isWhiteToMove: true,
+        puzzle: '7r/p2bp1kP/3p1pP1/4q3/2pNPN2/2P5/PP6/K5Q1 w - - 0 1',
+        solution: [
+          ['d4', 'f5'],
+          'Bxf5',
+          ['f4', 'h5']
+        ],
+        description:
+            'go for queening by using knight but it seems you have a problem with blacks queen'),
+
+    ChessPuzzle(
+        playersName: 'Vladislav Artemiev vs Alexey Sarana, Sochi, 2018',
+        isWhiteToMove: true,
+        puzzle: '8/ppq1k3/6Rp/2p5/3b4/3B1R1P/P5P1/7K w - - 0 1',
+        solution: [
+          ['d3', 'c4']
+        ],
+        description: 'one move black can not survive'),
+
+    ChessPuzzle(
+        playersName: 'Ian Nepomniachtchi vs Viktor Bologan, Poikovsky, 2018',
+        isWhiteToMove: true,
+        puzzle: 'r3rk2/p1p2p1p/5QpP/8/4q1P1/2B5/1P3P2/2KR4 w - - 0 1',
+        solution: [
+          ['f6', 'g7'],
+          'Ke7',
+          ['d1', 'e1']
+        ],
+        description: 'can you take blacks queen just like Ian Nepomniachtchi'),
+
+//////////////////////////////
+
+    //////////////////////
+
+    ChessPuzzle(
+        playersName: 'Shanglei Lu vs Yi Wei, Tianjin, 2018',
+        isWhiteToMove: false,
+        puzzle: '5bk1/1p4r1/7p/p3Prp1/P2P3P/1qP2RQ1/1P4RB/7K b - - 0 1',
+        solution: [
+          ['b3', 'd1']
+        ],
+        description: 'Queen'),
+
+    ChessPuzzle(
+        playersName: 'Shakhriyar Mamedyarov vs Levon Aronian, Leuven, 2018',
+        isWhiteToMove: false,
+        puzzle: '8/5pkp/6p1/p7/P5N1/3R1PKP/6P1/4r1b1 b - - 0 1',
+        solution: [
+          ['h7', 'h5'],
+          'Nh2',
+          ['h5', 'h4']
+        ],
+        description: 'trap the knight'),
+
+    ChessPuzzle(
+        playersName: "Jorden Van Foreest vs Erwin L'Ami, Amsterdam, 2018",
+        isWhiteToMove: true,
+        puzzle: '3r4/1pb2ppk/p1p2q1p/P1B1pP2/1P2Q3/2P2RPP/3r1P2/R5K1 w - - 0 1',
+        solution: [
+          ['c5', 'e7'],
+          'Qxe7',
+          ['f5', 'f6']
+        ],
+        description: 'there is no way blacks queen can survive'),
+
+    ChessPuzzle(
+        playersName: 'Boris Gelfand vs Stanislav Novikov, St. Petersburg, 2018',
+        isWhiteToMove: true,
+        puzzle: '5r2/1prqpp1k/5b2/2pP1P1p/1R6/P2QBP1P/7K/6R1 w - - 0 1',
+        solution: [
+          ['b4', 'h4'],
+          'Bxh4',
+          ['f5', 'f6']
+        ],
+        description: 'Rook'),
+
+    ChessPuzzle(
+        playersName:
+            'Viswanathan Anand vs Mikheil Mchedlishvili, St. Petersburg, 2018',
+        isWhiteToMove: true,
+        puzzle: '4r3/1p4pk/2p4p/PpPp1bnq/1P1B4/4RP2/1Q2N1P1/6K1 w - - 0 1',
+        solution: [
+          ['e2', 'g3'],
+          'Qg6',
+          ['e3', 'e8']
+        ],
+        description: 'knight forks'),
+
+    ChessPuzzle(
+        playersName:
+            'Meri Arabidze vs Stavroula Tsolakidou, St. Petersburg, 2018',
+        isWhiteToMove: true,
+        puzzle: '2k5/p2r1p2/n2q3p/PQpr2p1/8/5P2/5BPP/RR4K1 w - - 0 1',
+        solution: [
+          ['f2', 'g3']
+        ],
+        description: 'Bishop'),
+
+    ChessPuzzle(
+        playersName: 'Alireza Firouzja vs Giga Kuparadze, Batumi, 2018',
+        isWhiteToMove: true,
+        puzzle: 'r3k1n1/1p4QR/p3q1p1/4pb2/4N3/2P2P2/PP3P2/2K5 w - - 0 1',
+        solution: [
+          ['e4', 'd6'],
+          'Qxd6',
+          ['g7', 'f7']
+        ],
+        description:
+            'can you check mate in 4 like Alireza Firouzja ? tip do not rush to take the knight'),
+
+    ChessPuzzle(
+        playersName: 'Baadur Jobava vs Marco Gallana, Spilimbergo, 2018',
+        isWhiteToMove: true,
+        puzzle:
+            'r1bq1rk1/5pn1/p4p1Q/1pp1pR2/P2pP1P1/1P1P2NP/2P3B1/6K1 w - - 0 1',
+        solution: [
+          ['f5', 'h5'],
+          'Nxh5',
+          ['g3', 'h5']
+        ],
+        description: 'simple check mate in 3'),
+
+    ChessPuzzle(
+        playersName: 'Levon Aronian vs Fabiano Caruana, Saint Louis, 2018',
+        isWhiteToMove: false,
+        puzzle: '5rk1/p4ppp/1r4q1/3Q3n/3Pp3/1NP2n1P/PP3PP1/R3RB1K b - - 0 1',
+        solution: [
+          ['h5', 'g3'],
+          {'from': 'f2', 'to': 'g3'},
+          ['g6', 'g3'],
+          {'from': 'g2', 'to': 'f3'},
+          ['b6', 'g6']
+        ],
+        description:
+            'Fabiano Caruana is Fabiano Caruana so thats why he sacrifice two knight'),
+
+    ChessPuzzle(
+        playersName: 'Fabiano Caruana vs Sergey Karjakin, Saint Louis, 2018',
+        isWhiteToMove: true,
+        puzzle: 'r5k1/pp4pp/2n1br2/1NP2p2/4p3/P3P3/5PPP/3RKB1R w K - 0 1',
+        solution: [
+          ['b5', 'c7'],
+          {'from': 'a8', 'to': 'f8'},
+          ['c7', 'e6'],
+          'Rxe6',
+          ['f1', 'c4']
+        ],
+        description: 'knight fork then pin do the rest'),
   ];
 
   List<ChessPuzzle> T2017 = [
     ChessPuzzle(
+        playersName: 'H Ettehadi vs Alireza Firouzja, Tabriz, 2017',
+        isWhiteToMove: false,
+        puzzle: 'r4rk1/pb5p/1pnq2p1/2p5/3bPBB1/P2P1Q2/1P4PP/R2N1R1K b - - 0 1',
+        solution: [
+          ['d4', 'e5'],
+          'g3',
+          ['g6', 'g5']
+        ],
+        description: 'put pressure on the pinned bishop'),
+    ChessPuzzle(
         playersName: 'Tamas Petenyi vs Aryan Tari, Antalya, 2017',
         isWhiteToMove: true,
         puzzle: '1k4nr/2p3pp/2pb1p2/8/RrN5/6P1/1P2PP1P/2B2RK1 w - - 0 1',
-        solution: ['d6', 'Rxa4', 'f7'],
+        solution: [
+          ['c4', 'd6'],
+          'Rxa4',
+          ['d6', 'f7']
+        ],
         description: 'there is one rook stuck in the right corner'),
+    ChessPuzzle(
+        playersName:
+            'Mihai-Lucian Grunberg vs Jonathan Westerberg, Stockholm, 2017',
+        isWhiteToMove: true,
+        puzzle: '2q2rk1/p1n1bppp/4p3/2rpP3/PN6/6P1/1BQ2P1P/2R2RK1 w - - 0 1',
+        solution: [
+          ['b4', 'c6'],
+          'Rxc2',
+          ['c6', 'e7'],
+          'Kh8',
+          ['e7', 'c8'],
+          'Rxc1',
+          ['f1', 'c1']
+        ],
+        description: 'at the end blacks knight will be pinned'),
+    ChessPuzzle(
+        playersName: 'Eltaj Safarli vs Lucas Van Foreest, Basel, 2017',
+        isWhiteToMove: true,
+        puzzle: 'R7/3bk2p/5ppB/2Nr4/1n6/7P/5PPK/8 w - - 0 1',
+        solution: [
+          ['h6', 'f8']
+        ],
+        description: 'Bishop'),
+    ChessPuzzle(
+        playersName: 'Jinshi Bai vs Sam Collins, Basel, 2017',
+        isWhiteToMove: true,
+        puzzle: 'r2q1rk1/2p2ppp/np3b2/p2b4/P1p5/5NP1/1PQ2PBP/R1BR2K1 w - - 0 1',
+        solution: [
+          ['f3', 'g5'],
+          'Bxg5',
+          ['d1', 'd5']
+        ],
+        description: 'discover attack with threating mate'),
+    ChessPuzzle(
+        playersName: 'Eltaj Safarli vs Alexander Donchenko, Basel, 2017',
+        isWhiteToMove: true,
+        puzzle: 'r1b3rk/1p3ppp/pnq1p3/7N/8/6Q1/PPP2PPP/2KR1B1R w - - 0 1',
+        solution: [
+          ['d1', 'd8'],
+          'Bd7',
+          ['g3', 'g7']
+        ],
+        description:
+            'blacks rook prevent check mate so what are you going to do to remove him'),
+    ChessPuzzle(
+        playersName: 'Ian Nepomniachtchi vs Baadur Jobava, Riyadh, 2017',
+        isWhiteToMove: true,
+        puzzle: 'kr6/n3qpr1/Q1p1pn2/1NP3pp/3P4/1R6/P4PPP/4R1K1 w - - 0 1',
+        solution: [
+          ['b5', 'a7'],
+          'Qxa7',
+          ['b3', 'b8'],
+          'Kxb8',
+          ['e1', 'b1'],
+          'Ka8',
+          ['a6', 'c8']
+        ],
+        description: 'bring other rook to the show after some exchanges'),
+    ChessPuzzle(
+        playersName: 'Sayed Akbarinia vs Martin Martinez, Barcelona, 2017',
+        isWhiteToMove: false,
+        puzzle: '8/3n3k/2Q3p1/2P4p/4B3/3P2KP/1q6/8 b - - 0 1',
+        solution: [
+          ['h5', 'h4'],
+          'Kxh4',
+          ['b2', 'f2'],
+          'Kg5',
+          ['f2', 'g3']
+        ],
+        description: 'first move is not with queen nor knight its with pawn'),
+    ChessPuzzle(
+        playersName: 'Benjamin Gledura vs Hikaru Nakamura, Gibraltar, 2017',
+        isWhiteToMove: false,
+        puzzle:
+            'r2r1bk1/1pp2q1p/2n1bpp1/3n4/2NB4/PQ2PNP1/5PBP/2RR2K1 b - - 0 1',
+        solution: [
+          ['d5', 'b6'],
+          {'from': 'f3', 'to': 'd2'},
+          ['b6', 'c4'],
+          'Nxc4',
+          ['c6', 'a5']
+        ],
+        description: 'attack the pinned knight just like Hikaru Nakamura'),
+    ChessPuzzle(
+        playersName: 'Slobodan Mirkovic vs Marko Maksimovic, Belgrade, 2017',
+        isWhiteToMove: true,
+        puzzle: '5k2/p2q2p1/1p1Pr2p/2pQbp2/5p2/2P2P2/PP3NPP/3R1K2 w - - 0 1',
+        solution: [
+          ['d1', 'e1']
+        ],
+        description: 'attack the pinned the bishop'),
+    ChessPuzzle(
+        playersName: 'Sigitas Kalvaitis vs Valdas Bucinskas, Lithuania, 2017',
+        isWhiteToMove: true,
+        puzzle: '7r/6bk/p1p1Qn2/7p/1ppP3P/6R1/1P1B1PPK/3q4 w - - 0 1',
+        solution: [
+          ['e6', 'f5'],
+          'Kg8',
+          ['f5', 'f6']
+        ],
+        description: 'use the power of your queen'),
+    ChessPuzzle(
+        playersName: 'Bjarke Jensen vs Lars Hansen, Denmark, 2017',
+        isWhiteToMove: false,
+        puzzle: '4r1kr/pb1p2pp/3Q1n2/b1Bp1P2/8/P2B4/1q2NPPP/RN3K1R b - - 0 1',
+        solution: [
+          ['b2', 'c1'],
+          'Nxc1',
+          ['e8', 'e1']
+        ],
+        description:
+            'check mate in 2, some times GMs miss thoese check mates dont worry'),
+    ChessPuzzle(
+        playersName: 'Anasrasia Travkina vs Elena Semenova, Riga, 2017',
+        isWhiteToMove: true,
+        puzzle: 'r5k1/1p1q1p2/p5p1/2pP4/3brB1Q/P6R/6PP/5R1K w - - 0 1',
+        solution: [
+          ['h4', 'h7'],
+          'Kf8',
+          ['f4', 'd6']
+        ],
+        description: 'check mate blacks king'),
+    ChessPuzzle(
+        playersName: 'Wesley So vs Magnus Carlsen, Internet, 2017',
+        isWhiteToMove: false,
+        puzzle: 'r5k1/p3pp1p/5qp1/Q1Nr4/8/1P2P3/2R1nPPP/5R1K b - - 0 1',
+        solution: [
+          ['f6', 'f2'],
+          'Qe1',
+          ['e2', 'g3'],
+          {'from': 'h2', 'to': 'g3'},
+          ['d5', 'h5']
+        ],
+        description:
+            'be brave sack every thing in order to check mate blacks king'),
+    ChessPuzzle(
+        playersName: 'Lucas Van Foreest vs Thomas Beerdsen, Amsterdam, 2017',
+        isWhiteToMove: false,
+        puzzle: '1k5r/pbq3p1/3bQ3/2p5/3p1P2/3P2P1/P1P1N3/2B1RK2 b - - 0 1',
+        solution: [
+          ['c7', 'c6'],
+          'Qe4',
+          ['c6', 'd7']
+        ],
+        description: 'Queen'),
+    ChessPuzzle(
+        playersName: 'Filemon Cruz vs Miguel Munoz Pantoja, Barcelona, 2017',
+        isWhiteToMove: false,
+        puzzle:
+            'r1bqr1k1/pp3pbp/6p1/3p1n2/2pP4/P1N1PPP1/RP1Q2BP/2N1R1K1 b - - 0 1',
+        solution: [
+          ['e8', 'e3'],
+          'Rxe3',
+          ['g7', 'd4'],
+          'Nd1',
+          ['d8', 'b6']
+        ],
+        description: 'winning two pawn is not bad isnt it'),
+    ChessPuzzle(
+        playersName: 'Murali Karthikeyan vs Ferenc Berkes, Moscow, 2017',
+        isWhiteToMove: false,
+        puzzle: '1k4r1/pp2q1pb/2prN2p/b2nPP1P/P7/1B3Q2/1P3K2/2BR3R b - - 0 1',
+        solution: [
+          ['d6', 'e6'],
+          {'from': 'f5', 'to': 'e6'},
+          ['g8', 'f8']
+        ],
+        description:
+            'some times GMs miss those tactics dont worry.    open the file to the king'),
+    ChessPuzzle(
+        playersName: 'Marin Bosiocic vs Ian Nepomniachtchi, Riyadh, 2017',
+        isWhiteToMove: false,
+        puzzle: '3r2k1/4bpp1/7p/2p5/2R5/4PN1P/1qQ2PP1/1rR3K1 b - - 0 1',
+        solution: [
+          ['b1', 'c1'],
+          'Qxc1',
+          ['b2', 'e2'],
+          'Qc2',
+          ['d8', 'd1'],
+          'Kh2',
+          ['e7', 'd6']
+        ],
+        description:
+            'after exchanging rooks there is a move with queen if you find it then you can beat Ian Nepomniachtchi for sure'),
+    ChessPuzzle(
+        playersName: 'Shakhriyar Mamedyarov vs Magnus Carlsen, Riyadh, 2017',
+        isWhiteToMove: false,
+        puzzle: '8/p4ppk/1p5p/1P1Q4/P3r2P/5qP1/5P2/3R2K1 b - - 0 1',
+        solution: [
+          ['e4', 'e1']
+        ],
+        description:
+            'simple discover attack with check look thoese GMs miss just like you but not so much'),
+    ChessPuzzle(
+        playersName: 'Magnus Carlsen vs Sergey Karjakin, Stavanger, 2017',
+        isWhiteToMove: true,
+        puzzle: 'r4knR/p4pq1/1p1b4/3P4/4R3/2Q3PP/5PK1/8 w - - 0 1',
+        solution: [
+          ['h8', 'g8'],
+          'Qxg8',
+          ['c3', 'f6'],
+          'Ba3',
+          ['e4', 'g4'],
+          'Qh7',
+          ['d5', 'd6']
+        ],
+        description:
+            'I will be amaized if solve this one. just like magnus after exchange the rook with knight then pin every piece on the board and make another queen '),
   ];
 
   List<ChessPuzzle> T2016 = [
     ChessPuzzle(
-        playersName: 'Hikaru Nakamura vs Jeffrey Xiong, Saint Louis, 4/24/2016',
+        playersName: 'Magnus Carlsen vs Sergey Karjakin, Bilbao, 2016',
+        isWhiteToMove: true,
+        puzzle: '5r1k/1p1qp3/5n1b/p2Ppp2/1r2P2P/1BN3Q1/PP4R1/6RK w - - 0 1',
+        solution: [
+          ['g3', 'g6'],
+          'Ng8',
+          ['g6', 'h5'],
+        ],
+        description:
+            "attack the bishop then there is two possible moves by blacks knight one of them you have to be patient and other one you have to be aggressive"),
+
+    ChessPuzzle(
+        playersName: 'Hikaru Nakamura vs Jeffrey Xiong, Saint Louis, 2016',
         isWhiteToMove: true,
         puzzle: '4n1k1/6qp/1p1pp1p1/2p3P1/2PN4/2B5/1P3QPP/1b4K1 w - - 0 1',
         solution: [
-          'f5',
+          ['d4', 'f5'],
         ],
         description: "we don't want pawn we need check mate or queen"),
+
+    ChessPuzzle(
+        playersName: 'Gawain Jones vs Alexander Fier Alexander, Auckland, 2016',
+        isWhiteToMove: true,
+        puzzle: '5Bk1/Q2b3p/4p1p1/3p4/3q4/6PB/P1n2P1K/8 w - - 0 1',
+        solution: [
+          ['f8', 'c5'],
+          'Qa4',
+          ['a7', 'b8']
+        ],
+        description:
+            "your queen and your bishop at the same time attacked do some thing save both"),
+
+    ChessPuzzle(
+        playersName: 'Ivan Popov vs Vitaly Sivuk, New Delhi, 2016',
+        isWhiteToMove: true,
+        puzzle: 'r4k2/p1pbq3/2p2p1r/3pP2p/5Pn1/2P2BP1/PP1NQ3/2KR3R w - - 0 1',
+        solution: [
+          ['f3', 'g4'],
+          'Bxg4',
+          ['e2', 'g4'],
+          {'from': 'h5', 'to': 'g4'},
+          ['h1', 'h6'],
+          'Qg7',
+          ['d1', 'h1']
+        ],
+        description:
+            "think 5 or 6 moves ahead then do the big sacrifice just like those GMs "),
+
+    ChessPuzzle(
+        playersName: 'Duc Hoa Nguyen vs S Nitin, New Delhi, 2016',
+        isWhiteToMove: true,
+        puzzle: 'q3kr2/4bpQ1/4pp2/r6p/2PN1P2/1P3b2/1B2R2P/1K2R3 w - - 0 1',
+        solution: [
+          ['d4', 'e6'],
+          {'from': 'f7', 'to': 'e6'},
+          ['e2', 'e6']
+        ],
+        description:
+            "waste your knight you have double rooks on the same file with blacks king"),
+
+    ChessPuzzle(
+        playersName: 'G Ostmoe vs Aryan Tari, Norway, 2016',
+        isWhiteToMove: true,
+        puzzle: '3rkr1R/R7/1p2q1p1/p2bP1p1/3p4/PP5Q/1B3P1P/6K1 w - - 0 1',
+        solution: [
+          ['h8', 'f8'],
+          'Kxf8',
+          ['h3', 'h8'],
+          'Qg8',
+          ['h8', 'f6']
+        ],
+        description:
+            "if you solve this puzzle it means you can beat Aryan tari just kidding , exchange rooks then you are 2 moves far from gain something"),
+
+    ChessPuzzle(
+        playersName: 'Karen Grigoryan vs Arman Pashikian, Yerevan, 2016',
+        isWhiteToMove: true,
+        puzzle: '2rr2k1/4pp1p/6p1/pQ1N4/P1R5/1P1n2P1/1b2qPBP/5RK1 w - - 0 1',
+        solution: [
+          ['c4', 'e4'],
+          'Qc2',
+          ['d5', 'e7']
+        ],
+        description:
+            "you can't do the knight forks here because of blacks queen so kick him out then do the knight forks"),
+
+    ChessPuzzle(
+        playersName: 'Vitaliy Bernadskiy vs Dmitriy Khegay, Moscow, 2016',
+        isWhiteToMove: true,
+        puzzle: '7r/p4R2/1pq4k/6pp/3p4/3P4/PPP4P/1KQ5 w - - 0 1',
+        solution: [
+          ['c1', 'f1'],
+        ],
+        description:
+            "one move and there is no solution for it. use your queen"),
+
+    ChessPuzzle(
+        playersName: 'Viswanathan Anand vs Levon Aronian, Zuerich, 2016',
+        isWhiteToMove: true,
+        puzzle:
+            'rn1qr3/ppp2pp1/3p1nk1/4pR2/2P1P3/P1N1P2Q/1PP3PP/R5K1 w - - 0 1',
+        solution: [
+          ['h3', 'h4'],
+          'Nh7',
+          ['h4', 'h5']
+        ],
+        description: "mate in 2 "),
+
+    ChessPuzzle(
+        playersName: 'Wesley So vs Hikaru Nakamura, Saint Louis, 2016',
+        isWhiteToMove: true,
+        puzzle: 'r4rk1/pb3p1p/1p2p1p1/5n2/3P3q/P1PQ2R1/2B2PP1/R1B3K1 w - - 0 1',
+        solution: [
+          ['c1', 'g5'],
+          'Qh5',
+          ['c2', 'd1']
+        ],
+        description: "don't you think Hikaru Nakamura's queen in danger"),
+
+    ChessPuzzle(
+        playersName: 'Fabiano Caruana vs Wesley So, Saint Louis, 2016',
+        isWhiteToMove: true,
+        puzzle: '7k/5Bp1/2p2nP1/p3p1q1/P2bP3/5Q2/2P2P2/4BK2 w - - 0 1',
+        solution: [
+          ['f3', 'h3'],
+          'Qh5',
+          ['h3', 'c8'],
+          'Ng8',
+          ['c8', 'g8']
+        ],
+        description: "mate in 3 take, advantage of the black's weak back rank"),
+
+    ChessPuzzle(
+        playersName: 'Maxime Vachier-Lagrave vs Pavel Eljanov, Stavanger, 2016',
+        isWhiteToMove: true,
+        puzzle: '6k1/3r1p2/p1p3p1/2q1n1p1/2P5/2Q1P1PP/4BP2/R5K1 w - - 0 1',
+        solution: [
+          ['a1', 'a5'],
+        ],
+        description:
+            "this move can be easily missed in a chess game except for Maxime Vachier-Lagrave, use your rook"),
+
+    ChessPuzzle(
+        playersName: 'Levan Pantsulaia vs S P Sethuraman, Dubai, 2016',
+        isWhiteToMove: true,
+        puzzle: '4r3/p4pk1/1p1b2p1/1q3nB1/3pR2P/3P2PB/P2Q1P2/6K1 w - - 0 1',
+        solution: [
+          ['h3', 'f5'],
+          {'from': 'g6', 'to': 'f5'},
+          ['g5', 'f6'],
+          'Kh7',
+          ['d2', 'g5']
+        ],
+        description:
+            " after exchanging your bishop then sack the other bishop"),
+
+    ChessPuzzle(
+        playersName: 'Santosh Vidit vs Diego Di Berardino, Dubai, 2016',
+        isWhiteToMove: true,
+        puzzle:
+            '3r2k1/qb1Np1bp/p1nr2p1/1pNp1p2/3PnB2/6P1/PP2PPBP/2RQ1RK1 w - - 0 1',
+        solution: [
+          ['c5', 'b7'],
+          'Qxb7',
+          ['d7', 'c5'],
+          'Qb6',
+          ['f4', 'd6']
+        ],
+        description:
+            "don't rush to take the rook because you loose an exchange. try to save knights then take that rook"),
+
+    ChessPuzzle(
+        playersName: 'Miklos Nemeth vs Marian Jurcik, Slovakia, 2016',
+        isWhiteToMove: true,
+        puzzle: '4Qn1k/6p1/5p1p/2q1pP2/2P5/1Pp2B1P/5bP1/r1B2R1K w - - 0 1',
+        solution: [
+          ['f3', 'd5'],
+          'Ra2',
+          ['e8', 'f7']
+        ],
+        description:
+            "this position need a little bit calculations, the key move at this position is with white squared bishop"),
+
+    ChessPuzzle(
+        playersName: 'Mateusz Bartel vs Markus Ragger, Germany, 2016',
+        isWhiteToMove: true,
+        puzzle: '2rk3r/1p1bR3/p2p4/6Pp/3NQ3/1Pq1n2P/6B1/R5K1 w - - 0 1',
+        solution: [
+          ['e7', 'd7'],
+          'Kxd7',
+          ['e4', 'e6'],
+          'Kc7',
+          ['e6', 'e7']
+        ],
+        description: "sack the rook"),
+
+    /////////
+
+    ChessPuzzle(
+        playersName: 'Dariusz Swiercz vs Marcel Kanarek, Poznan, 2016',
+        isWhiteToMove: true,
+        puzzle:
+            'r4r2/2qn1p1k/1p2p1nb/p2pP3/P1pP4/3N1N1Q/1PP3PP/R4RK1 w - - 0 1',
+        solution: [
+          ['f3', 'g5'],
+          'Kg7',
+          ['f1', 'f7'],
+          'Rxf7',
+          ['g5', 'e6']
+        ],
+        description:
+            "after checking king with knight then blacks king must defend bishop this will lead to a deadly knight forks"),
+
+    ChessPuzzle(
+        playersName: 'Anton Korobov vs Ian Nepomniachtchi, Baku, 2016',
+        isWhiteToMove: false,
+        puzzle: '8/p2q1pk1/1p4p1/2p1P3/4KPP1/7r/PP2Q3/3R4 b - - 0 1',
+        solution: [
+          ['d7', 'c6'],
+          'Rd5',
+          ['c6', 'a4'],
+        ],
+        description:
+            "once a wise man said use your queen to check mate white and don't let king run away "),
+
+    ChessPuzzle(
+        playersName: 'Murtas Kazhgaleyev vs Parham Maghsoodloo, Abudhabi, 2016',
+        isWhiteToMove: true,
+        puzzle: '5r1k/1p2qpbp/2rnn1p1/p5P1/P3N3/2P1B3/4QPBP/3R1RK1 w - - 0 1',
+        solution: [
+          ['e4', 'd6'],
+          'Rxd6',
+          ['e3', 'c5']
+        ],
+        description: "after knight exchange you can win with help of Pin"),
+
+    ChessPuzzle(
+        playersName: 'Wesley So vs Magnus Carlsen, Paris, 2016',
+        isWhiteToMove: false,
+        puzzle: '4r1k1/3Q1ppp/8/2B5/p1n5/Pq1b1BP1/5P1P/3R2K1 b - - 0 1',
+        solution: [
+          ['b3', 'd1'],
+          'Bxd1',
+          ['e8', 'e1'],
+          'Kg2',
+          ['d3', 'f1'],
+          'Kf3',
+          ['c4', 'e5']
+        ],
+        description:
+            "thats why everyone loves magnus sack the queen and after couple of moves got the queen and also rook of his opponent "),
   ];
 
   List<ChessPuzzle> beginnerTactics = [
@@ -3968,118 +4654,1034 @@ class Puzzles extends ChangeNotifier {
 
   List<ChessPuzzle> masterTactics = [
     ChessPuzzle(
-      isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      isWhiteToMove: false,
+      puzzle:
+          'r3r1k1/1p1qb1p1/p3p1p1/3b1p2/1PBPpP2/PQ2P1BP/5RP1/2R3K1 b q - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['a8', 'c8'],
+        {'from': 'f2', 'to': 'c2'},
+        ['c8', 'c4'],
+        'Rxc4',
+        ['b7', 'b5'],
+        'Rc7',
+        ['d7', 'c7'],
       ],
-      description: 'blacks queen is undefended',
+      description:
+          'white squared bishop is pinned, make another pin by putting A file rook to C file after that sack your rook, at the end you are the one who win the game',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'r1b2rk1/p2pq1pp/1pn1pn2/4N3/5BP1/P2B3P/1P1Q1R2/2R2K2 w - - 0 1',
+      solution: [
+        ['e5', 'c6'],
+        {'from': 'd7', 'to': 'c6'},
+        ['f4', 'd6'],
+        'Ne4',
+        ['d3', 'e4'],
+      ],
+      description:
+          "exchange the knight and use the fact that black's queen and black's rook are on the same diagonall and can be taken.",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '5k2/1r6/2p2bP1/p2p4/1PpP2q1/P3Q3/2B5/5K1R w - - 0 1',
+      solution: [
+        ['e3', 'f2'],
+        {'from': 'g4', 'to': 'g5'},
+        ['h1', 'h8'],
+        'Kg7',
+        ['h8', 'h7'],
+        'Kf8',
+        ['h7', 'b7'],
+      ],
+      description:
+          "if blacks bishop was pinned then you can take black's rook after 2 moves. ",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: '2r3k1/1Q3pp1/p1p2b1p/2Bp4/3Pr1q1/5NPb/PPR1PP1P/4R1K1 b - - 0 1',
+      solution: [
+        ['g4', 'f3'],
+        {'from': 'b7', 'to': 'c8'},
+        ['h3', 'c8'],
+        {'from': 'e2', 'to': 'f3'},
+        ['e4', 'e1'],
+      ],
+      description:
+          "there is very useful pinned pawn and don't afraid of sack your queen",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '3r4/qp1r2p1/p1p1p3/2Ppk3/1P4p1/6P1/1P4BP/3R1R1K w - - 0 1',
+      solution: [
+        ['f1', 'f4'],
+        {'from': 'g7', 'to': 'g5'},
+        ['d1', 'e1'],
+      ],
+      description: 'trust your rooks they can do it.',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'k1r2q2/ppp5/6Qp/2P5/B7/5n2/5P2/1R5K w - - 0 1',
+      solution: [
+        ['g6', 'a6'],
+        {'from': 'c8', 'to': 'b8'},
+        ['a4', 'c6'],
+        'Qc8',
+        ['a6', 'a7'],
+        'Kxa7',
+        ['b1', 'a1'],
+      ],
+      description:
+          'put alot of pressure to the b7 pawn then suddnly you get the idea of sacking queen',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'r2qr1k1/1p3ppp/p2b4/3P1n1b/5B2/1N4P1/P2Q1PBP/2R1R1K1 w - - 0 1',
+      solution: [
+        ['e1', 'e8'],
+        {'from': 'd8', 'to': 'e8'},
+        ['g3', 'g4'],
+        'Bxg4',
+        ['f4', 'd6'],
+        'Nxd6',
+        ['d2', 'f4'],
+      ],
+      description: 'after rook exchange use pawn forks',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'r6r/1b3p1n/1k2p3/Rp1pNqp1/2pP4/2P4P/1P1B1PP1/Q3R1K1 w - - 0 1',
+      solution: [
+        ['a1', 'a3'],
+        {'from': 'a8', 'to': 'a5'},
+        ['a3', 'c5'],
+        'Ka6',
+        ['e5', 'd7'],
+      ],
+      description: 'first move is with queen ',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle:
+          'r3kb2/pp1np1pr/2pqpn1p/3p3P/3P2P1/3Q1N2/PPP2P2/RNB1K2R w KQq - 0 1',
+      solution: [
+        ['d3', 'g6'],
+        {'from': 'e8', 'to': 'd8'},
+        ['g4', 'g5'],
+        {'from': 'h6', 'to': 'g5'},
+        ['f3', 'g5'],
+        'Rh6',
+        ['g5', 'f7'],
+      ],
+      description: 'first move is clear and the second move is by pawn',
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '1nb1r2k/6bp/P5p1/q1p1Pp2/2Q2P2/P1p1B3/2P1B1PP/3R2K1 w - - 0 1',
+      solution: [
+        ['c4', 'b5'],
+        {'from': 'a5', 'to': 'b5'},
+        ['e2', 'b5'],
+      ],
+      description: "your passed pawn need to free from black's queen",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: 'r1bq1rk1/ppp1bpp1/3p3p/6Nn/4PPnQ/1BN5/PPP3PP/R1B1K2R b - - 1 1',
+      solution: [
+        ['h5', 'f4'],
+        {'from': 'c1', 'to': 'f4'},
+        ['h6', 'g5'],
+        'Qg3',
+        ['g5', 'f4']
+      ],
+      description: "knight forks will help pawn forks to gain material",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: '5rk1/4Rr1p/6pP/p5P1/1pp5/P7/1PP5/2K1R3 b - - 0 1',
+      solution: [
+        ['f7', 'e7'],
+        {'from': 'e1', 'to': 'e7'},
+        ['f8', 'f1'],
+        'Kd2',
+        ['c4', 'c3'],
+        {'from': 'b2', 'to': 'c3'},
+        ['b4', 'a3'],
+      ],
+      description:
+          "after exchanging the rook and check the king with the other rook then it will come to 2 key moves both with pawn",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '2r4r/ppN2Rp1/3k2p1/3P4/2P5/3p3n/PP1K4/4R3 w - - 0 1',
+      solution: [
+        ['b2', 'b4'],
+        {'from': 'c8', 'to': 'c7'},
+        ['e1', 'e6'],
+      ],
+      description:
+          "don't rush giving checks every where sometimes you have to prepare you piece to check mate king",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: '5r1r/R7/2pkp3/3b2pp/B2P4/P3B1bP/1P4P1/5RK1 b - - 1 1',
+      solution: [
+        ['f8', 'f1'],
+        {'from': 'g1', 'to': 'f1'},
+        ['d5', 'c4'],
+        'Kg1',
+        ['h8', 'f8']
+      ],
+      description: "exchange the rook and bring back the king to his cage",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'k7/2p5/r6P/2P1p3/1RKp4/p7/P2P4/8 w - - 1 1',
+      solution: [
+        ['b4', 'a4'],
+        'Rxa4',
+        ['c4', 'b5'],
+        'Ra7',
+        ['c5', 'c6']
+      ],
+      description:
+          "focus on queening and sack the rook but still there is a key move which is done by pawn",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: 'rq2n2k/1p3p1P/3p3B/3pbPQ1/1n6/pPr2P2/P1P3P1/2K1R2R b - - 0 1',
+      solution: [
+        ['e5', 'f4'],
+        {'from': 'g5', 'to': 'f4'},
+        ['b4', 'd3'],
+      ],
+      description:
+          "royal forks happen it means you forked queen and king and rook, isn't cool ?",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: false,
+      puzzle: '6k1/8/1p2pp1K/4n1p1/3r4/5PN1/PP3P1P/6R1 b - - 1 1',
+      solution: [
+        ['d4', 'd7'],
+        {'from': 'g3', 'to': 'e4'},
+        ['d7', 'h7'],
+      ],
+      description:
+          "think out of the box, if you wast too much time to look for rook H4 then you did nothing 😜",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'r5k1/ppp2ppp/1bp5/2n4q/5QN1/2Nb2B1/PPP2PPP/4RK2 w - - 0 1',
+      solution: [
+        ['c2', 'd3'],
+        'Nxd3',
+        ['f4', 'f3'],
+        'Nxe1',
+        ['g4', 'f6'],
+        {'from': 'g7', 'to': 'f6'},
+        ['f3', 'h5']
+      ],
+      description:
+          "don't worry take that bishop because you have a best move which will make by queen",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: 'r2r2k1/p1q1pp1p/1np1b1pb/4P3/P1N5/6BP/1PP2PP1/R2QRBK1 w - - 0 1',
+      solution: [
+        ['d1', 'f3'],
+        'Nxc4',
+        ['f1', 'c4'],
+        'Bxc4',
+        ['e5', 'e6'],
+        'Qb6',
+        ['f3', 'f7']
+      ],
+      description:
+          "your knight under attack and also your queen save the game with one queen move which is not considered loose a piece because of the very nice move with pawn",
+    ),
+    ChessPuzzle(
+      isWhiteToMove: true,
+      puzzle: '4R3/k1K5/1R6/2pq4/8/8/8/8 w - - 0 1',
+      solution: [
+        ['e8', 'a8'],
+        {'from': 'd5', 'to': 'a8'},
+        ['b6', 'b3'],
+        'Ka6',
+        ['b3', 'a3']
+      ],
+      description:
+          "sack the rook and only one square with other rook will be desisive",
     ),
   ];
-///////
-//////////
-////////////
-////////////
+
 ///////////////
 ////////////////
 
   List<ChessPuzzle> ruyLopez = [
     ChessPuzzle(
-      playersName: 'ruy lopez',
+      playersName: "Ruy Lopez, Bird's Defense (ECO C61)",
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle:
+          'r4rk1/1b1pqpbp/p5pn/1pp2P2/3pP3/1B1P1N2/PPP3PP/R1BQ1R1K w - - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['c1', 'g5'],
+        {'from': 'e7', 'to': 'd6'},
+        ['f5', 'f6'],
       ],
-      description: 'blacks queen is undefended',
+      description: "move away black's bishop then take the kinght",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Morphy Defense (ECO C77)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1b1qrk1/2p2ppp/pb1pnn2/1p2pNB1/3PP3/1BP5/PP2QPPP/RN1R2K1 w - - 0 1',
+      solution: [
+        ['g5', 'f6'],
+        {'from': 'g7', 'to': 'f6'},
+        ['b3', 'e6'],
+        'Bxe6',
+        ['e2', 'g4']
+      ],
+      description: "destruct king side pawn and remove defenders",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Morphy Defense (ECO C77)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bqk2r/2ppbppp/p1n5/1p1BP1n1/3p4/5N2/PPP2PPP/RNBQ1RK1 w - - 0 1',
+      solution: [
+        ['f3', 'g5'],
+        {'from': 'e7', 'to': 'g5'},
+        ['d1', 'h5'],
+      ],
+      description: "double attack with queen",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Open (ECO C80)",
+      isWhiteToMove: true,
+      puzzle: 'r1bqkb1r/1ppp1ppp/p1n5/4N3/8/2n5/PPPP1PPP/R1BQR1K1 w - - 0 1',
+      solution: [
+        ['e5', 'c6'],
+        {'from': 'f8', 'to': 'e7'},
+        ['c6', 'e7'],
+        'Nxd1',
+        ['e7', 'g6'],
+        'Qe7',
+        ['g6', 'e7']
+      ],
+      description: "your kinght and rook will do every thing",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Open, Classical (ECO C83)",
+      isWhiteToMove: true,
+      puzzle: 'r2q1rk1/2p2ppp/p5n1/1p1pPb2/3Pn3/1B2B3/PP3PPP/R2QRNK1 w - - 0 1',
+      solution: [
+        ['d1', 'h5'],
+        {'from': 'd8', 'to': 'd7'},
+        ['f2', 'f3'],
+      ],
+      description:
+          "black's knight on the center of the board will be hanged if you play a correct move with your queen",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Marshall Gambit (ECO C89)",
+      isWhiteToMove: false,
+      puzzle: 'r1b2rk1/4q1pp/p2b4/1p1p3R/3P1p2/2P5/PP3PPP/RNBQ2K1 b - - 0 1',
+      solution: [
+        ['c8', 'g4'],
+      ],
+      description: "bishop, marshal gambit is just amazing",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Marshall Gambit (ECO C89)",
+      isWhiteToMove: false,
+      puzzle: 'r5k1/2p2ppp/p1P2n2/8/1pP2bbQ/1B3PP1/PP1Pq2P/RNB3K1 b - - 0 1',
+      solution: [
+        ['e2', 'e1'],
+        {'from': 'g1', 'to': 'g2'},
+        ['g4', 'f3'],
+        'Kxf3',
+        ['e1', 'f1']
+      ],
+      description: "mate in three",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Closed, 9.h3 (ECO C92)",
+      isWhiteToMove: true,
+      puzzle:
+          'r2q1r2/2pbbppk/p2p2np/1p1PpNn1/4P1N1/2P4P/PPB2PP1/R1BQR1K1 w - - 0 1',
+      solution: [
+        ['h3', 'h4'],
+        {'from': 'd7', 'to': 'f5'},
+        ['e4', 'f5'],
+        'Nxh4',
+        ['f5', 'f6'],
+        'g6',
+        ['f6', 'e7']
+      ],
+      description: "black's knight is hanged attack him",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Closed, Chigorin (ECO C96)",
+      isWhiteToMove: true,
+      puzzle:
+          'r5k1/2q1bppp/p1n2n2/1pprp3/6P1/2P2N1P/PPB1QP2/R1B1R1K1 w - - 0 1',
+      solution: [
+        ['g4', 'g5'],
+        {'from': 'f6', 'to': 'h5'},
+        ['e2', 'e4'],
+      ],
+      description: "double attack rook or check mate after removing the knight",
+    ),
+    ChessPuzzle(
+      playersName: "Ruy Lopez, Closed, Smyslov Defense (ECO C93)",
+      isWhiteToMove: true,
+      puzzle: '4rr2/1bp1qp1k/pn4pp/1p2b3/3P4/1PPQ2NP/P1B2RP1/5RK1 w - - 0 1',
+      solution: [
+        ['f2', 'f7'],
+        {'from': 'f8', 'to': 'f7'},
+        ['d3', 'g6'],
+        'Kh8',
+        ['f1', 'f7']
+      ],
+      description: "your queen and bishop line up against king",
     ),
   ];
 
   List<ChessPuzzle> nimzoIndian = [
     ChessPuzzle(
-      playersName: 'nimzo indian',
+      playersName: "Nimzo-Indian (ECO E20)",
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle: '1r3rk1/1p3ppp/pqbNpn2/2n5/3Q4/P1N3P1/1P2PPBP/3R1RK1 w - - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['d6', 'c4'],
+        {'from': 'b6', 'to': 'a7'},
+        ['b2', 'b4'],
       ],
-      description: 'blacks queen is undefended',
+      description: "attack the pinned knight via knight and pawn",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Samisch (ECO E24)",
+      isWhiteToMove: true,
+      puzzle:
+          'r3r1k1/pbpn1pp1/1p5p/3P1N1n/2P2q1P/P2B1P2/5BP1/R2Q1RK1 w - - 0 1',
+      solution: [
+        ['g2', 'g3'],
+        {'from': 'f4', 'to': 'e5'},
+        ['f2', 'd4'],
+      ],
+      description: "black's queen run out of squares",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Leningrad (ECO E30)",
+      isWhiteToMove: true,
+      puzzle:
+          'rnbqk2r/ppp2ppp/3ppn2/6B1/1bPP4/2N5/PP2PPPP/R2QKBNR w KQkq - 0 1',
+      solution: [
+        ['d1', 'a4'],
+        {'from': 'b8', 'to': 'c6'},
+        ['d4', 'd5'],
+      ],
+      description:
+          "this d6 here is a blunder because it opens up a diagonal to the king",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Leningrad (ECO E30)",
+      isWhiteToMove: false,
+      puzzle: 'rnbqr1k1/pp3ppp/3p1n2/2pP2B1/4P3/P1P2P2/6PP/R2QKBNR b - - 0 1',
+      solution: [
+        ['f6', 'e4'],
+      ],
+      description: "sack the queen",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Classical (ECO E32)",
+      isWhiteToMove: true,
+      puzzle: '4rrk1/pb1n1pp1/1p1p3p/3P4/2q1B2P/P1B5/1PQ2PP1/3R1RK1 w - - 0 1',
+      solution: [
+        ['e4', 'h7'],
+        {'from': 'g8', 'to': 'h8'},
+        ['c3', 'g7'],
+      ],
+      description:
+          "discover check will help you to get black's queen but first you must move black's king",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian 4.e3 c5 (ECO E41)",
+      isWhiteToMove: true,
+      puzzle:
+          'r3brk1/pp2n1pp/3p4/q1pP1p2/2P1pP2/PPb1P1N1/R1Q1B1PP/2B2RK1 w - - 0 1',
+      solution: [
+        ['b3', 'b4'],
+        {'from': 'c5', 'to': 'b4'},
+        ['a3', 'b4'],
+        'Qxb4',
+        ['c1', 'a3']
+      ],
+      description:
+          "black's dark squared bishop will die no matter what black's queen do",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian 4.e3 c5 (ECO E41)",
+      isWhiteToMove: true,
+      puzzle: 'r1b2r1k/ppq2ppp/3p1n2/2pPn3/P1P4Q/2PB3P/6P1/R1B1NRK1 w - - 0 1',
+      solution: [
+        ['f1', 'f6'],
+        {'from': 'e5', 'to': 'd3'},
+        ['e1', 'd3'],
+        {'from': 'g7', 'to': 'f6'},
+        ['h4', 'f6']
+      ],
+      description:
+          "you have all pieces ready to attack the king, so don't be scared of sacking pieces",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian 4.e3 c5 (ECO E41)",
+      isWhiteToMove: false,
+      puzzle:
+          'r1bq1rk1/pp2nppp/3p1n2/2pPp3/2P5/2PBPN2/P1Q2PPP/1RB2RK1 b - - 0 1',
+      solution: [
+        ['e3', 'e4'],
+        {'from': 'd3', 'to': 'e4'},
+        ['f6', 'e4'],
+        'Qxe4',
+        ['c8', 'f5']
+      ],
+      description:
+          "exchange every thing till you find out you have a nice skewer with bishop",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Fischer Variation (ECO E43)",
+      isWhiteToMove: true,
+      puzzle: 'r3k2r/pbpp1ppp/np3q2/8/1b6/2NBPP2/PPQRN1PP/2K4R w - - 0 1',
+      solution: [
+        ['d3', 'a6'],
+        {'from': 'b7', 'to': 'a6'},
+        ['c2', 'e4'],
+      ],
+      description: "your queen will poisen black after moving your bishop",
+    ),
+    ChessPuzzle(
+      playersName: "Nimzo-Indian, Fischer Variation (ECO E43)",
+      isWhiteToMove: true,
+      puzzle: 'r3k2r/pbp2ppp/1pnqp3/2npN3/Q1PP4/B1PBP3/P4PPP/R4RK1 w - - 0 1',
+      solution: [
+        ['a3', 'c5'],
+        {'from': 'b6', 'to': 'c5'},
+        ['c4', 'd5'],
+        {'from': 'e6', 'to': 'd5'},
+        ['d3', 'b5']
+      ],
+      description:
+          "attack the pinned knight but first try to clean the board and also open up your white squared bishop",
     ),
   ];
 
   List<ChessPuzzle> french = [
     ChessPuzzle(
-      playersName: 'french',
+      playersName: "French, Advance (ECO C02)",
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle:
+          'r3kbnr/1p1b2pp/pq2pp2/3pP3/3n4/P1NB1N2/1P3PPP/R1BQ1RK1 w kq - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['f3', 'd4'],
+        {'from': 'b6', 'to': 'd4'},
+        ['d3', 'g6'],
       ],
-      description: 'blacks queen is undefended',
+      description:
+          "after exchanging knights then you have discover check and win a queen",
+    ),
+    ChessPuzzle(
+      playersName: "French, Advance (ECO C02)",
+      isWhiteToMove: true,
+      puzzle:
+          'rn1qkbnr/p4ppp/bp2p3/2ppP3/3P1B2/2P5/PP3PPP/RN1QKBNR w KQkq - 0 1',
+      solution: [
+        ['f1', 'a6'],
+        {'from': 'b8', 'to': 'a6'},
+        ['d1', 'a4'],
+      ],
+      description:
+          "you have nice check with queen but first you have to move bishop",
+    ),
+    ChessPuzzle(
+      playersName: "French, Tarrasch (ECO C03)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bq1rk1/ppp1b2p/2n1ppp1/3pP1Nn/3P3P/2PB2P1/PP1N1P2/R1BQK2R w - - 0 1',
+      solution: [
+        ['g5', 'h7'],
+      ],
+      description: "let your knight go crazy",
+    ),
+    ChessPuzzle(
+      playersName: "French, Tarrasch (ECO C03)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bqk2r/1p3p2/p1n1p3/2np3p/3N1Pp1/2P5/PPB3PP/R1BQ1RK1 w kq - 0 1',
+      solution: [
+        ['d4', 'c6'],
+        {'from': 'b7', 'to': 'c6'},
+        ['d1', 'd4'],
+      ],
+      description:
+          "after exchanging knights then you have double attack on rook and knight",
+    ),
+    ChessPuzzle(
+      playersName: "French, Tarrasch, Guimard Main Line (ECO C04)",
+      isWhiteToMove: true,
+      puzzle: 'r1b2rk1/pp2b1pp/q3pn2/3nN1N1/3p4/P2Q4/1P3PPP/RBB1R1K1 w - - 0 1',
+      solution: [
+        ['d3', 'h7'],
+        {'from': 'f6', 'to': 'h7'},
+        ['b1', 'h7'],
+      ],
+      description: "mate in 3, sack your queen",
+    ),
+    ChessPuzzle(
+      playersName: "Tarrasch, Guimard Main Line (ECO C04)",
+      isWhiteToMove: false,
+      puzzle: 'r1b2rk1/p1p3pp/3b1q2/2pp4/8/1NP5/PP2QPPP/R1B2RK1 b - - 0 1',
+      solution: [
+        ['c8', 'a6'],
+      ],
+      description: "why not attack white's queen with bishop",
+    ),
+    ChessPuzzle(
+      playersName: "French, Tarrasch, Open (ECO C07)",
+      isWhiteToMove: false,
+      puzzle: '5rk1/1pqr1ppp/p2bp2B/3n4/6Q1/2P2N2/PP3PPP/R4RK1 b - - 0 1',
+      solution: [
+        ['f7', 'f5'],
+      ],
+      description: "best defensive move is counter attack",
+    ),
+    ChessPuzzle(
+      playersName: "French, Winawer (ECO C18)",
+      isWhiteToMove: true,
+      puzzle:
+          'rnb3nr/1pq2kpp/p3pp2/1B1pP3/P1pP2Q1/B1P2N2/2P2PPP/R3K2R w - - 0 1',
+      solution: [
+        ['f2', 'g5'],
+        {'from': 'f6', 'to': 'g5'},
+        ['g4', 'h5'],
+        'g6',
+        ['h5', 'f3']
+      ],
+      description:
+          "sack the knight and for the second move be accurate with queen",
+    ),
+    ChessPuzzle(
+      playersName: "French, Winawer (ECO C18)",
+      isWhiteToMove: false,
+      puzzle: 'r5k1/pp2n1pp/5n2/q1ppP3/6b1/P1PQ4/2P2PPP/R3KBNR b - - 0 1',
+      solution: [
+        ['c5', 'c4'],
+        {'from': 'd3', 'to': 'd4'},
+        ['e7', 'f5'],
+      ],
+      description:
+          "move away the only defenders of the pawn that is pinned to the king",
+    ),
+    ChessPuzzle(
+      playersName: "French, Winawer (ECO C18)",
+      isWhiteToMove: true,
+      puzzle: 'r1bq1rk1/pp3p2/2n4Q/3pP3/3p1p2/P1PR4/2P2PPP/2K3NR w - - 0 1',
+      solution: [
+        ['d3', 'g3'],
+      ],
+      description: "incredible move with rook",
     ),
   ];
 
   List<ChessPuzzle> kingsIndianDefence = [
     ChessPuzzle(
-      playersName: 'kings indian',
+      playersName: "King's Indian Defense (ECO E60)",
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle: '2b1r1k1/rp2pp1p/p5p1/q1p1Q3/2P5/1P4P1/P3PPBP/R2R2K1 w - - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['b3', 'b4'],
+        {'from': 'a5', 'to': 'b4'},
+        ['e5', 'b8'],
+        'Qb6',
+        ['a1', 'b1']
       ],
-      description: 'blacks queen is undefended',
+      description:
+          "you can attack the rook and take it with queen any time you want but first you have to remove the only defenders which is queen",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian Defense (ECO E60)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bq1rk1/1pp2pbp/3p2p1/pPn1n3/2P5/Q3PN2/PB1NBPPP/R3K2R b - - 0 1',
+      solution: [
+        ['e5', 'd3'],
+        {'from': 'e2', 'to': 'd3'},
+        ['g7', 'b2'],
+      ],
+      description:
+          "discover attack your dark squared bishop is too strong and also think about knight forks",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian (ECO E61)",
+      isWhiteToMove: true,
+      puzzle:
+          'r4rk1/pp1b1p1p/3p2pn/2p3q1/2P5/1PQ1P2P/P2N1PP1/R3KB1R w KQ - 0 1',
+      solution: [
+        ['d2', 'e4'],
+      ],
+      description:
+          "black is suffering from black squares specially in front of king bring your knight to take advantage of the weak color complex of the opponent",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian (ECO E61)",
+      isWhiteToMove: false,
+      puzzle:
+          'r1bq1bk1/pp5p/3p1rn1/3Pppp1/1P2Pn2/B1N1NP2/P3B1PP/2RQ1RK1 b - - 0 1',
+      solution: [
+        ['d8', 'b6'],
+        'Qd2',
+        ['f4', 'e2'],
+        'Qxe2',
+        ['f5', 'f4']
+      ],
+      description: "pin the knight and start attack on it",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Fianchetto (ECO E62)",
+      isWhiteToMove: true,
+      puzzle:
+          '2brr1k1/pp3pbp/2pp1np1/q3n1B1/2PN4/1PN3PP/P2QPPB1/2RR2K1 w - - 0 1',
+      solution: [
+        ['g5', 'f6'],
+        {'from': 'g7', 'to': 'f6'},
+        ['c3', 'e4'],
+      ],
+      description:
+          "after taking the knight with your bishop then there is beautiful discover, attack don't worry if black takes your queen first because you have checks",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Fianchetto (ECO E62)",
+      isWhiteToMove: true,
+      puzzle:
+          'r4rk1/pp1b1pbp/n2p1np1/3Pp3/4P3/PqN1BNPP/1P2QPB1/R4RK1 w - - 0 1',
+      solution: [
+        ['a1', 'b1'],
+        {'from': 'a6', 'to': 'c5'},
+        ['f3', 'd2'],
+        'Qb6',
+        ['b2', 'b4']
+      ],
+      description: "hang the black's queen then attack on him",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Panno Variation (ECO E63)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bq1rk1/1p2ppbp/p4np1/n1p5/2P2B2/2NQ1NP1/PP2PPBP/R4RK1 w - - 0 1',
+      solution: [
+        ['d3', 'd8'],
+        {'from': 'f8', 'to': 'd8'},
+        ['f4', 'c7'],
+      ],
+      description: "exchange queens then use your bishop to double attack",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Panno Variation (ECO E63)",
+      isWhiteToMove: true,
+      puzzle:
+          '1r2r1k1/1p1bppb1/p1np2pp/3N3q/1PP5/5NP1/P2QPPBP/2R2RK1 w - - 0 1',
+      solution: [
+        ['d5', 'f4'],
+        {'from': 'h5', 'to': 'f5'},
+        ['g2', 'h3'],
+      ],
+      description:
+          "thats why princples say don't bring queen too early. take advantage of the it",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Four Pawns Attack (ECO E76)",
+      isWhiteToMove: true,
+      puzzle: 'r1bqr3/pppnpkbp/3p2pn/8/2PP1PP1/2N2N1P/PP2B3/R1BQK2R w - - 0 1',
+      solution: [
+        ['f3', 'g5'],
+      ],
+      description: "black's queen has no space",
+    ),
+    ChessPuzzle(
+      playersName: "King's Indian, Classical 6.Be2 (ECO E91)",
+      isWhiteToMove: true,
+      puzzle:
+          'r1bq1rk1/pp2ppbp/2np2p1/8/2PNP1n1/2N1B3/PP2BPPP/R2Q1RK1 w - - 0 1',
+      solution: [
+        ['e2', 'g4'],
+        {'from': 'ac8', 'to': 'g4'},
+        ['d4', 'c6'],
+      ],
+      description:
+          "your knight is vulnarable, exchange bishop then do some thing about your knight regardless what happen to your queen",
     ),
   ];
 
   List<ChessPuzzle> caroKann = [
-    ChessPuzzle(
-      playersName: 'carro kan',
+     ChessPuzzle(
+      playersName: 'Caro-Kann, Classical (ECO B19)',
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle: '3rkb1r/ppn2pp1/1qp1p2p/4P3/2P4P/3Q2N1/PP1B1PP1/1K1R3R w - - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['d3', 'd8'],
+        {'from': 'e8', 'to': 'd8'},
+        ['d2', 'g5'],
+        'Ke8',
+        ['d1', 'd8']
       ],
-      description: 'blacks queen is undefended',
+      description: "mate in 3 with incradible sacrifice and double check",
     ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Classical (ECO B19)',
+      isWhiteToMove: true,
+      puzzle: '2kr1b1r/ppqn1pp1/4pn1p/7P/2PNN3/3Q4/PP1B1PP1/1K1R3R b - - 0 1',
+      solution: [
+        ['d7', 'e5'],
+        {'from': 'd3', 'to': 'e3'},
+        ['d7', 'g4'],
+        'Qd3',
+        ['f6', 'e4'],
+        'Qxe4',
+        ['g4', 'f2']
+      ],
+      description: "this one is tough but don't worry first if you move your knight in front of rook then suddenly white's knight is pinned to the queen and also the idea of this puzzle is to get one of your knights to the g4 square and also this puzzle end up with knight forks with help of knight",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann Defense, Fantasy Variation (ECO B12)',
+      isWhiteToMove: true,
+      puzzle: 'r5r1/pp1n1qbk/2p2p2/3p3p/3P1NPp/N1P2P2/PP1Q3P/4RRK1 w - - 0 1',
+      solution: [
+        ['e1', 'e7'],
+        {'from': 'f7', 'to': 'e7'},
+        ['d2', 'd3'],
+      ],
+      description:
+          "sack the rook then find very nice move that lead check mate or taking black's queen",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann Defense, Fantasy Variation (ECO B12)',
+      isWhiteToMove: true,
+      puzzle: '2k1rbnr/pbqn3p/1p4p1/3p1p2/3P4/2NBBP2/PPPQ2PP/1K1R3R w - - 0 1',
+      solution: [
+        ['c3', 'b5'],
+        {'from': 'c7', 'to': 'd8'},
+        ['d2', 'c3'],
+        'Kb8',
+        ['e3', 'f4']
+      ],
+      description:
+          "first use knight and then focus on your queen and dark squared bishop",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Panov-Botvinnik Attack (ECO B14)',
+      isWhiteToMove: true,
+      puzzle:
+          'r1b2rk1/pp1nbppp/2q1p3/1NPp4/1P1PnB2/3B1N2/P4PPP/R2QK2R w - - 0 1',
+      solution: [
+        ['b5', 'a7'],
+        {'from': 'a8', 'to': 'a7'},
+        ['b4', 'b5'],
+      ],
+      description: "make black's queen look stupid",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Panov-Botvinnik Attack (ECO B14)',
+      isWhiteToMove: false,
+      puzzle: '1r3rk1/ppqb1ppp/2n1p3/6B1/2PP2n1/1Q3N1P/P3BPP1/R4RK1 b - - 0 1',
+      solution: [
+        ['c6', 'd4'],
+      ],
+      description:
+          "your attacked knight is greate and your other knight is just amazing one of them will decide the game",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann Defense, Fantasy Variation (ECO B12)',
+      isWhiteToMove: false,
+      puzzle:
+          'rnbqk2r/pp3pb1/2p3pp/4p3/3PPBn1/2P5/PP1NB1PP/R2QK1NR b KQkq - 0 1',
+      solution: [
+        ['e5', 'f4'],
+        {'from': 'e2', 'to': 'g4'},
+        ['d8', 'h4'],
+      ],
+      description:
+          "don't be afraid of taking whites bishop because you have crucial check with queen",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Steinitz Variation (ECO B17)',
+      isWhiteToMove: true,
+      puzzle: 'r5r1/pp1n1qbk/2p2p2/3p3p/3P1NPp/N1P2P2/PP1Q3P/4RRK1 w - - 0 1',
+      solution: [
+        ['g3', 'f5'],
+        {'from': 'e7', 'to': 'f8'},
+        ['f5', 'd6'],
+        'Kb8',
+        ['d6', 'b5'],
+        'Ka8',
+        ['b5', 'c7']
+      ],
+      description: "in this puzzle there are 3 checks our of four moves",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Steinitz Variation (ECO B17)',
+      isWhiteToMove: false,
+      puzzle:
+          'r1bqk2r/3n1pp1/1p2pn1p/pQb5/5B2/PB3N2/1PP1NPPP/R3K2R b KQkq - 0 1',
+      solution: [
+        ['c8', 'a6'],
+        {'from': 'b5', 'to': 'c6'},
+        ['a8', 'c8'],
+      ],
+      description: "white's queen in danger",
+    ),
+    ChessPuzzle(
+      playersName: 'Caro-Kann, Steinitz Variation (ECO B17)',
+      isWhiteToMove: false,
+      puzzle:
+          'r1bqk2r/pp1n1ppp/2pbpn2/6N1/2BP1B2/8/PPP1NPPP/R2QK2R b KQkq - 0 1',
+      solution: [
+        ['d6', 'f4'],
+        {'from': 'e2', 'to': 'f4'},
+        ['d8', 'a5'],
+      ],
+      description: "the second move is with queen",
+    ),
+   
   ];
 
   List<ChessPuzzle> english = [
+   
+   
     ChessPuzzle(
-      playersName: 'english',
+      playersName: 'English (ECO A15)',
       isWhiteToMove: true,
-      puzzle: '4b1k1/4rppp/rp1q4/3Bn3/2PQ4/P4RP1/4P2P/5RK1 w - - 0 1',
+      puzzle: '1r1r2k1/2q2p2/pp2bbpp/2p1p3/1nP5/1PN1P1PP/PB2QPB1/2RR2K1 w - - 0 1',
       solution: [
-        'f7',
-        {'from': 'e5', 'to': 'f7'},
-        'd6',
-        'Nxd6',
-        'f8'
+        ['a2','a3'],
+        {'from': 'b4', 'to': 'c6'},
+        ['e2','f3'],
+        
       ],
-      description: 'blacks queen is undefended',
+      description: 'your queen will do the double attack after simple move with pawn',
     ),
+    
+    ChessPuzzle(
+      playersName: 'English (ECO A15)',
+      isWhiteToMove: true,
+      puzzle: 'rn1qr1k1/pb2bppp/1p6/2pn4/7N/2N3P1/PP1P1PBP/R1BQR1K1 w - - 0 1',
+      solution: [
+        ['h4','f5'],
+        {'from': 'd5', 'to': 'c3'},
+        ['d1','g4'],
+        'g6',
+        ['g2','b7']
+        
+      ],
+      description: "put pressure on black's bishop then move your queen wisly",
+    ),
+    ChessPuzzle(
+      playersName: 'English (ECO A16)',
+      isWhiteToMove: true,
+      puzzle: '1r2r1k1/1pp2pb1/pnnq2pp/2N1p1B1/1P6/P2P2PP/4PPB1/2RQ1RK1 w - - 0 1',
+      solution: [
+        ['c5','c7'],
+        {'from': 'b8', 'to': 'b7'},
+        ['g2','c6'],
+        
+      ],
+      description: 'discover attack and removing the guard after moving the knight',
+    ),
+    ChessPuzzle(
+      playersName: 'English, Hedgehog (ECO A17)',
+      isWhiteToMove: true,
+      puzzle: 'rn1qkb1r/pbp2ppp/1p2p3/4p1N1/2P5/2PB4/PP3PPP/R1BQK2R w - - 0 1',
+      solution: [
+        ['g5','f7'],
+        {'from': 'e8', 'to': 'f7'},
+        ['d3','g6'],
+        
+      ],
+      description: 'double sacrifice for a bigger target, even in your life you have to sacrifice for your target good luck',
+    ),
+    ChessPuzzle(
+      playersName: ' English, Mikenas-Carls, Sicilian Variation (ECO A19)',
+      isWhiteToMove: true,
+      puzzle: 'r2r2k1/p1n1qppp/1pbppb2/8/2P1PP2/1PN1BB2/P4QPP/2RR2K1 w - - 0 1',
+      solution: [
+        ['e4','e5'],
+      
+      ],
+      description: 'simple pawn move will be discover attack and double attack how cool it is',
+    ),
+
+  
+    ChessPuzzle(
+      playersName: 'English, Bremen System (ECO A23-24)',
+      isWhiteToMove: true,
+      puzzle: 'r4rk1/pp1qbppp/2n1bn2/8/3NN3/3Q2P1/PP3PBP/R1BR2K1 w - - 0 1',
+      solution: [
+        ['d4','c6'],
+        'Qxd3',
+        ['c6','e7']
+      
+      ],
+      description: 'take that knight, there are 2 knights right ? ok now you decide which one is correct and why',
+    ),ChessPuzzle(
+      playersName: 'English, Bremen System (ECO A23-24)',
+      isWhiteToMove: false,
+      puzzle: 'r2qkb1r/pQ1n1ppp/4bn2/3pp3/8/2N2NP1/PP1PPPBP/R1B1K2R b KQkq - 0 1',
+      solution: [
+        ['d7','c5'],
+        'Qb5',
+        ['e6','d7']
+      
+      ],
+      description: 'poor queen',
+    ),
+    
+    ChessPuzzle(
+      playersName: 'English, Three Knights System (ECO A27)',
+      isWhiteToMove: true,
+      puzzle: 'r1bqk2r/ppppnp1p/2n3p1/3N2B1/2Pb4/8/PP2PPPP/R2QKB1R w KQkq - 0 1',
+      solution: [
+        ['d1','d4'],
+        'Nxd4',
+        ['d5','f6'],
+        'Kf8',
+        ['g5','h6']
+      
+      ],
+      description: 'sacrificing queen will make every chess player happy',
+    ),ChessPuzzle(
+      playersName: 'English, Four Knights, Kingside Fianchetto (ECO A29)',
+      isWhiteToMove: true,
+      puzzle: 'rq3rk1/1ppnb1pp/p3bp2/8/1P1QN3/P5P1/1B2PPBP/2R2RK1 w - - 0 1',
+      solution: [
+        ['e4','g5'],
+        'Bf5',
+        ['d4','d5']
+      
+      ],
+      description: 'there is no way for black to defend the piece if you move the knight first',
+    ),ChessPuzzle(
+      playersName: 'English, Symmetrical, Benoni Formation (ECO A31)',
+      isWhiteToMove: true,
+      puzzle: 'rnbqkb1r/pp3ppp/8/1N1np3/8/8/PP2PPPP/RNBQKB1R w KQkq - 0 1',
+      solution: [
+        ['d1','d5'],
+      
+      ],
+      description: "simple but it happens on the board so many times, it's all about sacking",
+    ),
+ 
+ 
   ];
 }
