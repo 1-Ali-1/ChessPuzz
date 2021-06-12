@@ -133,4 +133,51 @@ class StoreData {
     var value = prefs.getBool('temp') ?? false;
     return value;
   }
+
+  void unlocking() async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getInt('attempt') ?? 15;
+
+    if (value >= 30) {
+      value = value - 30;
+      prefs.setInt('attempt', value);
+      StoreData().save('tempbool', true);
+    }
+  }
+
+  void unlockingForSacrifice() async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getInt('attempt') ?? 15;
+
+    if (value >= 30) {
+      value = value - 30;
+      prefs.setInt('attempt', value);
+
+      StoreData().save('tempboolForSacrifice', true);
+    }
+  }
+
+  void unlockingForCaroKann() async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getInt('attempt') ?? 15;
+
+    if (value >= 30) {
+      value = value - 30;
+      prefs.setInt('attempt', value);
+
+      StoreData().save('tempboolForCaroKann', true);
+    }
+  }
+
+  void unlockingForEnglish() async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getInt('attempt') ?? 15;
+
+    if (value >= 30) {
+      value = value - 30;
+      prefs.setInt('attempt', value);
+
+      StoreData().save('tempboolForEnglish', true);
+    }
+  }
 }

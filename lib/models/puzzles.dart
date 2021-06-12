@@ -5426,7 +5426,7 @@ class Puzzles extends ChangeNotifier {
   ];
 
   List<ChessPuzzle> caroKann = [
-     ChessPuzzle(
+    ChessPuzzle(
       playersName: 'Caro-Kann, Classical (ECO B19)',
       isWhiteToMove: true,
       puzzle: '3rkb1r/ppn2pp1/1qp1p2p/4P3/2P4P/3Q2N1/PP1B1PP1/1K1R3R w - - 0 1',
@@ -5452,7 +5452,8 @@ class Puzzles extends ChangeNotifier {
         'Qxe4',
         ['g4', 'f2']
       ],
-      description: "this one is tough but don't worry first if you move your knight in front of rook then suddenly white's knight is pinned to the queen and also the idea of this puzzle is to get one of your knights to the g4 square and also this puzzle end up with knight forks with help of knight",
+      description:
+          "this one is tough but don't worry first if you move your knight in front of rook then suddenly white's knight is pinned to the queen and also the idea of this puzzle is to get one of your knights to the g4 square and also this puzzle end up with knight forks with help of knight",
     ),
     ChessPuzzle(
       playersName: 'Caro-Kann Defense, Fantasy Variation (ECO B12)',
@@ -5554,134 +5555,129 @@ class Puzzles extends ChangeNotifier {
       ],
       description: "the second move is with queen",
     ),
-   
   ];
 
   List<ChessPuzzle> english = [
-   
-   
     ChessPuzzle(
       playersName: 'English (ECO A15)',
       isWhiteToMove: true,
-      puzzle: '1r1r2k1/2q2p2/pp2bbpp/2p1p3/1nP5/1PN1P1PP/PB2QPB1/2RR2K1 w - - 0 1',
+      puzzle:
+          '1r1r2k1/2q2p2/pp2bbpp/2p1p3/1nP5/1PN1P1PP/PB2QPB1/2RR2K1 w - - 0 1',
       solution: [
-        ['a2','a3'],
+        ['a2', 'a3'],
         {'from': 'b4', 'to': 'c6'},
-        ['e2','f3'],
-        
+        ['e2', 'f3'],
       ],
-      description: 'your queen will do the double attack after simple move with pawn',
+      description:
+          'your queen will do the double attack after simple move with pawn',
     ),
-    
     ChessPuzzle(
       playersName: 'English (ECO A15)',
       isWhiteToMove: true,
       puzzle: 'rn1qr1k1/pb2bppp/1p6/2pn4/7N/2N3P1/PP1P1PBP/R1BQR1K1 w - - 0 1',
       solution: [
-        ['h4','f5'],
+        ['h4', 'f5'],
         {'from': 'd5', 'to': 'c3'},
-        ['d1','g4'],
+        ['d1', 'g4'],
         'g6',
-        ['g2','b7']
-        
+        ['g2', 'b7']
       ],
       description: "put pressure on black's bishop then move your queen wisly",
     ),
     ChessPuzzle(
       playersName: 'English (ECO A16)',
       isWhiteToMove: true,
-      puzzle: '1r2r1k1/1pp2pb1/pnnq2pp/2N1p1B1/1P6/P2P2PP/4PPB1/2RQ1RK1 w - - 0 1',
+      puzzle:
+          '1r2r1k1/1pp2pb1/pnnq2pp/2N1p1B1/1P6/P2P2PP/4PPB1/2RQ1RK1 w - - 0 1',
       solution: [
-        ['c5','c7'],
+        ['c5', 'c7'],
         {'from': 'b8', 'to': 'b7'},
-        ['g2','c6'],
-        
+        ['g2', 'c6'],
       ],
-      description: 'discover attack and removing the guard after moving the knight',
+      description:
+          'discover attack and removing the guard after moving the knight',
     ),
     ChessPuzzle(
       playersName: 'English, Hedgehog (ECO A17)',
       isWhiteToMove: true,
       puzzle: 'rn1qkb1r/pbp2ppp/1p2p3/4p1N1/2P5/2PB4/PP3PPP/R1BQK2R w - - 0 1',
       solution: [
-        ['g5','f7'],
+        ['g5', 'f7'],
         {'from': 'e8', 'to': 'f7'},
-        ['d3','g6'],
-        
+        ['d3', 'g6'],
       ],
-      description: 'double sacrifice for a bigger target, even in your life you have to sacrifice for your target good luck',
+      description:
+          'double sacrifice for a bigger target, even in your life you have to sacrifice for your target good luck',
     ),
     ChessPuzzle(
       playersName: ' English, Mikenas-Carls, Sicilian Variation (ECO A19)',
       isWhiteToMove: true,
       puzzle: 'r2r2k1/p1n1qppp/1pbppb2/8/2P1PP2/1PN1BB2/P4QPP/2RR2K1 w - - 0 1',
       solution: [
-        ['e4','e5'],
-      
+        ['e4', 'e5'],
       ],
-      description: 'simple pawn move will be discover attack and double attack how cool it is',
+      description:
+          'simple pawn move will be discover attack and double attack how cool it is',
     ),
-
-  
     ChessPuzzle(
       playersName: 'English, Bremen System (ECO A23-24)',
       isWhiteToMove: true,
       puzzle: 'r4rk1/pp1qbppp/2n1bn2/8/3NN3/3Q2P1/PP3PBP/R1BR2K1 w - - 0 1',
       solution: [
-        ['d4','c6'],
+        ['d4', 'c6'],
         'Qxd3',
-        ['c6','e7']
-      
+        ['c6', 'e7']
       ],
-      description: 'take that knight, there are 2 knights right ? ok now you decide which one is correct and why',
-    ),ChessPuzzle(
+      description:
+          'take that knight, there are 2 knights right ? ok now you decide which one is correct and why',
+    ),
+    ChessPuzzle(
       playersName: 'English, Bremen System (ECO A23-24)',
       isWhiteToMove: false,
-      puzzle: 'r2qkb1r/pQ1n1ppp/4bn2/3pp3/8/2N2NP1/PP1PPPBP/R1B1K2R b KQkq - 0 1',
+      puzzle:
+          'r2qkb1r/pQ1n1ppp/4bn2/3pp3/8/2N2NP1/PP1PPPBP/R1B1K2R b KQkq - 0 1',
       solution: [
-        ['d7','c5'],
+        ['d7', 'c5'],
         'Qb5',
-        ['e6','d7']
-      
+        ['e6', 'd7']
       ],
       description: 'poor queen',
     ),
-    
     ChessPuzzle(
       playersName: 'English, Three Knights System (ECO A27)',
       isWhiteToMove: true,
-      puzzle: 'r1bqk2r/ppppnp1p/2n3p1/3N2B1/2Pb4/8/PP2PPPP/R2QKB1R w KQkq - 0 1',
+      puzzle:
+          'r1bqk2r/ppppnp1p/2n3p1/3N2B1/2Pb4/8/PP2PPPP/R2QKB1R w KQkq - 0 1',
       solution: [
-        ['d1','d4'],
+        ['d1', 'd4'],
         'Nxd4',
-        ['d5','f6'],
+        ['d5', 'f6'],
         'Kf8',
-        ['g5','h6']
-      
+        ['g5', 'h6']
       ],
       description: 'sacrificing queen will make every chess player happy',
-    ),ChessPuzzle(
+    ),
+    ChessPuzzle(
       playersName: 'English, Four Knights, Kingside Fianchetto (ECO A29)',
       isWhiteToMove: true,
       puzzle: 'rq3rk1/1ppnb1pp/p3bp2/8/1P1QN3/P5P1/1B2PPBP/2R2RK1 w - - 0 1',
       solution: [
-        ['e4','g5'],
+        ['e4', 'g5'],
         'Bf5',
-        ['d4','d5']
-      
+        ['d4', 'd5']
       ],
-      description: 'there is no way for black to defend the piece if you move the knight first',
-    ),ChessPuzzle(
+      description:
+          'there is no way for black to defend the piece if you move the knight first',
+    ),
+    ChessPuzzle(
       playersName: 'English, Symmetrical, Benoni Formation (ECO A31)',
       isWhiteToMove: true,
       puzzle: 'rnbqkb1r/pp3ppp/8/1N1np3/8/8/PP2PPPP/RNBQKB1R w KQkq - 0 1',
       solution: [
-        ['d1','d5'],
-      
+        ['d1', 'd5'],
       ],
-      description: "simple but it happens on the board so many times, it's all about sacking",
+      description:
+          "simple but it happens on the board so many times, it's all about sacking",
     ),
- 
- 
   ];
 }

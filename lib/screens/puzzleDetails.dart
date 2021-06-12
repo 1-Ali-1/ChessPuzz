@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:chess_puzz/models/chessPuzzels.dart';
 import 'package:chess_puzz/models/puzzles.dart';
+import 'package:chess_puzz/screens/GenerateAd.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:provider/provider.dart';
 import 'package:chess_puzz/constants.dart';
@@ -10,7 +11,8 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'levels.dart';
 
 class PuzzleDetail extends StatefulWidget {
-  const PuzzleDetail({Key key, this.title, this.img, this.tag}) : super(key: key);
+  const PuzzleDetail({Key key, this.title, this.img, this.tag})
+      : super(key: key);
 
   _PuzzleDetailState createState() => _PuzzleDetailState();
   final title;
@@ -19,6 +21,8 @@ class PuzzleDetail extends StatefulWidget {
 }
 
 class _PuzzleDetailState extends State<PuzzleDetail> {
+  bool tempbool = true;
+
   Widget build(BuildContext context) {
     List<ChessPuzzle> checkMateInOne =
         Provider.of<Puzzles>(context, listen: false).checkMateInOne;
@@ -110,8 +114,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                           )),
                       Expanded(
                           flex: 2,
-                          child: Image.asset(
-                              'assets/img/check_mate_king.png'))
+                          child: Image.asset('assets/img/check_mate_king.png'))
                     ],
                   ),
                 ),
@@ -217,53 +220,94 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Levels(
-                                title: 'Check Mate In Four',
-                                puzzels: checkMateInFour,
-                              ))).then((value) => setState(() {}));
-                },
-                child: Container(
-                  height: 80,
-                  width: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: kPrimary_color.withOpacity(0.6),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10.0,
+              child: FutureBuilder(
+                future: Future.wait(
+                    [StoreData().getAttempt(), StoreData().read('tempbool')]),
+                builder: (context, snapshot) {
+                  return InkWell(
+                    onTap: () {
+                      if (!(snapshot.data[1])) {
+                        if (snapshot.data[0] < 30) {
+                          showAlertDialog(context);
+                        } else {
+                          showAlertDialogunlock(context);
+                        }
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Levels(
+                                      title: 'Check Mate In Four',
+                                      puzzels: checkMateInFour,
+                                    ))).then((value) => setState(() {}));
+                      }
+                    },
+                    child: Container(
+                      height: 80,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        color: kPrimary_color.withOpacity(0.6),
                       ),
-                      Expanded(
-                          flex: 1,
-                          child: RichText(
-                            text: TextSpan(
-                                text: 'Check Mate In ',
-                                style: TextStyle(
-                                    color: kSecondary_color, fontSize: 20),
-                                children: [
-                                  TextSpan(
-                                    text: 'Four',
-                                    style: TextStyle(
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  )
-                                ]),
-                          )),
-                      Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/img/check_mate_king.png'))
-                    ],
-                  ),
-                ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          (!(snapshot.data[1]))
+                              ? Expanded(
+                                  flex: 1,
+                                  child: RichText(
+                                    text: TextSpan(
+                                        text: 'LOCKED\n',
+                                        style: TextStyle(
+                                            color: Colors.red[400],
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold),
+                                        children: [
+                                          TextSpan(
+                                            text: '30 Keys neended',
+                                            style: TextStyle(
+                                                color: kSecondary_color,
+                                                fontSize: 16),
+                                          )
+                                        ]),
+                                  ))
+                              : Expanded(
+                                  flex: 1,
+                                  child: RichText(
+                                    text: TextSpan(
+                                        text: 'Check Mate In ',
+                                        style: TextStyle(
+                                            color: kSecondary_color,
+                                            fontSize: 20),
+                                        children: [
+                                          TextSpan(
+                                            text: 'Four',
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
+                                          )
+                                        ]),
+                                  )),
+                          Expanded(
+                              flex: 2,
+                              child: (!(snapshot.data[1]))
+                                  ? Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 10),
+                                      child: Image.asset('assets/img/lock.png'),
+                                    )
+                                  : Image.asset(
+                                      'assets/img/check_mate_king.png'))
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
-            ),
+            )
           ],
         ),
       );
@@ -552,84 +596,161 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Levels(
-                                title: 'Caro-Kann',
-                                puzzels: caroKann,
-                              ))).then((value) => setState(() {}));
-                },
-                child: Container(
-                  height: 80,
-                  width: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: kPrimary_color.withOpacity(0.6),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10.0,
+              child: FutureBuilder(
+                future: Future.wait([
+                  StoreData().getAttempt(),
+                  StoreData().read('tempboolForCaroKann')
+                ]),
+                builder: (context, snapshot) {
+                  return InkWell(
+                    onTap: () {
+                      if (!(snapshot.data[1])) {
+                        if (snapshot.data[0] < 30) {
+                          showAlertDialog(context);
+                        } else {
+                          showAlertDialogunlockForCaroKann(context);
+                        }
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Levels(
+                                      title: 'Caro-Kann',
+                                      puzzels: caroKann,
+                                    ))).then((value) => setState(() {}));
+                      }
+                    },
+                    child: Container(
+                      height: 80,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        color: kPrimary_color.withOpacity(0.6),
                       ),
-                      Expanded(
-                          flex: 1,
-                          child: Text(
-                            'Caro-Kann',
-                            style: TextStyle(
-                              color: kSecondary_color,
-                              fontSize: 19,
-                            ),
-                          )),
-                      Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/img/opening2.png'))
-                    ],
-                  ),
-                ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          (!(snapshot.data[1]))
+                              ? Expanded(
+                                  flex: 1,
+                                  child: RichText(
+                                    text: TextSpan(
+                                        text: 'LOCKED\n',
+                                        style: TextStyle(
+                                            color: Colors.red[400],
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold),
+                                        children: [
+                                          TextSpan(
+                                            text: '30 Keys neended',
+                                            style: TextStyle(
+                                                color: kSecondary_color,
+                                                fontSize: 16),
+                                          )
+                                        ]),
+                                  ))
+                              : Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Caro-Kann',
+                                    style: TextStyle(
+                                      color: kSecondary_color,
+                                      fontSize: 19,
+                                    ),
+                                  )),
+                          Expanded(
+                              flex: 2,
+                              child: !(snapshot.data[1])
+                                  ? Image.asset('assets/img/lock.png')
+                                  : Image.asset('assets/img/opening2.png'))
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Levels(
-                                title: 'English',
-                                puzzels: english,
-                              ))).then((value) => setState(() {}));
-                },
-                child: Container(
-                  height: 80,
-                  width: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: kPrimary_color.withOpacity(0.6),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10.0,
+              child: FutureBuilder(
+                future: Future.wait([
+                  StoreData().getAttempt(),
+                  StoreData().read('tempboolForEnglish')
+                ]),
+                builder: (context, snapshot) {
+                  return InkWell(
+                    onTap: () {
+                       if (!(snapshot.data[1])) {
+                        if (snapshot.data[0] < 30) {
+                          showAlertDialog(context);
+                        } else {
+                          showAlertDialogunlockForEnglish(context);
+                        }
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Levels(
+                                      title: 'English',
+                                      puzzels: english,
+                                    ))).then((value) => setState(() {}));
+                      }
+
+      
+
+                    },
+                    child: Container(
+                      height: 80,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        color: kPrimary_color.withOpacity(0.6),
                       ),
-                      Expanded(
-                          flex: 1,
-                          child: Text(
-                            'English',
-                            style: TextStyle(
-                              color: kSecondary_color,
-                              fontSize: 19,
-                            ),
-                          )),
-                      Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/img/opening2.png'))
-                    ],
-                  ),
-                ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          (!(snapshot.data[1]))
+                              ? Expanded(
+                                  flex: 1,
+                                  child: RichText(
+                                    text: TextSpan(
+                                        text: 'LOCKED\n',
+                                        style: TextStyle(
+                                            color: Colors.red[400],
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold),
+                                        children: [
+                                          TextSpan(
+                                            text: '30 Keys neended',
+                                            style: TextStyle(
+                                                color: kSecondary_color,
+                                                fontSize: 16),
+                                          )
+                                        ]),
+                                  ))
+                              : Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'English',
+                                    style: TextStyle(
+                                      color: kSecondary_color,
+                                      fontSize: 19,
+                                    ),
+                                  )),
+                          Expanded(
+                              flex: 2,
+                              child: !(snapshot.data[1])
+                                  ? Image.asset('assets/img/lock.png')
+                                  : Image.asset('assets/img/opening2.png'))
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -677,8 +798,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             ),
                           )),
                       Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/img/idea.png'))
+                          flex: 2, child: Image.asset('assets/img/idea.png'))
                     ],
                   ),
                 ),
@@ -768,42 +888,81 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Levels(
-                                  title: 'Sacrifice', puzzels: sacrifice)))
-                      .then((value) => setState(() {}));
-                },
-                child: Container(
-                  height: 80,
-                  width: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    color: kPrimary_color.withOpacity(0.6),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10.0,
+              child: FutureBuilder(
+                future: Future.wait([
+                  StoreData().getAttempt(),
+                  StoreData().read('tempboolForSacrifice')
+                ]),
+                builder: (context, snapshot) {
+                  return InkWell(
+                    onTap: () {
+                      if (!(snapshot.data[1])) {
+                        if (snapshot.data[0] < 30) {
+                          showAlertDialog(context);
+                        } else {
+                          showAlertDialogunlockForSacrifice(context);
+                        }
+                      } else {
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Levels(
+                                        title: 'Sacrifice',
+                                        puzzels: sacrifice)))
+                            .then((value) => setState(() {}));
+                      }
+                    },
+                    child: Container(
+                      height: 80,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        color: kPrimary_color.withOpacity(0.6),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          'Sacrifice',
-                          style: TextStyle(
-                            color: kSecondary_color,
-                            fontSize: 19,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10.0,
                           ),
-                        ),
+                          (!(snapshot.data[1]))
+                              ? Expanded(
+                                  flex: 1,
+                                  child: RichText(
+                                    text: TextSpan(
+                                        text: 'LOCKED\n',
+                                        style: TextStyle(
+                                            color: Colors.red[400],
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold),
+                                        children: [
+                                          TextSpan(
+                                            text: '30 Keys neended',
+                                            style: TextStyle(
+                                                color: kSecondary_color,
+                                                fontSize: 16),
+                                          )
+                                        ]),
+                                  ))
+                              : Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Sacrifice',
+                                    style: TextStyle(
+                                      color: kSecondary_color,
+                                      fontSize: 19,
+                                    ),
+                                  ),
+                                ),
+                          Expanded(
+                              flex: 2,
+                              child: !(snapshot.data[1])
+                                  ? Image.asset('assets/img/lock.png')
+                                  : Image.asset('assets/img/idea.png'))
+                        ],
                       ),
-                      Expanded(
-                          flex: 2, child: Image.asset('assets/img/idea.png'))
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -852,8 +1011,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             ),
                           )),
                       Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/img/player.png'))
+                          flex: 2, child: Image.asset('assets/img/player.png'))
                     ],
                   ),
                 ),
@@ -1034,7 +1192,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                             height: 120,
                             width: 120,
                             child: Hero(
-                                           tag: widget.tag,               child: Image.asset(
+                              tag: widget.tag,
+                              child: Image.asset(
                                 widget.img,
                                 fit: BoxFit.cover,
                               ),
@@ -1230,6 +1389,195 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                     child: CircularProgressIndicator(),
                   )),
       ),
+    );
+  }
+
+  showAlertDialogunlock(BuildContext context) {
+    // set up the buttons
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        "Locked",
+        style: TextStyle(
+          color: Colors.red[300],
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      content: Text('this section is locked you can unlock it with 30 keys',
+          style: TextStyle(color: kSecondary_color, fontSize: 16)),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              StoreData().unlocking();
+              Navigator.pop(context);
+              setState(() {});
+            },
+            child: Text(
+              'unlock',
+              style: TextStyle(),
+            ))
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+ showAlertDialogunlockForEnglish(BuildContext context) {
+    // set up the buttons
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        "Locked",
+        style: TextStyle(
+          color: Colors.red[300],
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      content: Text('this section is locked you can unlock it with 30 keys',
+          style: TextStyle(color: kSecondary_color, fontSize: 16)),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              StoreData().unlockingForEnglish();
+              Navigator.pop(context);
+              setState(() {});
+            },
+            child: Text(
+              'unlock',
+              style: TextStyle(),
+            ))
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+  showAlertDialogunlockForSacrifice(BuildContext context) {
+    // set up the buttons
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        "Locked",
+        style: TextStyle(
+          color: Colors.red[300],
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      content: Text('this section is locked you can unlock it with 30 keys',
+          style: TextStyle(color: kSecondary_color, fontSize: 16)),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              StoreData().unlockingForSacrifice();
+              Navigator.pop(context);
+              setState(() {});
+            },
+            child: Text(
+              'unlock',
+              style: TextStyle(),
+            ))
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showAlertDialogunlockForCaroKann(BuildContext context) {
+    // set up the buttons
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        "Locked",
+        style: TextStyle(
+          color: Colors.red[300],
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      content: Text('this section is locked you can unlock it with 30 keys',
+          style: TextStyle(color: kSecondary_color, fontSize: 16)),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              StoreData().unlockingForCaroKann();
+              Navigator.pop(context);
+              setState(() {});
+            },
+            child: Text(
+              'unlock',
+              style: TextStyle(),
+            ))
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+    // set up the buttons
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        "Locked",
+        style: TextStyle(
+          color: Colors.red,
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      content: Text('this section is locked you can unlock it with 30 keys',
+          style: TextStyle(color: kSecondary_color, fontSize: 16)),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AdScreen()))
+                  .then((value) => setState(() {}));
+            },
+            child: Text(
+              'Get keys',
+              style: TextStyle(),
+            ))
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

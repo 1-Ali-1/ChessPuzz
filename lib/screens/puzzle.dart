@@ -424,6 +424,7 @@ class _PuzzleState extends State<Puzzle> {
                                                                                                           ? StoreData().save('NimzoIndian${widget.puzzleNumber}', true)
                                                                                                           : widget.title == 'Ruy Lopez'
                                                                                                               ? StoreData().save('Ruy Lopez${widget.puzzleNumber}', true)
+                                                         
                                                                                                               : StoreData().save('T2018${widget.puzzleNumber}', true);
                                   ///////////
                                   widget.title == 'Pin'
@@ -490,6 +491,9 @@ class _PuzzleState extends State<Puzzle> {
 
                                   StoreData().looseAttempt();
                                 } else {
+
+                                      if(nextFen != null){
+                                      
                                   StoreData().looseAttempt();
                                   // audio.play('alert_error-01.mp3',
                                   //   mode: PlayerMode.LOW_LATENCY, volume: 5,stayAwake: false);
@@ -506,6 +510,9 @@ class _PuzzleState extends State<Puzzle> {
                                     description:
                                         'may be your move is not bad  but only best move considered here ',
                                   );
+                                      }
+
+
                                 }
 
                                 // alert dialog to say success
@@ -527,7 +534,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -543,6 +550,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
@@ -679,7 +687,7 @@ class _PuzzleState extends State<Puzzle> {
                                       );
                                       StoreData().looseAttempt();
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -695,6 +703,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
@@ -717,7 +726,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -733,6 +742,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
@@ -750,7 +760,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -766,6 +776,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
                                   case 2:
@@ -901,7 +912,7 @@ class _PuzzleState extends State<Puzzle> {
                                       );
                                       StoreData().looseAttempt();
                                     } else {
-                                      StoreData().looseAttempt();
+                                      if(nextFen != null){StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -917,6 +928,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
@@ -940,7 +952,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -956,6 +968,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
@@ -973,7 +986,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -989,6 +1002,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
                                   case 2:
@@ -1005,7 +1019,7 @@ class _PuzzleState extends State<Puzzle> {
                                         });
                                       }
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -1021,6 +1035,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
                                   case 3:
@@ -1156,7 +1171,7 @@ class _PuzzleState extends State<Puzzle> {
                                       );
                                       StoreData().looseAttempt();
                                     } else {
-                                      StoreData().looseAttempt();
+                                     if(nextFen != null){ StoreData().looseAttempt();
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
@@ -1172,6 +1187,7 @@ class _PuzzleState extends State<Puzzle> {
                                         description:
                                             'may be your move is not bad  but only best move considered here ',
                                       );
+                                      }
                                     }
                                     break;
 
