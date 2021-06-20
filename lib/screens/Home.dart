@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/screens/puzzleDetails.dart';
