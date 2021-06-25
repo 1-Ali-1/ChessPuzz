@@ -1,3 +1,4 @@
+import 'package:chess_puzz/services/notification.dart';
 import 'package:chess_puzz/widget/tempScreen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:chess_puzz/models/chessPuzzels.dart';
@@ -24,6 +25,10 @@ class Main extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: (context) => ChessPuzzle(),
+            child: Home(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => notifications(),
             child: Home(),
           )
         ],

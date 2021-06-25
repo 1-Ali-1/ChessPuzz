@@ -324,7 +324,9 @@ class _PuzzleState extends State<Puzzle> {
                         ),
                       ),
                     ),
-                    Spacer(),
+                    Spacer(
+                      flex: 2,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
@@ -428,7 +430,9 @@ class _PuzzleState extends State<Puzzle> {
                               style: TextStyle(
                                   color: kSecondary_color, fontSize: 18),
                             )),
-                        Spacer(),
+                        Spacer(
+                          flex: 1,
+                        ),
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(
@@ -440,7 +444,7 @@ class _PuzzleState extends State<Puzzle> {
                             onPressed: () async {
                               final image = await screenshotController
                                   .captureFromWidget(Chessboard(
-                                fen: widget.puzzle,
+                                fen: widget.rePuzzle,
                                 size: size.width * 0.94,
                                 orientation: Provider.of<ChessPuzzle>(context,
                                             listen: false)
@@ -1501,8 +1505,12 @@ class _PuzzleState extends State<Puzzle> {
     image.writeAsBytesSync(bytes);
 
     await Share.shareFiles([image.path],
-        subject: 'From ChessPuzz App ${widget.title}',
-        text: 'From ChessPuzz App ${widget.title}');
+
+        //! the link of your app will goes here
+        subject: 'From ChessPuzz App ',
+        text: Provider.of<ChessPuzzle>(context, listen: false).isWhiteToMove
+            ? 'White To Move ${widget.title}'
+            : 'Black To Move ${widget.title}');
   }
 }
 

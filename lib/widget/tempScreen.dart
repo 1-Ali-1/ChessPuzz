@@ -8,7 +8,6 @@ class Temp extends StatelessWidget {
   final assetsAudioPlayer = AssetsAudioPlayer();
   Widget build(BuildContext context) {
     
-    print(Provider.of<Puzzles>(context).music);
     if (Provider.of<Puzzles>(context).music) {
       assetsAudioPlayer.open(
           Playlist(

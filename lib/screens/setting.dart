@@ -1,7 +1,10 @@
 import 'package:chess_puzz/constants.dart';
+import 'package:chess_puzz/models/puzzles.dart';
+import 'package:chess_puzz/screens/GenerateAd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stateless_chessboard/flutter_stateless_chessboard.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
+import 'package:provider/provider.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -39,8 +42,65 @@ class _SettingState extends State<Setting> {
           scrollDirection: Axis.vertical,
           children: [
             SizedBox(
-              height: 50.0,
+              height: 20.0,
             ),
+            
+             Row(
+                  children: [
+                    Text(
+                      "Sound FX",
+                      style: TextStyle(color: kSecondary_color, fontSize: 19),
+                    ),
+                    Switch(
+                      value: Provider.of<Puzzles>(context).soundFx,
+                      onChanged: (v) {
+                        Provider.of<Puzzles>(context, listen: false).muteFx();
+                      },
+                      inactiveThumbColor: kSecondary_color,
+                      activeColor: kswitch,
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Music",
+                      style: TextStyle(color: kSecondary_color, fontSize: 19),
+                    ),
+                    Switch(
+                      value: Provider.of<Puzzles>(context).music,
+                      onChanged: (v) {
+                        Provider.of<Puzzles>(context, listen: false)
+                            .muteMusic();
+                      },
+                      inactiveThumbColor: kSecondary_color,
+                      activeColor: kswitch,
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 18),
+                ),
+
+                
+                  ElevatedButton( onPressed: (){
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AdScreen()));
+                  },
+                                      child: Text(
+                     "Get 15 Keys",
+                     style: TextStyle(color: kSecondary_color, fontSize: 19, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                  child: Divider(color: kswitch),
+                ),
+
+                
+
             Text(
               'choose Board theme',
               style: TextStyle(color: kSecondary_color, fontSize: 22),
@@ -100,7 +160,7 @@ class _SettingState extends State<Setting> {
               ],
             ),
             SizedBox(
-              height: 70,
+              height: 30,
             ),
             Center(
               child: Container(
