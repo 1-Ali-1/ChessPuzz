@@ -180,4 +180,18 @@ class StoreData {
       StoreData().save('tempboolForEnglish', true);
     }
   }
+
+  
+  void firstTimesave(bool iSsolved) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('first', iSsolved);
+  }
+
+  Future<bool> firstTimeread(key) async {
+    final prefs = await SharedPreferences.getInstance();
+    var value = prefs.getBool(key) ?? false;
+    return value;
+  }
+
 }

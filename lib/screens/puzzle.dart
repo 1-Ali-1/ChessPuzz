@@ -69,7 +69,7 @@ class _PuzzleState extends State<Puzzle> {
                       Shadow(
                           color: Colors.black87,
                           blurRadius: 1,
-                          offset: Offset(0, 0.4))
+                          offset: Offset(0, 1))
                     ])),
             leading: GestureDetector(
               onTap: () {

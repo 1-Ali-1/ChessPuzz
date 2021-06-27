@@ -41,14 +41,14 @@ class notifications extends ChangeNotifier {
     await _flutterLocalNotificationsPlugin.periodicallyShow(
         0,
         "Solve puzzles daily",
-        "to get better at chess",
+        "to be a better player",
         interval,
         platform);
   }
 
   
 
-  //? this function is for muting notificaions in the app
+  //? this function is for muting notifications in the app
 
   Future cancelNotification() async {
     await _flutterLocalNotificationsPlugin.cancelAll();

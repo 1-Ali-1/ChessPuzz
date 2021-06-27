@@ -22,9 +22,11 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    StoreData().firstTimesave(true);
     return Scaffold(
         backgroundColor: Color(0xFF407093),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Color(0xFF407093),
           shadowColor: Colors.transparent,
         ),
@@ -50,7 +52,6 @@ class _HomeState extends State<Home> {
                       builder: (context, snapshot) => snapshot.hasData
                           ? GestureDetector(
                               onTap: () {
-                                
                                 Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -114,7 +115,8 @@ class _HomeState extends State<Home> {
                     scrollDirection: Axis.vertical,
                     children: [
                       InkWell(
-                          onTap: () {model.sheduledNotification();
+                          onTap: () async {
+                            await model.sheduledNotification();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -130,7 +132,8 @@ class _HomeState extends State<Home> {
                             title: 'Tactics for beginner',
                           )),
                       InkWell(
-                        onTap: () {model.sheduledNotification();
+                        onTap: () async {
+                          await model.sheduledNotification();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -147,7 +150,8 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {model.sheduledNotification();
+                        onTap: () async {
+                          await model.sheduledNotification();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -164,7 +168,8 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       InkWell(
-                          onTap: () {model.sheduledNotification();
+                          onTap: () async {
+                            await model.sheduledNotification();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -180,7 +185,8 @@ class _HomeState extends State<Home> {
                             title: 'Tactics With Top Players',
                           )),
                       InkWell(
-                          onTap: () {model.sheduledNotification();
+                          onTap: () async {
+                            await model.sheduledNotification();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -196,7 +202,8 @@ class _HomeState extends State<Home> {
                             title: 'Master Chess Puzzle',
                           )),
                       InkWell(
-                          onTap: () {model.sheduledNotification();
+                          onTap: () async {
+                            await model.sheduledNotification();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

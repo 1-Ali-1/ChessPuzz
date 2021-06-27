@@ -83,20 +83,24 @@ class _SettingState extends State<Setting> {
                 ),
 
                 
-                  ElevatedButton( onPressed: (){
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AdScreen()));
-                  },
-                                      child: Text(
-                     "Get 15 Keys",
-                     style: TextStyle(color: kSecondary_color, fontSize: 19, fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: EdgeInsets.only(right: size.width/2),
+                    child: ElevatedButton( onPressed: (){
+                       Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AdScreen()));
+                    }, 
+                                        child: Text(
+                       "Get 15 Keys",
+                       style: TextStyle(color: kPrimary_color, fontSize: 19, fontWeight: FontWeight.bold),
+                      ),
+                 style: ElevatedButton.styleFrom(primary: kSecondary_color),
                     ),
                   ),
                 
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-                  child: Divider(color: kswitch),
+                  child: Divider(color: kswitch,thickness: 1.0,),
                 ),
 
                 
