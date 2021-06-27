@@ -34,7 +34,7 @@ class KeyInf extends StatelessWidget {
               height: 50.0,
             ),
             const Text(
-              "need keys to solve puzzles first you have 15 keys you after solving or missing any puzzle you loose one key",
+              "first you have 15 keys after solving or missing any puzzle you loose one key",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: kSecondary_color,
