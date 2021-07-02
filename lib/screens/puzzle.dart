@@ -317,7 +317,8 @@ class _PuzzleState extends State<Puzzle> {
                                                       : snapshot.data == 5
                                                           ? kpinkblack
                                                               .withOpacity(0.8)
-                                                          : null,
+                                                          : kdeafultBlack
+                                                              .withOpacity(0.8),
                                 )
                               ]),
                           child: buildChessboard(snapshot, size, context),
@@ -478,9 +479,9 @@ class _PuzzleState extends State<Puzzle> {
                           decoration: BoxDecoration(boxShadow: [
                             BoxShadow(
                                 offset: Offset(1, -1),
-                                color: kadpage.withOpacity(0.7),
-                                blurRadius: 14,
-                                spreadRadius: 5)
+                                color: kadpage.withOpacity(0.5),
+                                blurRadius: 8,
+                                spreadRadius: 3)
                           ]),
                           height: size.height * 0.5,
                           width: size.width * 0.94,

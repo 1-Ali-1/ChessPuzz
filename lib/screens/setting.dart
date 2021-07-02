@@ -44,63 +44,65 @@ class _SettingState extends State<Setting> {
             SizedBox(
               height: 20.0,
             ),
-            
-             Row(
-                  children: [
-                    Text(
-                      "Sound FX",
-                      style: TextStyle(color: kSecondary_color, fontSize: 19),
-                    ),
-                    Switch(
-                      value: Provider.of<Puzzles>(context).soundFx,
-                      onChanged: (v) {
-                        Provider.of<Puzzles>(context, listen: false).muteFx();
-                      },
-                      inactiveThumbColor: kSecondary_color,
-                      activeColor: kswitch,
-                    )
-                  ],
+            Row(
+              children: [
+                Text(
+                  "Sound FX",
+                  style: TextStyle(color: kSecondary_color, fontSize: 19),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "Music",
-                      style: TextStyle(color: kSecondary_color, fontSize: 19),
-                    ),
-                    Switch(
-                      value: Provider.of<Puzzles>(context).music,
-                      onChanged: (v) {
-                        Provider.of<Puzzles>(context, listen: false)
-                            .muteMusic();
-                      },
-                      inactiveThumbColor: kSecondary_color,
-                      activeColor: kswitch,
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 18),
-                ),
-
-                
-                  ElevatedButton( onPressed: (){
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AdScreen()));
+                Switch(
+                  value: Provider.of<Puzzles>(context).soundFx,
+                  onChanged: (v) {
+                    Provider.of<Puzzles>(context, listen: false).muteFx();
                   },
-                                      child: Text(
-                     "Get 15 Keys",
-                     style: TextStyle(color: kSecondary_color, fontSize: 19, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-                  child: Divider(color: kswitch),
+                  inactiveThumbColor: kSecondary_color,
+                  activeColor: kswitch,
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "Music",
+                  style: TextStyle(color: kSecondary_color, fontSize: 19),
                 ),
-
-                
-
+                Switch(
+                  value: Provider.of<Puzzles>(context).music,
+                  onChanged: (v) {
+                    Provider.of<Puzzles>(context, listen: false).muteMusic();
+                  },
+                  inactiveThumbColor: kSecondary_color,
+                  activeColor: kswitch,
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 18),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: size.width / 2),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: kSecondary_color),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AdScreen()));
+                },
+                child: Text(
+                  "Get 15 Keys",
+                  style: TextStyle(
+                    color: kthird_color,
+                    fontSize: 19,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              child: Divider(
+                color: kswitch,
+                thickness: 2,
+              ),
+            ),
             Text(
               'choose Board theme',
               style: TextStyle(color: kSecondary_color, fontSize: 22),

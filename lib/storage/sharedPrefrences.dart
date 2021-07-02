@@ -18,7 +18,7 @@ class StoreData {
     prefs.setBool(key, iSsolved);
   }
 
-  Future<bool> read(key) async {
+  Future<bool> read( key) async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getBool(key) ?? false;
     return value;

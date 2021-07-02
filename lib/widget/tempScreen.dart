@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:provider/provider.dart';
 
+import 'first_time.dart';
+
 class Temp extends StatelessWidget {
   final assetsAudioPlayer = AssetsAudioPlayer();
   Widget build(BuildContext context) {
@@ -24,6 +26,6 @@ class Temp extends StatelessWidget {
     } else {
       assetsAudioPlayer.stop();
     }
-    return FirstPlace();
+    return FirstTime();
   }
 }
