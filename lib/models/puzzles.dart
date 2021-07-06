@@ -1374,7 +1374,7 @@ class Puzzles extends ChangeNotifier {
         description: 'where do you put your bishop'),
     ChessPuzzle(
         isWhiteToMove: false,
-        puzzle: '2k5/p7/Ppb5/3p1p2/5P2/5KBP/3r4/1R6 w - - 0 1',
+        puzzle: '2k5/p7/Ppb5/3p1p2/5P2/5KBP/3r4/1R6 b - - 0 1',
         solution: [
           ['d5', 'd4']
         ],

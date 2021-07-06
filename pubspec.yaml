@@ -37,6 +37,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_local_notifications: 5.0.0
   flutter_native_splash: null
+  flutter_spinkit: ^5.0.0
   flutter_stateless_chessboard: ^0.0.6
   giffy_dialog: ^1.8.0
   google_fonts: ^2.0.0

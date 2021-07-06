@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../constants.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class AdScreen extends StatefulWidget {
   @override
@@ -133,18 +134,20 @@ class _AdState extends State<AdScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: Text('please wait',
+                            child: Text('please wait ..',
                                 style: TextStyle(
                                   color: kSecondary_color,
-                                  fontSize: 26.0,
+                                  fontSize: 21.0,
                                 )),
                           ),
                           SizedBox(
-                            height: 25.0,
+                            height: 30.0,
                           ),
                           Center(
-                            child: CircularProgressIndicator(),
-                          ),
+                              child: SpinKitWanderingCubes(
+                            color: kSecondary_color,
+                            size: 50.0,
+                          )),
                         ],
                       );
           },

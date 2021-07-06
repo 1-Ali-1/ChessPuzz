@@ -80,7 +80,7 @@ class _SettingState extends State<Setting> {
               padding: EdgeInsets.only(bottom: 18),
             ),
             Padding(
-              padding: EdgeInsets.only(right: size.width / 2),
+              padding: EdgeInsets.only(right: size.width * 0.48),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: kSecondary_color),
                 onPressed: () {

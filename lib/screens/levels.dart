@@ -18,7 +18,6 @@ class Levels extends StatefulWidget {
 
 class _LevelsState extends State<Levels> {
   @override
-  @override
   Widget build(BuildContext context) {
     List<ChessPuzzle> pin = Provider.of<Puzzles>(context, listen: false).pin;
     List<ChessPuzzle> t2019 =
@@ -60,6 +59,8 @@ class _LevelsState extends State<Levels> {
     List<ChessPuzzle> nimzoIndian =
         Provider.of<Puzzles>(context, listen: false).nimzoIndian;
 
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: kthird_color,
       appBar: AppBar(
@@ -70,14 +71,15 @@ class _LevelsState extends State<Levels> {
           child: Icon(
             Icons.arrow_back,
             color: kSecondary_color,
-            size: 30,
+            size: 650 < size.width ? 40 : 30,
           ),
         ),
         backgroundColor: kthird_color,
         elevation: 0.0,
         title: Text(
           widget.title,
-          style: TextStyle(color: kSecondary_color, fontSize: 25.0),
+          style: TextStyle(
+              color: kSecondary_color, fontSize: size.width > 650 ? 35 : 25.0),
         ),
         centerTitle: true,
       ),
@@ -93,7 +95,7 @@ class _LevelsState extends State<Levels> {
                 width: double.infinity,
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
+                    crossAxisCount: size.width > 650 ? 5 : 4,
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 10.0,
                   ),

@@ -1,6 +1,7 @@
 import 'package:animated_drawer/views/animated_drawer.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/screens/Home.dart';
+import 'package:chess_puzz/screens/about_app.dart';
 import 'package:chess_puzz/screens/howkeyworks.dart';
 import 'package:chess_puzz/screens/setting.dart';
 import 'package:flutter/material.dart';
@@ -54,14 +55,14 @@ class FirstPlace extends StatelessWidget {
                       )),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Chess",
                         style: TextStyle(
                             fontSize: 25,
                             color: kSecondary_color,
                             fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                         "Puzz",
                         style: TextStyle(
                             fontSize: 25,
@@ -75,7 +76,7 @@ class FirstPlace extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Sound FX",
                         style: TextStyle(color: kSecondary_color, fontSize: 19),
                       ),
@@ -91,7 +92,7 @@ class FirstPlace extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Music",
                         style: TextStyle(color: kSecondary_color, fontSize: 19),
                       ),
@@ -133,9 +134,15 @@ class FirstPlace extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(bottom: 20),
                   ),
-                  const Text(
-                    "About App",
-                    style: TextStyle(color: kSecondary_color, fontSize: 19),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AboutApp()));
+                    },
+                    child: const Text(
+                      "About App",
+                      style: TextStyle(color: kSecondary_color, fontSize: 19),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 20),
@@ -145,7 +152,7 @@ class FirstPlace extends StatelessWidget {
                     thickness: 1.5,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 50),
+                    padding: EdgeInsets.only(bottom: 30),
                   ),
                   const Text(
                     "keep improving\n have fun",

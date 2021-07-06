@@ -22,8 +22,9 @@ class PuzzleDetail extends StatefulWidget {
 
 class _PuzzleDetailState extends State<PuzzleDetail> {
   bool tempbool = true;
-
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     List<ChessPuzzle> checkMateInOne =
         Provider.of<Puzzles>(context, listen: false).checkMateInOne;
     List<ChessPuzzle> t2019 =
@@ -98,12 +99,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text: TextSpan(
+                            text:const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 20),
                                 children: [
-                                  TextSpan(
+                                 const TextSpan(
                                     text: 'One',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -147,12 +148,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text: TextSpan(
+                            text:const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 20),
                                 children: [
-                                  TextSpan(
+                                 const TextSpan(
                                     text: 'Two',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -196,12 +197,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text: TextSpan(
+                            text:const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 19),
                                 children: [
-                                  TextSpan(
+                                 const TextSpan(
                                     text: 'Three',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -265,7 +266,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.bold),
                                         children: [
-                                          TextSpan(
+                                       const   TextSpan(
                                             text: '30 Keys neended',
                                             style: TextStyle(
                                                 color: kSecondary_color,
@@ -276,13 +277,13 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                               : Expanded(
                                   flex: 1,
                                   child: RichText(
-                                    text: TextSpan(
+                                    text:const TextSpan(
                                         text: 'Check Mate In ',
                                         style: TextStyle(
                                             color: kSecondary_color,
                                             fontSize: 20),
                                         children: [
-                                          TextSpan(
+                                          const TextSpan(
                                             text: 'Four',
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -682,7 +683,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                 builder: (context, snapshot) {
                   return InkWell(
                     onTap: () {
-                       if (!(snapshot.data[1])) {
+                      if (!(snapshot.data[1])) {
                         if (snapshot.data[0] < 30) {
                           showAlertDialog(context);
                         } else {
@@ -697,9 +698,6 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                       puzzels: english,
                                     ))).then((value) => setState(() {}));
                       }
-
-      
-
                     },
                     child: Container(
                       height: 80,
@@ -1153,14 +1151,15 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           child: Icon(
             Icons.arrow_back,
             color: kSecondary_color,
-            size: 30,
+            size: size.width > 650 ? 40 : 30,
           ),
         ),
         backgroundColor: kthird_color,
         elevation: 0.0,
         title: Text(
           widget.title,
-          style: TextStyle(color: kSecondary_color, fontSize: 25.0),
+          style: TextStyle(
+              color: kSecondary_color, fontSize: size.width > 650 ? 35 : 25.0),
         ),
         centerTitle: true,
       ),
@@ -1429,7 +1428,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
       },
     );
   }
- showAlertDialogunlockForEnglish(BuildContext context) {
+
+  showAlertDialogunlockForEnglish(BuildContext context) {
     // set up the buttons
 
     // set up the AlertDialog
@@ -1466,6 +1466,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
       },
     );
   }
+
   showAlertDialogunlockForSacrifice(BuildContext context) {
     // set up the buttons
 

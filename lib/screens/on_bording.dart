@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fancy_on_boarding/fancy_on_boarding.dart';
 
 class OnBording extends StatelessWidget {
+  
   final pageList = [
     PageModel(
         color: Colors.blueGrey[800],
@@ -14,7 +15,7 @@ class OnBording extends StatelessWidget {
               color: kthird_color,
               fontSize: 30.0,
             )),
-        body: Text('you can solve a ton of great and very useful puzzles',
+        body: Text('you can solve a ton of great and useful puzzles',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: kthird_color,
@@ -47,12 +48,16 @@ class OnBording extends StatelessWidget {
               color: kSecondary_color,
               fontSize: 30.0,
             )),
-        body: Text('you can solve puzzles offline as long as you have keys',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: kSecondary_color,
-              fontSize: 20.0,
-            )),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(
+              'you can solve puzzles offline as long as you have keys and you can get keys by watching short videos',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: kSecondary_color,
+                fontSize: 20.0,
+              )),
+        ),
         iconImagePath: 'assets/img/no-wifi.png'),
   ];
 

@@ -9,7 +9,6 @@ import 'first_time.dart';
 class Temp extends StatelessWidget {
   final assetsAudioPlayer = AssetsAudioPlayer();
   Widget build(BuildContext context) {
-    
     if (Provider.of<Puzzles>(context).music) {
       assetsAudioPlayer.open(
           Playlist(

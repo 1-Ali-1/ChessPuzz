@@ -27,26 +27,19 @@ class notifications extends ChangeNotifier {
 
   Future sheduledNotification() async {
     var interval = RepeatInterval.daily;
-     var android = AndroidNotificationDetails("id", "channel", "description",
+    var android = AndroidNotificationDetails("id", "channel", "description",
         color: kdeafultBlack,
         enableLights: false,
         enableVibration: true,
         largeIcon: DrawableResourceAndroidBitmap("splash"),
-        styleInformation: MediaStyleInformation( 
+        styleInformation: MediaStyleInformation(
             htmlFormatContent: true, htmlFormatTitle: true));
 
     var platform = new NotificationDetails(android: android);
 
-  
     await _flutterLocalNotificationsPlugin.periodicallyShow(
-        0,
-        "Solve puzzles daily",
-        "to get better at chess",
-        interval,
-        platform);
+        0, "Solve puzzles daily", "to get better at chess", interval, platform);
   }
-
-  
 
   //? this function is for muting notificaions in the app
 

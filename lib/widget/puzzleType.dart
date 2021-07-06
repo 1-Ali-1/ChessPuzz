@@ -46,7 +46,7 @@ class PuzzleType extends StatelessWidget {
           ),
           color: kPrimary_color.withOpacity(0.85),
         ),
-        SizedBox(
+      const  SizedBox(
           height: 10,
         )
       ],
