@@ -99,12 +99,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text:const TextSpan(
+                            text: const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 20),
                                 children: [
-                                 const TextSpan(
+                                  const TextSpan(
                                     text: 'One',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -148,12 +148,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text:const TextSpan(
+                            text: const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 20),
                                 children: [
-                                 const TextSpan(
+                                  const TextSpan(
                                     text: 'Two',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -197,12 +197,12 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                       Expanded(
                           flex: 1,
                           child: RichText(
-                            text:const TextSpan(
+                            text: const TextSpan(
                                 text: 'Check Mate In ',
                                 style: TextStyle(
                                     color: kSecondary_color, fontSize: 19),
                                 children: [
-                                 const TextSpan(
+                                  const TextSpan(
                                     text: 'Three',
                                     style: TextStyle(
                                         color: Colors.blue,
@@ -266,7 +266,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.bold),
                                         children: [
-                                       const   TextSpan(
+                                          const TextSpan(
                                             text: '30 Keys neended',
                                             style: TextStyle(
                                                 color: kSecondary_color,
@@ -277,7 +277,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                               : Expanded(
                                   flex: 1,
                                   child: RichText(
-                                    text:const TextSpan(
+                                    text: const TextSpan(
                                         text: 'Check Mate In ',
                                         style: TextStyle(
                                             color: kSecondary_color,
