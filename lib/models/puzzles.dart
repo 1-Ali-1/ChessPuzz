@@ -27,8 +27,7 @@ class Puzzles extends ChangeNotifier {
         'Qxc6',
         ['f6', 'e7']
       ],
-      description:
-          'there is some check mate threat but blacks queen provent it',
+      description: 'There is a checkmate threat but blacks queen prevent it',
     ),
     ChessPuzzle(
         isWhiteToMove: false,
@@ -36,16 +35,16 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['e6', 'e1'],
           'Kh2',
-          ['nf6', 'g4']
+          ['f6', 'g4']
         ],
-        description: 'pin the rook to gain queen'),
+        description: 'Pin the rook to gain queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '1n6/1p6/2k1q1p1/1p2n1Pp/2p4P/2Q2P2/PPP5/2KR4 w - - 0 1',
         solution: [
           ['d1', 'e1']
         ],
-        description: 'night and the queen are on the same file'),
+        description: 'Night and the queen are on the same file'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '7r/p5p1/7k/2Np3p/3P4/2P2Q2/Pr5q/R4K2 b - - 0 1',
@@ -54,7 +53,8 @@ class Puzzles extends ChangeNotifier {
           'Qxf8',
           ['h2', 'h1']
         ],
-        description: 'queen and the king are on the same file'),
+        description:
+            'Queen and the king are on the same file move away whites queen'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '4rr1k/1p4p1/p1pp3p/2P5/Q3B3/PPP3Pb/5q1P/R3R2K b - - 0 1',
@@ -63,7 +63,7 @@ class Puzzles extends ChangeNotifier {
           'Bxg2',
           ['e8', 'e1']
         ],
-        description: 'what happen if we remove whits bishop'),
+        description: 'Move away whits bishop'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle:
@@ -73,7 +73,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'g6', 'to': 'h5'},
           ['b1', 'h7']
         ],
-        description: 'there is forced check mate'),
+        description: 'There is a forced checkmate move Queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '5rk1/1p1rnqpp/p1pb1p2/P3p3/4P3/1PQNB3/1P3PPP/3R1RK1 w - - 0 1',
@@ -82,7 +82,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'd7', 'to': 'd8'},
           ['c5', 'b7']
         ],
-        description: 'seek for annoying pin'),
+        description: 'Search for annoying pin'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle:
@@ -92,7 +92,8 @@ class Puzzles extends ChangeNotifier {
           {'from': 'b6', 'to': 'f6'},
           ['d2', 'g5']
         ],
-        description: 'try check mate black through you will win a heavy piece'),
+        description:
+            'First, exchange your bishop for his knight then Try checkmate black'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r7/1p1qnQpk/1pp5/3pP1B1/3P2b1/7P/PP6/5RK1 w - - 0 1',
@@ -103,7 +104,8 @@ class Puzzles extends ChangeNotifier {
           'Kh8',
           ['f6', 'f7']
         ],
-        description: 'there is a pinned pawn try to take advantage of it'),
+        description:
+            'There is a pinned pawn try to take advantage of it and join rook to the party'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '3r2k1/2qn1p1p/4p1pB/4P2P/7Q/3R4/1r3PP1/3R2K1 w - - 0 1',
@@ -112,7 +114,7 @@ class Puzzles extends ChangeNotifier {
           'Nxf6',
           ['d3', 'd8']
         ],
-        description: 'what if there is no knight here at this position'),
+        description: 'Checkmate in 2, use queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '3rk2r/1q2bpp1/2p2n1p/1p3Q2/3P1B2/5N2/1P3PPP/R3R1K1 w k - 0 1',
@@ -121,7 +123,7 @@ class Puzzles extends ChangeNotifier {
           'Kxe7',
           ['a1', 'e1'],
         ],
-        description: 'king in the center attack on it'),
+        description: 'King in the center attack on it'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r1b3k1/p1q2r1p/2p1p2Q/5p1p/2B5/2N2P2/PPP5/1K1R4 w - - 0 1',
@@ -132,7 +134,8 @@ class Puzzles extends ChangeNotifier {
           'Kf7',
           ['g5', 'f5']
         ],
-        description: 'do not think about check the king with rook first move'),
+        description:
+            "Don't think about check the king with a rook in the first move"),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '6k1/p1p2rb1/4Q2R/5p2/2N4P/1P1qP1P1/PB5K/8 w - - 0 1',
@@ -142,7 +145,7 @@ class Puzzles extends ChangeNotifier {
           ['h6', 'h8'],
         ],
         description:
-            'your bishop is so strong that can help you with pinning blacks bishop'),
+            'Your bishop is so strong that can help you with pinning blacks bishop'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '3qn1k1/2r1r1bN/1pp3Q1/p2pPN2/P2P4/1P4P1/5PK1/7R w - - 0 1',
@@ -151,7 +154,7 @@ class Puzzles extends ChangeNotifier {
           'Kh8',
           ['h7', 'g5'],
         ],
-        description: 'two first moves are with both knights '),
+        description: 'Two first moves are with both knights '),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '8/1R3p1p/4pk2/8/PP3pn1/8/5PPP/2r2BK1 b - - 0 34',
@@ -163,7 +166,7 @@ class Puzzles extends ChangeNotifier {
           ['e3', 'e2']
         ],
         description:
-            'this is very tricky whites bishop is pinned so try to attack on it'),
+            'This is very tricky whites bishop is pinned so try to attack it'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '3r1rk1/pp2q2p/2p1bp2/4P2Q/8/P1N1R3/1P4PP/5R1K w - - 0 28',
@@ -177,7 +180,7 @@ class Puzzles extends ChangeNotifier {
           ['e3', 'f3']
         ],
         description:
-            'at the end blacks queen will gone.  first move with pawn not rook'),
+            'At the end blacks queen will gone.  First move is with pawn not rook'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r1r3k1/5pbp/1q2p1p1/2npP3/p2N1B2/Q3P3/P4PPP/R1R3K1 w - - 0 22',
@@ -191,7 +194,7 @@ class Puzzles extends ChangeNotifier {
           ['b1', 'b5']
         ],
         description:
-            'How can white take advantage of the exposed queen and the pinned knight ?'),
+            'How can white take advantages of the exposed queen and the pinned knight?'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: 'q5k1/5pp1/8/1pb1P3/2p4p/2P2r1P/1P3PQ1/1N3R1K b - - 0 1',
@@ -201,14 +204,15 @@ class Puzzles extends ChangeNotifier {
           ['h3', 'g3'],
         ],
         description:
-            'do not afraid of loosing your rook because of great support from back by queen and bishop that pinned every thing'),
+            "don't afraid of losing your rook because of great support from back by queen and bishop that pinned everything"),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '4r1r1/2p5/1p1kn3/p1p1R1p1/P6p/5N1P/1PP1R1PK/8 w - - 0 1',
         solution: [
           ['f3', 'g5'],
         ],
-        description: 'two first moves are with both knights '),
+        description:
+            'There is already a pinned knight you just needs to attack it'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '1r5k/1P3pp1/2b4p/8/8/4BPP1/5P2/4R1K1 w - - 0 1',
@@ -220,7 +224,7 @@ class Puzzles extends ChangeNotifier {
           ['e3', 'a7'],
         ],
         description:
-            'forget about your pawn unfortunately he can not become queen one day but he can help you with pinning bishop'),
+            'Forget about your pawn unfortunately he can not become queen one day but he can help you with pinning the bishop'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '4k2r/4np1p/1pq1pBp1/p1p1P3/Q7/2P5/PP4PP/3R2K1 w - - 0 1',
@@ -230,16 +234,20 @@ class Puzzles extends ChangeNotifier {
           ['a4', 'c6'],
         ],
         description:
-            'Trade your rook for a queen , might wanna sacrifice something!'),
+            'Trade your rook for a queen, Pin blacks knight to take queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle:
             'r4r2/1bn4k/1qn1ppp1/p1ppP3/1p1P4/2PBB3/PP1N2PP/R2Q1RK1 w - - 0 1',
         solution: [
           ['d1', 'h5'],
+          'Kg7',
+          ['h5', 'g6'],
+          'Kh8',
+          ['g6', 'h7']
         ],
         description:
-            'You can checkmate in 3 , by using the power of the pin . might wanna use ur queen . '),
+            'You can checkmate in 3 , by using the power of the pin use your queen'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '4qr2/1p4pk/pn5p/2p4N/P5P1/2PR3P/1P6/1K4Q1 b - - 0 1',
@@ -250,7 +258,7 @@ class Puzzles extends ChangeNotifier {
           'Ng3',
           ['e4', 'd3'],
         ],
-        description: 'Try using your queen to manage the rook grab'),
+        description: 'Move your queen to take whits rook out of the game'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle:
@@ -258,7 +266,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['h4', 'f2'],
         ],
-        description: 'pin whits bishop to the queen'),
+        description: 'Move the bishop'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '3b1rk1/5pp1/p3p2p/4P3/1Q3N1q/8/PPP5/1K3R2 w - - 0 1',
@@ -268,7 +276,7 @@ class Puzzles extends ChangeNotifier {
           ['f4', 'g6']
         ],
         description:
-            'sacrifice your queen to get rook and queen with beautiful forks with help of pin'),
+            'Sacrifice your queen to get rook and queen with beautiful forks with the help of pin'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '8/P4k2/r5p1/8/3B2p1/5pP1/3b3P/5R1K w - - 0 1',
@@ -279,7 +287,7 @@ class Puzzles extends ChangeNotifier {
           'Rxb6',
           ['a7', 'a8']
         ],
-        description: 'go for queening'),
+        description: 'Go for queening'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '5rk1/1pp2ppp/r7/p1q1n3/2PRQ3/P4P2/1P2PP1P/4KB1R b - - 0 1',
@@ -288,7 +296,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'e2', 'to': 'f3'},
           ['a6', 'e6']
         ],
-        description: 'sacrifice your knight to pin the queen'),
+        description: 'Sack your knight to pin the queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '2r3k1/R5pp/2q2n2/3p4/8/2Q3P1/1P3PB1/6K1 w - - 0 1',
@@ -298,7 +306,7 @@ class Puzzles extends ChangeNotifier {
           ['c3', 'c8']
         ],
         description:
-            'blacks knight is pinned because of checkmate and also queen to rook'),
+            'Blacks knight is pinned because of checkmate threats and also queen is pinned to rook'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '5rk1/r2nqppp/pp6/n2Rp3/1p2P3/2P1B2P/P1B1QPP1/3R2K1 w Qq - 0 1',
@@ -307,7 +315,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'b6', 'to': 'a5'},
           ['e3', 'a7']
         ],
-        description: 'there is a pinned pawn'),
+        description: 'There is a pinned pawn to rook'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '4kb1r/pp1qnppp/8/1Q1NP1B1/8/P7/1P3PPP/2R3K1 w - - 0 1',
@@ -316,7 +324,7 @@ class Puzzles extends ChangeNotifier {
           'Nxc8',
           ['d5', 'c7']
         ],
-        description: 'this one is checkmate in two with help of pin'),
+        description: 'This one is checkmate in two with the help of pin'),
   ];
 
   List<ChessPuzzle> forks = [
@@ -328,7 +336,7 @@ class Puzzles extends ChangeNotifier {
         'Kf4',
         ['c8', 'c1']
       ],
-      description: 'look for the forks',
+      description: 'Use Queen',
     ),
     ChessPuzzle(
         isWhiteToMove: false,
@@ -336,7 +344,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['c8', 'c2']
         ],
-        description: 'try get benefit from the whites weak back rank'),
+        description: 'Try to get benefit from the whites weak back rank'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '4b2k/2p5/3qnpp1/2N1n2p/p1B1P3/2P1BP2/2r3PP/3RQ1K1 b - - 0 1',
@@ -347,7 +355,8 @@ class Puzzles extends ChangeNotifier {
           'Kf1',
           ['h2', 'g2']
         ],
-        description: 'queen and the king are ready to be forked'),
+        description:
+            'Do double attack With knight, you can fork queen and the king and also checkmate threat'),
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle:
@@ -358,7 +367,7 @@ class Puzzles extends ChangeNotifier {
         ['h4', 'g6']
       ],
       description:
-          'one of your knights will for other knight to do the job and get blacks queen',
+          'One of your knights will die and let the other knight to do the job to get blacks queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -369,7 +378,7 @@ class Puzzles extends ChangeNotifier {
         ['g5', 'g6']
       ],
       description:
-          'after exchanging the knights then you have a move which is simply double attack',
+          'After exchanging the knights then you have a move which is simply a double attack threatening rook or checkmate',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -383,7 +392,7 @@ class Puzzles extends ChangeNotifier {
         ['e1', 'e8']
       ],
       description:
-          'first move is Nd5 but after that you have to calculate two possible move with black Kg7 or Qd6',
+          'Take that pawn with knight then the other 2 moves are both with rooks',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -391,7 +400,8 @@ class Puzzles extends ChangeNotifier {
       solution: [
         ['e4', 'f6'],
       ],
-      description: 'disturb blacks pawn to get king',
+      description:
+          'Destruct the pawn structure of king side to checkmate blacks king',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -402,7 +412,7 @@ class Puzzles extends ChangeNotifier {
         ['e4', 'd6']
       ],
       description:
-          'there is no directly knight forks here but you have to work for it',
+          'There is no directly knight forks here but you have to work for it First, move queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -429,7 +439,7 @@ class Puzzles extends ChangeNotifier {
         ['h4', 'g6']
       ],
       description:
-          'there is knight forks with help of rook that pinned a pawn but at first you have to sacrifice a rook',
+          'There is a knight fork with help of a rook that pinned a pawn but at first, you have to Sack one of your rooks',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -439,8 +449,7 @@ class Puzzles extends ChangeNotifier {
         'Rxe6',
         ['d4', 'd5']
       ],
-      description:
-          'simple what if there is no bishop . ans you push a pawn to fork both blacks piece',
+      description: 'Pawn forks are considered double attacks',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -450,7 +459,7 @@ class Puzzles extends ChangeNotifier {
         'Rxe1',
         ['c2', 'f2'],
       ],
-      description: 'you will win a rook if you play correctly',
+      description: 'You will win a rook',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -470,7 +479,7 @@ class Puzzles extends ChangeNotifier {
         {'from': 'g2', 'to': 'f3'},
         ['e6', 'e5']
       ],
-      description: 'pawn forks',
+      description: 'Pawn forks after exchanging knights',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -483,7 +492,7 @@ class Puzzles extends ChangeNotifier {
         ['e8', 'a8']
       ],
       description:
-          'there is the way you can take rook without being checkmated',
+          'There is a way you can take rook without being checkmated the first move include check',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -495,7 +504,8 @@ class Puzzles extends ChangeNotifier {
         'Qxd7',
         ['e4', 'f6']
       ],
-      description: 'knight forks happen on f6 square but how you find out',
+      description:
+          'After one move with knight and rook then knight forks will happen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -505,7 +515,7 @@ class Puzzles extends ChangeNotifier {
         'Rd8',
         ['d7', 'f8']
       ],
-      description: 'both moves with knight',
+      description: 'Both moves with knight',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -517,7 +527,7 @@ class Puzzles extends ChangeNotifier {
         {'from': 'g6', 'to': 'f5'},
         ['f4', 'e6']
       ],
-      description: 'first move is with queen',
+      description: 'First move is with queen then sack it',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -535,7 +545,7 @@ class Puzzles extends ChangeNotifier {
         'Rd7',
         ['f5', 'e7']
       ],
-      description: 'knight forks after one move',
+      description: 'knight forks will happen After one move',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -547,8 +557,7 @@ class Puzzles extends ChangeNotifier {
         'Qxg2',
         ['f2', 'f6']
       ],
-      description:
-          'the most important things here is after moving knight f6 pawn can be taken and here first move is with rook',
+      description: 'Sack the rook and Move knight to give queen more space',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -558,7 +567,7 @@ class Puzzles extends ChangeNotifier {
         'Nxf7',
         ['c5', 'e6']
       ],
-      description: 'make knight forks work',
+      description: 'knight forks after sacking something',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -572,7 +581,7 @@ class Puzzles extends ChangeNotifier {
         ['b2', 'a1']
       ],
       description:
-          'whites king is exposed to check do not miss this chance to check him',
+          'Whites king is exposed to check do not miss this chance to check the king',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -582,7 +591,7 @@ class Puzzles extends ChangeNotifier {
         'Kxh8',
         ['g5', 'f7']
       ],
-      description: 'your knight can remove them all',
+      description: 'Your knight can remove them all not only the rook',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -602,7 +611,7 @@ class Puzzles extends ChangeNotifier {
         'Kd7',
         ['d4', 'c6']
       ],
-      description: 'thats funny because your knight is unstoppable',
+      description: 'Your knight is unstoppable',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -612,7 +621,7 @@ class Puzzles extends ChangeNotifier {
         'Kh1',
         ['g4', 'f2']
       ],
-      description: 'use your queen and let the knight do the rest',
+      description: 'Use your queen and let the knight do the rest',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -632,7 +641,7 @@ class Puzzles extends ChangeNotifier {
         'Rd7',
         ['c3', 'b4']
       ],
-      description: 'first move with Knight',
+      description: 'First move is with Knight and then bishop',
     ),
   ];
 
@@ -647,7 +656,7 @@ class Puzzles extends ChangeNotifier {
         'Nxd6',
         ['f3', 'f8']
       ],
-      description: 'blacks queen is undefended',
+      description: 'Blacks queen is undefended',
     ),
 
     ChessPuzzle(
@@ -658,7 +667,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'b6', 'to': 'c7'},
           ['c6', 'a7']
         ],
-        description: 'blacks queen restricted'),
+        description: 'blacks queen restricted First move is with a pawn'),
 
     ///
     ChessPuzzle(
@@ -672,7 +681,7 @@ class Puzzles extends ChangeNotifier {
           ['e5', 'd3']
         ],
         description:
-            'whites bishop is the only defender that prevent knight forks so remove it'),
+            'Whites bishop is the only defender that prevent knight forks so remove it First move is with rook'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '4q1k1/pppb1pbp/1n1p2pB/7n/2PP3N/1PN4P/P1BQ1PP1/6K1 b - - 0 1',
@@ -680,10 +689,10 @@ class Puzzles extends ChangeNotifier {
           ['g7', 'h6'],
           'Qxh6',
           ['e8', 'e1'],
-          'Kh3',
+          'Kh2',
           ['e1', 'c3']
         ],
-        description: 'exchanging bishop will help you'),
+        description: 'exchanging bishops will help you win a knight'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '2r1r2k/pp4pp/1np1N3/4qp2/7P/PQ2P1P1/1P3P2/2RR2K1 w - - 0 1',
@@ -694,7 +703,7 @@ class Puzzles extends ChangeNotifier {
           'Kg8',
           ['f7', 'd6']
         ],
-        description: "nothing can't prevent knight forks"),
+        description: "Nothing can't prevent knight forks"),
 
 //////////////////////
 //////////////////////
@@ -708,7 +717,7 @@ class Puzzles extends ChangeNotifier {
           ['d1', 'd7']
         ],
         description:
-            'rook when go to the 7th rank or 8th rank it will be called wild pig because of its danger and power there'),
+            'Rook when go to the 7th rank or 8th rank it will be a wild pig because of its danger and power '),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -718,7 +727,7 @@ class Puzzles extends ChangeNotifier {
           ['f3', 'f5'],
         ],
         description:
-            'blacks bishop is in danger and also blacks king feel he is safe but he is not'),
+            'undefended bishop and think about checkmate threat the move is with queen'),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -732,7 +741,7 @@ class Puzzles extends ChangeNotifier {
           ['e3', 'd4']
         ],
         description:
-            'after a lot of exchanges you realise that you won something '),
+            'After a lot of exchanges, you realize that you have won something '),
 
     ChessPuzzle(
         isWhiteToMove: false,
@@ -742,7 +751,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'a1', 'to': 'b1'},
           ['c3', 'e3']
         ],
-        description: 'may be there is some checkmate threats here'),
+        description: 'First move is with Knight'),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -755,7 +764,7 @@ class Puzzles extends ChangeNotifier {
           ['f3', 'e5']
         ],
         description:
-            'first move is clear for the second and third move you fork rook and king with help of pinned pawn'),
+            'First move is with rook and then you have to sack the rook and go for knight forks'),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -767,7 +776,7 @@ class Puzzles extends ChangeNotifier {
           'Rxb7',
           ['f3', 'c6']
         ],
-        description: 'the blacks doubled pawn is a weakness'),
+        description: 'Move away blacks white-squared bishop'),
 
     ChessPuzzle(
         isWhiteToMove: false,
@@ -779,9 +788,9 @@ class Puzzles extends ChangeNotifier {
           ['d5', 'e3']
         ],
         description:
-            'double check and discover check with the help of blacks white squared bishop'),
+            'Double check and discover check with the help of blacks white-squared bishop'),
     ChessPuzzle(
-        isWhiteToMove: true,
+        isWhiteToMove: false,
         puzzle: '3r1r1k/p1p3pp/6q1/2P5/1P1N1p1n/PQ1n1P2/1B1R2PP/R5K1 b - - 0 1',
         solution: [
           ['d8', 'd4'],
@@ -789,7 +798,7 @@ class Puzzles extends ChangeNotifier {
           ['h4', 'f3']
         ],
         description:
-            'I have question for you do the knight can fork king and the rook in first move if not why ? and how to do it ?'),
+            'A question for you do the knight fork of the king and the rook in the first move is correct?'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '1r3rk1/5ppp/4pn2/1qp5/7Q/2B3P1/1Pn1PPBP/R2R2K1 w - - 0 1',
@@ -798,7 +807,8 @@ class Puzzles extends ChangeNotifier {
           {'from': 'g7', 'to': 'f6'},
           ['g2', 'e4'],
         ],
-        description: 'white squared bishop will be key in this position'),
+        description:
+            'White-squared bishop will be the key in this position but after some moves'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r3r2k/pp5p/2pRn1p1/4N3/1P2qpP1/8/PB3P1P/Q5K1 w - - 0 1',
@@ -807,8 +817,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'h8', 'to': 'g8'},
           ['d7', 'f6'],
         ],
-        description:
-            'discover check it is just like you win a tempo and a move a head'),
+        description: '2 moves both with knight'),
 
     ChessPuzzle(
         isWhiteToMove: false,
@@ -818,7 +827,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'g1', 'to': 'h1'},
           ['d3', 'f2']
         ],
-        description: 'discover check'),
+        description: 'Discover check'),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -831,7 +840,7 @@ class Puzzles extends ChangeNotifier {
           ['d1', 'd3']
         ],
         description:
-            'what if there is no bishop here ? ans we take the queen simple so right now can we make happen'),
+            'Blacks queen is undefended so move away your bishop with check and make it possible'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle:
@@ -841,7 +850,8 @@ class Puzzles extends ChangeNotifier {
           {'from': 'h1', 'to': 'g2'},
           ['g7', 'c3']
         ],
-        description: 'there is beautiful discover attack with check here'),
+        description:
+            'There is beautiful discover attack with check Sack the queen'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '3r1rk1/ppp1q2p/5p2/4pb2/2PnN3/3Q2P1/PP3PBP/R2R2K1 b - - 0 1',
@@ -850,15 +860,15 @@ class Puzzles extends ChangeNotifier {
           {'from': 'f2', 'to': 'f3'},
           ['d4', 'f3']
         ],
-        description:
-            'what is you move knight ? but in the first move its impossible because of if you do any check then whits queen take the knight'),
+        description: 'first, move the bishop then knight'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '1n3r1k/4bp1p/2p1pp2/3q3Q/P1rP4/5NP1/5PBP/R2R2K1 w - - 0 1',
         solution: [
-          ['g2', 'e5'],
+          ['f3', 'e5'],
         ],
-        description: 'discover attack by moving a piece'),
+        description:
+            'Discover attack by moving a piece and also block blacks queen'),
 /////////////////////
 ////////////////////
 /////////////////////
@@ -874,7 +884,7 @@ class Puzzles extends ChangeNotifier {
           ['d5', 'd1']
         ],
         description:
-            'first find the best place for your queen then suddenly some thing happen you find out by your self'),
+            'First, find the best place for your queen then you will realize that the whites queen is in danger'),
 
     ChessPuzzle(
         isWhiteToMove: true,
@@ -885,28 +895,28 @@ class Puzzles extends ChangeNotifier {
           ['e6', 'e7']
         ],
         description:
-            'discover checks are so strong sometimes you sacrifice major piece for it to win the game'),
+            'Discover checks are so strong sometimes you sacrifice major piece for it to win the game'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: 'r4B1k/1p4pp/p7/8/3Qp2P/1BP2p2/PP1K1nq1/3R4 b - - 0 1',
         solution: [
           ['f2', 'd3'],
         ],
-        description: 'discover attack with check'),
+        description: 'Discover attack with check'),
     ChessPuzzle(
         isWhiteToMove: true,
-        puzzle: '2rq3r/pp1n1Q2/3P2pk/4b1Np/3p1B1P/8/PP3PP1/1K5R w - - 1 0',
+        puzzle: '2rq3r/pp1n1Q2/3P2pk/4b1Np/3p1B1P/8/PP3PP1/1K5R w - - 0 1',
         solution: [
           ['g5', 'e6'],
         ],
         description: 'discover attack with check'),
     ChessPuzzle(
         isWhiteToMove: true,
-        puzzle: '6k1/5R1p/1p1r2p1/4p3/P1Q2p2/3P2Pq/4PP1P/6K1 w - - 1 0',
+        puzzle: '6k1/5R1p/1p1r2p1/4p3/P1Q2p2/3P2Pq/4PP1P/6K1 w - - 0 1',
         solution: [
           ['f7', 'd7'],
         ],
-        description: 'discover attack with check and winning rook'),
+        description: 'discover attack with check and win a rook'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '4r3/p1kn2NR/3b1QP1/1bq2P2/1pp5/4p3/PPP5/3R3K b - - 0 1',
@@ -915,8 +925,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'h1', 'to': 'g1'},
           ['e3', 'e2']
         ],
-        description:
-            'there are two checks one of them is correct and one other hint is discover check happen with moving pawn not bishop'),
+        description: 'Bishop then pawn'),
     ChessPuzzle(
         isWhiteToMove: false,
         puzzle: '8/1b3p1k/4p3/4B3/8/8/r4Pr1/3R1R1K b - - 0 1',
@@ -929,7 +938,7 @@ class Puzzles extends ChangeNotifier {
           'Kg1',
           ['a2', 'g2']
         ],
-        description: 'your bishop plays an important role to mate in 4'),
+        description: 'Your bishop plays an important role to mate in 4'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r1bq2rk/1p1p4/p1n1pPQp/3n4/4N3/1N1Bb3/PPP3PP/R4R1K w - - 0 1',
@@ -941,15 +950,14 @@ class Puzzles extends ChangeNotifier {
           ['g5', 'f7']
         ],
         description:
-            'great example to show what is discover attack with check'),
+            'Great example to show what is discover attack with check sack the queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: 'r1bqr1k1/ppp1bppp/5n2/8/3n4/2NB1N2/PPP2PPP/R1BQ1RK1 w - - 0 1',
         solution: [
           ['d3', 'h7'],
         ],
-        description:
-            'discover attack with check just a pawn and a pawn means a lot'),
+        description: 'Discover attack with check just a pawn'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle:
@@ -957,7 +965,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['f3', 'g5'],
         ],
-        description: 'discover attack on queen'),
+        description: 'Discover attack on queen'),
   ];
 
   List<ChessPuzzle> sacrifice = [
@@ -966,8 +974,10 @@ class Puzzles extends ChangeNotifier {
       puzzle: '2q4r/1Q2nk2/1R6/p4pR1/4pP2/7P/6P1/6K1 w - - 0 1',
       solution: [
         ['g5', 'g7'],
+        {'from': 'f7', 'to': 'g7'},
+        ['b7', 'e7']
       ],
-      description: 'sacrifice to checkmate king',
+      description: 'Sacrifice to checkmate black',
     ),
     ChessPuzzle(
         isWhiteToMove: true,
@@ -977,7 +987,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'h6', 'to': 'g5'},
           ['d1', 'h5']
         ],
-        description: 'the solution of this puzzle must end with checkmate'),
+        description: 'Sacrifice to checkmate black'),
     ChessPuzzle(
       isWhiteToMove: false,
       puzzle: '4k3/7p/b5p1/8/7N/2B2pbP/P4rP1/2R3KR b - - 0 1',
@@ -986,9 +996,8 @@ class Puzzles extends ChangeNotifier {
         {'from': 'h4', 'to': 'g2'},
         ['f3', 'f2']
       ],
-      description: 'Black mates in 2',
+      description: 'Black mates in 2 with Sacking rook correctly',
     ),
-
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle: '6kb/R6p/6nP/3qp3/1B2RPQ1/1P6/2rp3N/6K1 w - - 0 1',
@@ -997,7 +1006,7 @@ class Puzzles extends ChangeNotifier {
         {'from': 'h7', 'to': 'g6'},
         ['h6', 'h7']
       ],
-      description: 'this part is all about sacrifice so be brave',
+      description: 'This section is all about sacrificing so be brave',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1008,19 +1017,18 @@ class Puzzles extends ChangeNotifier {
         ['g5', 'f6']
       ],
       description:
-          'you have to option whether take it with knight or with rook',
+          'You have 2 options you can take blacks knight with your rook or knight one of them is correct',
     ),
     ChessPuzzle(
-      isWhiteToMove: false,
-      puzzle: '2q4r/1Q2nk2/1R6/p4pR1/4pP2/7P/6P1/6K1 w - - 0 1',
+      isWhiteToMove: true,
+      puzzle:
+          '3q1b1r/1p1bk1p1/3p1pB1/1p1Pp2p/r3Q2P/2P1B3/PP3PP1/R3K2R w KQ - 0 1',
       solution: [
-        ['a8', 'a1'],
-        'Kxa1',
-        ['g6', 'a6'],
-        'Kb1',
-        ['a6', 'a2']
+        ['e4', 'e5'],
+        {'from': 'd6', 'to': 'e5'},
+        ['e3', 'c5'],
       ],
-      description: 'mate in four',
+      description: 'Sack the most valuable piece',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -1032,8 +1040,7 @@ class Puzzles extends ChangeNotifier {
         'Ne2',
         ['d2', 'e2']
       ],
-      description:
-          'check mate in 3 remember you have to be brave for giving piece',
+      description: 'Checkmate in 3 remember you have to Sack something',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1046,7 +1053,7 @@ class Puzzles extends ChangeNotifier {
         ['c5', 'f5']
       ],
       description:
-          'try to get benefit from the pinned queen and knight forks that open the rank',
+          'Try to get benefit from the pinned queen and use knight forks to expose king',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1058,7 +1065,7 @@ class Puzzles extends ChangeNotifier {
         'Kxh6',
         ['f3', 'f6']
       ],
-      description: 'first move is just amazing sacrifice',
+      description: 'first move is an amazing sacrifice',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1070,9 +1077,8 @@ class Puzzles extends ChangeNotifier {
         'Kc4',
         ['f7', 'e5']
       ],
-      description: 'check mate in 3',
+      description: 'Check mate in 3',
     ),
-
     ChessPuzzle(
       isWhiteToMove: false,
       puzzle: 'r4k2/5pRp/3p1B2/5P2/8/1pN5/1P2Rq1P/2K5 b - - 0 1',
@@ -1086,7 +1092,7 @@ class Puzzles extends ChangeNotifier {
         ['f4', 'f1']
       ],
       description:
-          'this will end with check mate and it is impossible without sacrifice',
+          'This puzzle will end up with checkmate and it is impossible without Sacrificing',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -1096,7 +1102,7 @@ class Puzzles extends ChangeNotifier {
         'Qxe3',
         ['c6', 'g2']
       ],
-      description: 'do you like sacking rook ?',
+      description: 'Do you like sacking rooks?',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -1108,7 +1114,7 @@ class Puzzles extends ChangeNotifier {
         'Kxg4',
         ['f1', 'f4']
       ],
-      description: 'put the king in the corner or invite him to your territory',
+      description: 'All moves include check',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1120,7 +1126,7 @@ class Puzzles extends ChangeNotifier {
         'Kg8',
         ['f1', 'f8']
       ],
-      description: 'sacrifice your queen',
+      description: 'Sack your queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1135,11 +1141,8 @@ class Puzzles extends ChangeNotifier {
         ['c2', 'h2']
       ],
       description:
-          'the idea of this puzzle is so common and it happen in your game so frequently that you have to sack your rook in order to bring your queen instead',
+          'The idea of this puzzle is so common and it happens in your game frequently that you have to sack your rook to bring your queen instead',
     ),
-    //!
-    //// * 15
-    //!
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle: '3brrk1/3R3p/p4p2/6p1/1p1B2Q1/6P1/qP3P1P/4R1K1 w - - 0 1',
@@ -1150,7 +1153,7 @@ class Puzzles extends ChangeNotifier {
         'Kh8',
         ['g7', 'g6']
       ],
-      description: 'sacrifice queen',
+      description: 'Sack the queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1162,7 +1165,7 @@ class Puzzles extends ChangeNotifier {
         'Kd8',
         ['d6', 'b7']
       ],
-      description: 'first move with pawn and the second with rook',
+      description: 'First move is with a pawn and then with the rook',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1173,8 +1176,7 @@ class Puzzles extends ChangeNotifier {
         {'from': 'b7', 'to': 'c6'},
         ['c4', 'd6']
       ],
-      description:
-          'we can discover check the queen but there is a pawn defend him so first we have to remove it',
+      description: 'Sack everything to get the queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1186,7 +1188,7 @@ class Puzzles extends ChangeNotifier {
         'Kf7',
         ['e8', 'f8']
       ],
-      description: 'check mate in 3 with sacrificing your queen',
+      description: 'Checkmate in 3 with sacrificing your queen',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -1194,15 +1196,14 @@ class Puzzles extends ChangeNotifier {
       solution: [
         ['d5', 'f4'],
         {'from': 'g3', 'to': 'f4'},
-        ['h8', 'f3'],
-        'Ke1',
+        ['h1', 'f3'],
+        'Kf1',
         ['f3', 'h3'],
         'Ke2',
         ['h3', 'd3']
       ],
-      description: 'mate in 4 with sacrificing knight',
+      description: 'mate in 4 with Sacking knight',
     ),
-
     ChessPuzzle(
       isWhiteToMove: false,
       puzzle: '6k1/1p4p1/p1b1p1r1/4P2p/P6q/1P2p1P1/4QP1P/2B1R1K1 b - - 0 1',
@@ -1212,7 +1213,7 @@ class Puzzles extends ChangeNotifier {
         ['h4', 'e4']
       ],
       description:
-          'if queen diagonally pair up with bishop then there is no check mate threat simply white push the pawn to block them so can you make something to prevent whites pawn to block the diagonals',
+          'If your queen diagonally pair up with the bishop then there is no checkmate threat simply white push the pawn to block them so can you make something to prevent the whites pawn from blocking the diagonal line',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1222,7 +1223,7 @@ class Puzzles extends ChangeNotifier {
         {'from': 'f7', 'to': 'e6'},
         ['f3', 'f8']
       ],
-      description: 'some sacrifices are for opening files',
+      description: 'Some sacrifices are for opening files',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1233,7 +1234,7 @@ class Puzzles extends ChangeNotifier {
         ['g1', 'g6']
       ],
       description:
-          'some sacrifices for destroying blacks king defence to checkmate him',
+          'some sacrifices are for destroying blacks king defense to checkmate',
     ),
     ChessPuzzle(
       isWhiteToMove: false,
@@ -1247,7 +1248,7 @@ class Puzzles extends ChangeNotifier {
         'Rg3',
         ['d1', 'h1']
       ],
-      description: 'checkmate in 4',
+      description: 'Checkmate in 4',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1257,9 +1258,9 @@ class Puzzles extends ChangeNotifier {
         'Kxg8',
         ['e6', 'g6'],
         'Kh8',
-        ['g5', 'g8']
+        ['g6', 'g8']
       ],
-      description: 'check mate in three with a beautiful sacrifice',
+      description: 'Beautiful Checkmate in 3 with a beautiful sacrifice',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1269,15 +1270,19 @@ class Puzzles extends ChangeNotifier {
         'Kxg7',
         ['g4', 'g5']
       ],
-      description: 'queen',
+      description: 'Sack the Queen',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle: 'r5kr/2N1bp2/2qp1ppQ/4p3/p7/PpP3R1/1P4PP/2K4R w - - 0 1',
       solution: [
         ['g3', 'g6'],
+        {'from': 'f7', 'to': 'g6'},
+        ['h6', 'g6'],
+        'Kf8',
+        ['c7', 'e6']
       ],
-      description: 'checkmate in 3',
+      description: 'Checkmate in 3',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
@@ -1289,25 +1294,25 @@ class Puzzles extends ChangeNotifier {
         'Kg7',
         ['d6', 'f5']
       ],
-      description:
-          'the final check mate in this puzzle happen with rook and knight',
+      description: 'Sacrifice like micheal tal. I guess you know what it means',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle: '5r1k/pp1n1p1p/5n1Q/3p1pN1/3P4/1P4RP/P1r1qPP1/R5K1 w - - 0 1',
       solution: [
         ['h6', 'f8'],
-        'Kxf8',
+        'Nxf8',
         ['g5', 'f7']
       ],
-      description:
-          'have you ever sacrifice your queen in the chess tournament ? if yes then does it successful ',
+      description: 'Sacrifice like micheal tal. I guess you know what it means',
     ),
     ChessPuzzle(
       isWhiteToMove: true,
       puzzle: 'r1b1nBR1/pp1n3k/2p5/4p2q/2Q1P3/2N5/PPP2P2/1K4R1 w - - 0 1',
       solution: [
         ['g8', 'h8'],
+        'Kxh8',
+        ['c4', 'g8']
       ],
       description: 'checkmate in 2',
     ),
@@ -3067,7 +3072,8 @@ class Puzzles extends ChangeNotifier {
           'Rxg8',
           ['h6', 'f7']
         ],
-        description: 'check the king with your knight and use discover check to place your knight to important square and then  sack the queen'),
+        description:
+            'check the king with your knight and use discover check to place your knight to important square and then  sack the queen'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '2q2r2/5rk1/4pNpp/p2pPn2/P1pP2QP/2P2R2/2B3P1/6K1 w - - 0 1',
@@ -3080,7 +3086,8 @@ class Puzzles extends ChangeNotifier {
           'Rh7',
           ['h6', 'h7']
         ],
-        description: 'Sack the queen and remove the only defender which is '),
+        description:
+            'Sack the queen and remove the only defender which is knight'),
     ChessPuzzle(
         isWhiteToMove: true,
         puzzle: '5q1k/p3R1rp/2pr2p1/1pN2bP1/3Q1P2/1B6/PP5P/2K5 w - - 0 1',
@@ -3093,7 +3100,7 @@ class Puzzles extends ChangeNotifier {
           'Kg7',
           ['f8', 'g8']
         ],
-        description: '20'),
+        description: 'Sack the queen and go for checkmate with the rook'),
   ];
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -3113,7 +3120,7 @@ class Puzzles extends ChangeNotifier {
           ['c3', 'e4']
         ],
         description:
-            'one check with night is a check mate the most important things how you get there'),
+            'One check with night will checkmate the most important thing is how you get to the king with your knight'),
     ChessPuzzle(
         playersName: 'Boris Grachev vs Ramil Faizrakhmanov, Sochi, 2019',
         isWhiteToMove: true,
@@ -3123,7 +3130,7 @@ class Puzzles extends ChangeNotifier {
           'Rxf7',
           ['e7', 'e8']
         ],
-        description: 'blacks king is stuck seek for check mate'),
+        description: 'Sack the knight'),
     ChessPuzzle(
         playersName: 'Babu Lalith vs Alexander Donchenko, Stockholm, 2019',
         isWhiteToMove: true,
@@ -3133,7 +3140,7 @@ class Puzzles extends ChangeNotifier {
           'Rxf8',
           ['f5', 'h7']
         ],
-        description: 'mate in two'),
+        description: 'Mate in 2'),
     ChessPuzzle(
         playersName: 'Magnus Carlsen vs Viswanathan Anand, Stavanger, 2019',
         isWhiteToMove: true,
@@ -3143,7 +3150,7 @@ class Puzzles extends ChangeNotifier {
           'Kd5',
           ['b2', 'd4']
         ],
-        description: 'mate in two'),
+        description: 'Beat Anand with 2 moves'),
     ChessPuzzle(
         playersName: 'Parham Maghsoodloo vs Kaido Kulaots, Moscow, 2019',
         isWhiteToMove: false,
@@ -3153,7 +3160,7 @@ class Puzzles extends ChangeNotifier {
           'Kxa3',
           ['e1', 'a1']
         ],
-        description: 'mate in two, with a very beautiful sacrifice'),
+        description: 'Mate in two, with a very beautiful Sacrifice'),
     ChessPuzzle(
         playersName: 'Alexander Grischuk vs Nikita Vitiugov, Riga, 2019',
         isWhiteToMove: true,
@@ -3168,7 +3175,7 @@ class Puzzles extends ChangeNotifier {
           ['g3', 'h3']
         ],
         description:
-            'its good to have rook on third rank and brave bishop with a very dangers queen simply go for the blacks king'),
+            'Sack the bishop to get to the king and include your rook and queen to the attack'),
     ChessPuzzle(
         playersName: 'Peter Leko vs Sebastian Bogner, Biel, 2019',
         isWhiteToMove: true,
@@ -3178,7 +3185,7 @@ class Puzzles extends ChangeNotifier {
           'Kxg7',
           ['d2', 'c3']
         ],
-        description: 'discover attack with check'),
+        description: 'Discover attack with check'),
     ChessPuzzle(
         playersName: 'Shakhriyar Mamedyarov vs Anish Giri, Paris, 2019',
         isWhiteToMove: true,
@@ -3188,7 +3195,7 @@ class Puzzles extends ChangeNotifier {
           'Qxe6',
           ['d6', 'd7']
         ],
-        description: 'whites passed pawn is just unstoppable'),
+        description: 'Your passed pawn is just unstoppable'),
     ChessPuzzle(
         playersName:
             'Ian Nepomniachtchi vs Maxime Vachier-Lagrave, Paris, 2019',
@@ -3197,7 +3204,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['f1', 'f7']
         ],
-        description: 'one move threats every blacks piece '),
+        description: 'One move threats every black pieces '),
     ChessPuzzle(
         playersName: 'Magnus Carlsen vs Lenier Dominguez, Saint Louis, 2019',
         isWhiteToMove: true,
@@ -3206,13 +3213,13 @@ class Puzzles extends ChangeNotifier {
           ['g3', 'g5'],
           {'from': 'h6', 'to': 'g5'},
           ['f2', 'f3'],
-          'Ne2',
+          {'from': 'd4', 'to': 'e2'},
           ['g1', 'f2'],
           'Nxc1',
           ['f3', 'e4']
         ],
         description:
-            'this one hard because its magnus so exchange queen and dont be scared of blacks knight fork on you'),
+            "This one is hard because it is Magnus Carlsen so don't worry exchange queens and don't be scared of blacks knight fork on you"),
     ChessPuzzle(
         playersName: 'Emilio Cordova vs Haik Der Manuelian, Sturbridge, 2019',
         isWhiteToMove: true,
@@ -3225,7 +3232,7 @@ class Puzzles extends ChangeNotifier {
           'Bxe5',
           ['b2', 'e5']
         ],
-        description: 'you can win a piece thanks for your dark squared bishop'),
+        description: 'You can win a piece thanks for your dark-squared bishop'),
     ChessPuzzle(
         playersName: 'Liren Ding vs Kirill Alekseenko, Khanty Mansyisk, 2019',
         isWhiteToMove: true,
@@ -3238,7 +3245,8 @@ class Puzzles extends ChangeNotifier {
           'Bxf1',
           ['d2', 'h6']
         ],
-        description: 'first move is taking knight'),
+        description:
+            'First move is taking the knight then attack the bishop with a pawn'),
     ChessPuzzle(
         playersName: 'Hikaru Nakamura vs Axel Bachmann, Douglas, 2019',
         isWhiteToMove: true,
@@ -3248,7 +3256,7 @@ class Puzzles extends ChangeNotifier {
           'Nc8',
           ['c6', 'b7']
         ],
-        description: 'trap one of the knight'),
+        description: 'Trap one of the knight'),
     ChessPuzzle(
         playersName: "Bassem Amin vs Etienne Bacrot, Cap d'Agde, 2019",
         isWhiteToMove: true,
@@ -3257,7 +3265,7 @@ class Puzzles extends ChangeNotifier {
           ['c4', 'b4'],
         ],
         description:
-            'if you attacked sometimes best thing to do is counter attack'),
+            'When you are attacked the best thing to do is you counter attack them'),
     ChessPuzzle(
         playersName:
             'Timur Gareev vs Vitaliy Bernadskiy, Gmund am Tegerns, 2019',
@@ -3268,7 +3276,7 @@ class Puzzles extends ChangeNotifier {
           'Bh5',
           ['e1', 'h1']
         ],
-        description: 'trap the bishop but you need accuracy'),
+        description: 'Trap the bishop but you need to be accurate'),
     ChessPuzzle(
         playersName: 'Liren Ding vs Levon Aronian, Kolkata, 2019',
         isWhiteToMove: true,
@@ -3279,7 +3287,7 @@ class Puzzles extends ChangeNotifier {
           'Kxg7',
           ['d2', 'h6']
         ],
-        description: 'opposite kings castled ,  who attacks first win '),
+        description: 'Opposite kings castled,  who attacks first win '),
     ChessPuzzle(
         playersName: 'David Anton Guijarro vs Rasmus Svane, Germany, 2019',
         isWhiteToMove: true,
@@ -3291,7 +3299,7 @@ class Puzzles extends ChangeNotifier {
           'Rxe8',
           ['f2', 'c5']
         ],
-        description: 'first move is just brilliant its with knight'),
+        description: 'First move is just brilliant its with knight'),
     ChessPuzzle(
         playersName: 'Liren Ding vs Maxime Vachier-Lagrave, London, 2019',
         isWhiteToMove: true,
@@ -3299,7 +3307,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['h5', 'f5'],
         ],
-        description: 'rook'),
+        description: 'Rook'),
     ChessPuzzle(
         playersName:
             'Alexander Grischuk vs Maxime Vachier-Lagrave, Paris, 2019',
@@ -3310,7 +3318,7 @@ class Puzzles extends ChangeNotifier {
           'Kxg8',
           ['h6', 'h7']
         ],
-        description: 'move blacks king away'),
+        description: 'Go for queening'),
     ChessPuzzle(
         playersName: 'Levon Aronian vs Magnus Carlsen, London, 2019',
         isWhiteToMove: true,
@@ -3323,7 +3331,7 @@ class Puzzles extends ChangeNotifier {
           ['e7', 'h7']
         ],
         description:
-            'first move is about your bishop but second move is the most important '),
+            'First move is with your bishop but second move is the most important'),
   ];
 
   List<ChessPuzzle> T2018 = [
@@ -3335,12 +3343,12 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['e5', 'f3'],
           {'from': 'g2', 'to': 'f3'},
-          ['g6', 'e5'],
+          ['f6', 'e5'],
           'Qe2',
           ['e5', 'c7']
         ],
-        description: 'there is undefended rook'),
-
+        description:
+            'There is undefended rook take it out from the game with queen'),
     ChessPuzzle(
         playersName: 'Hao Wang vs Vladimir Potkin, Porto Carras, 2018',
         isWhiteToMove: true,
@@ -3350,8 +3358,7 @@ class Puzzles extends ChangeNotifier {
           'Kh7',
           ['c1', 'd2']
         ],
-        description: 'blacks bishop will be targeted'),
-
+        description: 'Attack blacks bishop and put pressure on it'),
     ChessPuzzle(
         playersName:
             'Davaademberel Nominerdene vs Ogulcan Kanmazalp, Graz, 2018',
@@ -3363,8 +3370,7 @@ class Puzzles extends ChangeNotifier {
           ['d2', 'b2']
         ],
         description:
-            'first move is just amazing hint for you is blacks rook is undefended and there is an open diagonal to the blacks king'),
-
+            'There is undefended rook and also there is an open diagonal line to the king'),
     ChessPuzzle(
         playersName: 'David Paravyan vs Arjun Erigaisi, Moscow, 2018',
         isWhiteToMove: true,
@@ -3375,8 +3381,7 @@ class Puzzles extends ChangeNotifier {
           ['f4', 'f5']
         ],
         description:
-            'this one is long term win after blacks pawn run out of moves'),
-
+            'This one is long term plan after blacks pawn run out of moves you will win his knight'),
     ChessPuzzle(
         playersName: 'Shakhriyar Mamedyarov vs Daniil Dubov, Moscow, 2018',
         isWhiteToMove: false,
@@ -3388,8 +3393,7 @@ class Puzzles extends ChangeNotifier {
           'Kxd3',
           ['f8', 'd8']
         ],
-        description: 'bishop'),
-
+        description: 'First move is with bishop and the others are clear'),
     ChessPuzzle(
         playersName: 'Sergiy Zavgorodniy vs Anton Korobov, Batumi, 2018',
         isWhiteToMove: false,
@@ -3403,8 +3407,8 @@ class Puzzles extends ChangeNotifier {
           'Rxe2',
           ['d5', 'f4']
         ],
-        description: 'chase the queen'),
-
+        description:
+            'Chase the queen then use your rooks at the end use a knight fork'),
     ChessPuzzle(
         playersName: 'Ivan Cheparinov vs Yan Fang, China, 2018',
         isWhiteToMove: true,
@@ -3414,8 +3418,7 @@ class Puzzles extends ChangeNotifier {
           'Kg8',
           ['e7', 'e8']
         ],
-        description: "don't you think your bishop need better square"),
-
+        description: "Don't you think your bishop needs better square"),
     ChessPuzzle(
         playersName: 'Alexei Shirov vs Xianliang Xu, Karlsruhe, 2018',
         isWhiteToMove: true,
@@ -3426,8 +3429,7 @@ class Puzzles extends ChangeNotifier {
           ['f4', 'h5']
         ],
         description:
-            'go for queening by using knight but it seems you have a problem with blacks queen'),
-
+            'One check with knight will guaranty winning position but there is a problem queen and bishop will control every where so you have to block them'),
     ChessPuzzle(
         playersName: 'Vladislav Artemiev vs Alexey Sarana, Sochi, 2018',
         isWhiteToMove: true,
@@ -3435,8 +3437,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['d3', 'c4']
         ],
-        description: 'one move black can not survive'),
-
+        description: 'One simple move black can not survive'),
     ChessPuzzle(
         playersName: 'Ian Nepomniachtchi vs Viktor Bologan, Poikovsky, 2018',
         isWhiteToMove: true,
@@ -3446,12 +3447,7 @@ class Puzzles extends ChangeNotifier {
           'Ke7',
           ['d1', 'e1']
         ],
-        description: 'can you take blacks queen just like Ian Nepomniachtchi'),
-
-//////////////////////////////
-
-    //////////////////////
-
+        description: 'Can you take blacks queen just like Ian Nepomniachtchi'),
     ChessPuzzle(
         playersName: 'Shanglei Lu vs Yi Wei, Tianjin, 2018',
         isWhiteToMove: false,
@@ -3460,7 +3456,6 @@ class Puzzles extends ChangeNotifier {
           ['b3', 'd1']
         ],
         description: 'Queen'),
-
     ChessPuzzle(
         playersName: 'Shakhriyar Mamedyarov vs Levon Aronian, Leuven, 2018',
         isWhiteToMove: false,
@@ -3470,8 +3465,7 @@ class Puzzles extends ChangeNotifier {
           'Nh2',
           ['h5', 'h4']
         ],
-        description: 'trap the knight'),
-
+        description: 'Trap the poor knight'),
     ChessPuzzle(
         playersName: "Jorden Van Foreest vs Erwin L'Ami, Amsterdam, 2018",
         isWhiteToMove: true,
@@ -3481,8 +3475,7 @@ class Puzzles extends ChangeNotifier {
           'Qxe7',
           ['f5', 'f6']
         ],
-        description: 'there is no way blacks queen can survive'),
-
+        description: 'There is no way blacks queens can survive'),
     ChessPuzzle(
         playersName: 'Boris Gelfand vs Stanislav Novikov, St. Petersburg, 2018',
         isWhiteToMove: true,
@@ -3492,8 +3485,7 @@ class Puzzles extends ChangeNotifier {
           'Bxh4',
           ['f5', 'f6']
         ],
-        description: 'Rook'),
-
+        description: 'Sack the Rook'),
     ChessPuzzle(
         playersName:
             'Viswanathan Anand vs Mikheil Mchedlishvili, St. Petersburg, 2018',
@@ -3505,7 +3497,6 @@ class Puzzles extends ChangeNotifier {
           ['e3', 'e8']
         ],
         description: 'knight forks'),
-
     ChessPuzzle(
         playersName:
             'Meri Arabidze vs Stavroula Tsolakidou, St. Petersburg, 2018',
@@ -3515,7 +3506,6 @@ class Puzzles extends ChangeNotifier {
           ['f2', 'g3']
         ],
         description: 'Bishop'),
-
     ChessPuzzle(
         playersName: 'Alireza Firouzja vs Giga Kuparadze, Batumi, 2018',
         isWhiteToMove: true,
@@ -3525,9 +3515,7 @@ class Puzzles extends ChangeNotifier {
           'Qxd6',
           ['g7', 'f7']
         ],
-        description:
-            'can you check mate in 4 like Alireza Firouzja ? tip do not rush to take the knight'),
-
+        description: 'Do not rush to take the knight'),
     ChessPuzzle(
         playersName: 'Baadur Jobava vs Marco Gallana, Spilimbergo, 2018',
         isWhiteToMove: true,
@@ -3538,8 +3526,7 @@ class Puzzles extends ChangeNotifier {
           'Nxh5',
           ['g3', 'h5']
         ],
-        description: 'simple check mate in 3'),
-
+        description: 'check mate in 3, Sack something '),
     ChessPuzzle(
         playersName: 'Levon Aronian vs Fabiano Caruana, Saint Louis, 2018',
         isWhiteToMove: false,
@@ -3551,9 +3538,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'g2', 'to': 'f3'},
           ['b6', 'g6']
         ],
-        description:
-            'Fabiano Caruana is Fabiano Caruana so thats why he sacrifice two knight'),
-
+        description: 'Fabiano Caruana sacrificed two knights to get the king'),
     ChessPuzzle(
         playersName: 'Fabiano Caruana vs Sergey Karjakin, Saint Louis, 2018',
         isWhiteToMove: true,
@@ -3565,7 +3550,7 @@ class Puzzles extends ChangeNotifier {
           'Rxe6',
           ['f1', 'c4']
         ],
-        description: 'knight fork then pin do the rest'),
+        description: 'Your bishop will decide the game'),
   ];
 
   List<ChessPuzzle> T2017 = [
@@ -3578,7 +3563,7 @@ class Puzzles extends ChangeNotifier {
           'g3',
           ['g6', 'g5']
         ],
-        description: 'put pressure on the pinned bishop'),
+        description: 'Put pressure on the pinned bishop'),
     ChessPuzzle(
         playersName: 'Tamas Petenyi vs Aryan Tari, Antalya, 2017',
         isWhiteToMove: true,
@@ -3588,7 +3573,8 @@ class Puzzles extends ChangeNotifier {
           'Rxa4',
           ['d6', 'f7']
         ],
-        description: 'there is one rook stuck in the right corner'),
+        description:
+            'There is a rook stuck in the right corner can you get him'),
     ChessPuzzle(
         playersName:
             'Mihai-Lucian Grunberg vs Jonathan Westerberg, Stockholm, 2017',
@@ -3603,7 +3589,8 @@ class Puzzles extends ChangeNotifier {
           'Rxc1',
           ['f1', 'c1']
         ],
-        description: 'at the end blacks knight will be pinned'),
+        description:
+            'ignore your queen, At the end blacks knight will be pinned '),
     ChessPuzzle(
         playersName: 'Eltaj Safarli vs Lucas Van Foreest, Basel, 2017',
         isWhiteToMove: true,
@@ -3621,7 +3608,7 @@ class Puzzles extends ChangeNotifier {
           'Bxg5',
           ['d1', 'd5']
         ],
-        description: 'discover attack with threating mate'),
+        description: 'Discover attack with threatening mate'),
     ChessPuzzle(
         playersName: 'Eltaj Safarli vs Alexander Donchenko, Basel, 2017',
         isWhiteToMove: true,
@@ -3631,8 +3618,7 @@ class Puzzles extends ChangeNotifier {
           'Bd7',
           ['g3', 'g7']
         ],
-        description:
-            'blacks rook prevent check mate so what are you going to do to remove him'),
+        description: 'Use your rook'),
     ChessPuzzle(
         playersName: 'Ian Nepomniachtchi vs Baadur Jobava, Riyadh, 2017',
         isWhiteToMove: true,
@@ -3646,7 +3632,7 @@ class Puzzles extends ChangeNotifier {
           'Ka8',
           ['a6', 'c8']
         ],
-        description: 'bring other rook to the show after some exchanges'),
+        description: 'Bring the other rook to the show after some exchanges'),
     ChessPuzzle(
         playersName: 'Sayed Akbarinia vs Martin Martinez, Barcelona, 2017',
         isWhiteToMove: false,
@@ -3658,7 +3644,8 @@ class Puzzles extends ChangeNotifier {
           'Kg5',
           ['f2', 'g3']
         ],
-        description: 'first move is not with queen nor knight its with pawn'),
+        description:
+            'First move is not with a queen nor knight its with a pawn'),
     ChessPuzzle(
         playersName: 'Benjamin Gledura vs Hikaru Nakamura, Gibraltar, 2017',
         isWhiteToMove: false,
@@ -3671,7 +3658,7 @@ class Puzzles extends ChangeNotifier {
           'Nxc4',
           ['c6', 'a5']
         ],
-        description: 'attack the pinned knight just like Hikaru Nakamura'),
+        description: 'Attack the pinned knight just like Hikaru Nakamura'),
     ChessPuzzle(
         playersName: 'Slobodan Mirkovic vs Marko Maksimovic, Belgrade, 2017',
         isWhiteToMove: true,
@@ -3679,7 +3666,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['d1', 'e1']
         ],
-        description: 'attack the pinned the bishop'),
+        description: 'Attack the pinned bishop'),
     ChessPuzzle(
         playersName: 'Sigitas Kalvaitis vs Valdas Bucinskas, Lithuania, 2017',
         isWhiteToMove: true,
@@ -3689,7 +3676,7 @@ class Puzzles extends ChangeNotifier {
           'Kg8',
           ['f5', 'f6']
         ],
-        description: 'use the power of your queen'),
+        description: 'Use the power of your queen'),
     ChessPuzzle(
         playersName: 'Bjarke Jensen vs Lars Hansen, Denmark, 2017',
         isWhiteToMove: false,
@@ -3700,7 +3687,7 @@ class Puzzles extends ChangeNotifier {
           ['e8', 'e1']
         ],
         description:
-            'check mate in 2, some times GMs miss thoese check mates dont worry'),
+            'Checkmate in 2, some times GMs miss those checkmates dont worry'),
     ChessPuzzle(
         playersName: 'Anasrasia Travkina vs Elena Semenova, Riga, 2017',
         isWhiteToMove: true,
@@ -3710,7 +3697,7 @@ class Puzzles extends ChangeNotifier {
           'Kf8',
           ['f4', 'd6']
         ],
-        description: 'check mate blacks king'),
+        description: 'Checkmate blacks king or win queen'),
     ChessPuzzle(
         playersName: 'Wesley So vs Magnus Carlsen, Internet, 2017',
         isWhiteToMove: false,
@@ -3723,7 +3710,7 @@ class Puzzles extends ChangeNotifier {
           ['d5', 'h5']
         ],
         description:
-            'be brave sack every thing in order to check mate blacks king'),
+            'Be brave sack every thing in order to checkmate blacks king'),
     ChessPuzzle(
         playersName: 'Lucas Van Foreest vs Thomas Beerdsen, Amsterdam, 2017',
         isWhiteToMove: false,
@@ -3746,7 +3733,7 @@ class Puzzles extends ChangeNotifier {
           'Nd1',
           ['d8', 'b6']
         ],
-        description: 'winning two pawn is not bad isnt it'),
+        description: "Winning two pawn is not bad isn't it?"),
     ChessPuzzle(
         playersName: 'Murali Karthikeyan vs Ferenc Berkes, Moscow, 2017',
         isWhiteToMove: false,
@@ -3756,8 +3743,7 @@ class Puzzles extends ChangeNotifier {
           {'from': 'f5', 'to': 'e6'},
           ['g8', 'f8']
         ],
-        description:
-            'some times GMs miss those tactics dont worry.    open the file to the king'),
+        description: 'Open the file to the king'),
     ChessPuzzle(
         playersName: 'Marin Bosiocic vs Ian Nepomniachtchi, Riyadh, 2017',
         isWhiteToMove: false,
@@ -3772,7 +3758,7 @@ class Puzzles extends ChangeNotifier {
           ['e7', 'd6']
         ],
         description:
-            'after exchanging rooks there is a move with queen if you find it then you can beat Ian Nepomniachtchi for sure'),
+            'After exchanging rooks there is a move with queen if you find it then you can beat Ian Nepomniachtchi for sure'),
     ChessPuzzle(
         playersName: 'Shakhriyar Mamedyarov vs Magnus Carlsen, Riyadh, 2017',
         isWhiteToMove: false,
@@ -3780,8 +3766,7 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['e4', 'e1']
         ],
-        description:
-            'simple discover attack with check look thoese GMs miss just like you but not so much'),
+        description: 'Simple discover attack with check'),
     ChessPuzzle(
         playersName: 'Magnus Carlsen vs Sergey Karjakin, Stavanger, 2017',
         isWhiteToMove: true,
@@ -3796,7 +3781,7 @@ class Puzzles extends ChangeNotifier {
           ['d5', 'd6']
         ],
         description:
-            'I will be amaized if solve this one. just like magnus after exchange the rook with knight then pin every piece on the board and make another queen '),
+            'If you solve this one. you are great just like magnus after exchange the rook to the knight then pin every piece on the board and go for making another queen'),
   ];
 
   List<ChessPuzzle> T2016 = [
@@ -3809,8 +3794,7 @@ class Puzzles extends ChangeNotifier {
           'Ng8',
           ['g6', 'h5'],
         ],
-        description:
-            "attack the bishop then there is two possible moves by blacks knight one of them you have to be patient and other one you have to be aggressive"),
+        description: "Attack the bishop then Move queen wisly"),
 
     ChessPuzzle(
         playersName: 'Hikaru Nakamura vs Jeffrey Xiong, Saint Louis, 2016',
@@ -3819,7 +3803,8 @@ class Puzzles extends ChangeNotifier {
         solution: [
           ['d4', 'f5'],
         ],
-        description: "we don't want pawn we need check mate or queen"),
+        description:
+            "You don't need pawn you need check mate or queen to win the game"),
 
     ChessPuzzle(
         playersName: 'Gawain Jones vs Alexander Fier Alexander, Auckland, 2016',
@@ -3831,7 +3816,7 @@ class Puzzles extends ChangeNotifier {
           ['a7', 'b8']
         ],
         description:
-            "your queen and your bishop at the same time attacked do some thing save both"),
+            "Your queen and the bishop at the same time attacked do something save both and try to checkmate black"),
 
     ChessPuzzle(
         playersName: 'Ivan Popov vs Vitaly Sivuk, New Delhi, 2016',
@@ -3847,7 +3832,7 @@ class Puzzles extends ChangeNotifier {
           ['d1', 'h1']
         ],
         description:
-            "think 5 or 6 moves ahead then do the big sacrifice just like those GMs "),
+            "Think 5 or 6 moves ahead then do the big Sack just like those GMs"),
 
     ChessPuzzle(
         playersName: 'Duc Hoa Nguyen vs S Nitin, New Delhi, 2016',
@@ -3859,7 +3844,7 @@ class Puzzles extends ChangeNotifier {
           ['e2', 'e6']
         ],
         description:
-            "waste your knight you have double rooks on the same file with blacks king"),
+            "Waste your knight you have double rooks on the same file to the king"),
 
     ChessPuzzle(
         playersName: 'G Ostmoe vs Aryan Tari, Norway, 2016',
@@ -3873,8 +3858,7 @@ class Puzzles extends ChangeNotifier {
           ['h8', 'f6']
         ],
         description:
-            "if you solve this puzzle it means you can beat Aryan tari just kidding , exchange rooks then you are 2 moves far from gain something"),
-
+            "If you solve this puzzle it means you can beat Aryan Tari just kidding, exchange rooks then you are 2 moves far from winning the game"),
     ChessPuzzle(
         playersName: 'Karen Grigoryan vs Arman Pashikian, Yerevan, 2016',
         isWhiteToMove: true,
@@ -3885,7 +3869,7 @@ class Puzzles extends ChangeNotifier {
           ['d5', 'e7']
         ],
         description:
-            "you can't do the knight forks here because of blacks queen so kick him out then do the knight forks"),
+            "You can't do the knight forks because of blacks queen so kick him out then do the knight forks"),
 
     ChessPuzzle(
         playersName: 'Vitaliy Bernadskiy vs Dmitriy Khegay, Moscow, 2016',
@@ -3895,7 +3879,7 @@ class Puzzles extends ChangeNotifier {
           ['c1', 'f1'],
         ],
         description:
-            "one move and there is no solution for it. use your queen"),
+            "One move and there is no solution for it. Use your queen"),
 
     ChessPuzzle(
         playersName: 'Viswanathan Anand vs Levon Aronian, Zuerich, 2016',
@@ -3907,7 +3891,7 @@ class Puzzles extends ChangeNotifier {
           'Nh7',
           ['h4', 'h5']
         ],
-        description: "mate in 2 "),
+        description: "Mate in 2, Don't overthink it's one simple move"),
 
     ChessPuzzle(
         playersName: 'Wesley So vs Hikaru Nakamura, Saint Louis, 2016',
@@ -3918,7 +3902,7 @@ class Puzzles extends ChangeNotifier {
           'Qh5',
           ['c2', 'd1']
         ],
-        description: "don't you think Hikaru Nakamura's queen in danger"),
+        description: "Don't you think Hikaru Nakamura's queen in danger"),
 
     ChessPuzzle(
         playersName: 'Fabiano Caruana vs Wesley So, Saint Louis, 2016',
@@ -3931,7 +3915,7 @@ class Puzzles extends ChangeNotifier {
           'Ng8',
           ['c8', 'g8']
         ],
-        description: "mate in 3 take, advantage of the black's weak back rank"),
+        description: "Mate in 3 use Queen"),
 
     ChessPuzzle(
         playersName: 'Maxime Vachier-Lagrave vs Pavel Eljanov, Stavanger, 2016',
@@ -3941,7 +3925,7 @@ class Puzzles extends ChangeNotifier {
           ['a1', 'a5'],
         ],
         description:
-            "this move can be easily missed in a chess game except for Maxime Vachier-Lagrave, use your rook"),
+            "This move can be easily missed in a chess game except for those GMs"),
 
     ChessPuzzle(
         playersName: 'Levan Pantsulaia vs S P Sethuraman, Dubai, 2016',
@@ -3955,7 +3939,7 @@ class Puzzles extends ChangeNotifier {
           ['d2', 'g5']
         ],
         description:
-            " after exchanging your bishop then sack the other bishop"),
+            " After exchanging your bishop then sack the other bishop"),
 
     ChessPuzzle(
         playersName: 'Santosh Vidit vs Diego Di Berardino, Dubai, 2016',
@@ -3970,7 +3954,7 @@ class Puzzles extends ChangeNotifier {
           ['f4', 'd6']
         ],
         description:
-            "don't rush to take the rook because you loose an exchange. try to save knights then take that rook"),
+            "Don't rush to take the rook because you loose an exchange. First, try to save your knights then take that rook"),
 
     ChessPuzzle(
         playersName: 'Miklos Nemeth vs Marian Jurcik, Slovakia, 2016',
@@ -3982,7 +3966,7 @@ class Puzzles extends ChangeNotifier {
           ['e8', 'f7']
         ],
         description:
-            "this position need a little bit calculations, the key move at this position is with white squared bishop"),
+            "This position needs a few calculations, the key move at this position is with the white squared bishop"),
 
     ChessPuzzle(
         playersName: 'Mateusz Bartel vs Markus Ragger, Germany, 2016',
@@ -3995,7 +3979,7 @@ class Puzzles extends ChangeNotifier {
           'Kc7',
           ['e6', 'e7']
         ],
-        description: "sack the rook"),
+        description: "Sack the rook and hunt the king"),
 
     /////////
 
@@ -4012,7 +3996,7 @@ class Puzzles extends ChangeNotifier {
           ['g5', 'e6']
         ],
         description:
-            "after checking king with knight then blacks king must defend bishop this will lead to a deadly knight forks"),
+            "After checking king with knight then blacks king must defend bishop this will lead to a deadly Royal knight forks"),
 
     ChessPuzzle(
         playersName: 'Anton Korobov vs Ian Nepomniachtchi, Baku, 2016',
@@ -4024,7 +4008,7 @@ class Puzzles extends ChangeNotifier {
           ['c6', 'a4'],
         ],
         description:
-            "once a wise man said use your queen to check mate white and don't let king run away "),
+            "Once a wise man said use your queen to checkmate white and don't let the whites king run away"),
 
     ChessPuzzle(
         playersName: 'Murtas Kazhgaleyev vs Parham Maghsoodloo, Abudhabi, 2016',
@@ -4035,7 +4019,7 @@ class Puzzles extends ChangeNotifier {
           'Rxd6',
           ['e3', 'c5']
         ],
-        description: "after knight exchange you can win with help of Pin"),
+        description: "After knight exchange Move bishop"),
 
     ChessPuzzle(
         playersName: 'Wesley So vs Magnus Carlsen, Paris, 2016',
@@ -4051,7 +4035,7 @@ class Puzzles extends ChangeNotifier {
           ['c4', 'e5']
         ],
         description:
-            "thats why everyone loves magnus sack the queen and after couple of moves got the queen and also rook of his opponent "),
+            "That's why everyone loves Magnus, sack the queen and after a couple of moves you will be able to take the queen and also rook "),
   ];
 
   List<ChessPuzzle> beginnerTactics = [

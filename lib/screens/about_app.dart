@@ -65,7 +65,7 @@ class AboutApp extends StatelessWidget {
                       ),
                     ),
                     title: SelectableText(
-                      'alifarhadali990@gmail.com',
+                      'alifarhad.engineer@gmail.com',
                       style: TextStyle(color: kSecondary_color, fontSize: 16.0),
                     ),
                   ),
@@ -86,7 +86,7 @@ class AboutApp extends StatelessWidget {
                     height: 15,
                   ),
                   Text(
-                    'This App is free and it works offline with a ton of great puzzles for chess player',
+                    'This App is free and it works offline with a ton of great puzzles for chess players and it has a soft and relaxed music within it to keep players focus',
                     style: TextStyle(color: kSecondary_color, fontSize: 18.0),
                   ),
                   SizedBox(
@@ -120,7 +120,7 @@ class AboutApp extends StatelessWidget {
                     height: 10,
                   ),
                   SelectableText(
-                    'All Icons made by https://www.freepik.com Freepik and https://www.flaticon.com Flaticon',
+                    'All Icons made by https://www.freepik.com Freepik \n and \n https://www.flaticon.com Flaticon',
                     style: TextStyle(color: kSecondary_color, fontSize: 18.0),
                   ),
                   SizedBox(

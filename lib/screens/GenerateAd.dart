@@ -110,7 +110,7 @@ class _AdState extends State<AdScreen> {
                     child: Container(
                       child:
                           AnimatedTextKit(repeatForever: true, animatedTexts: [
-                        FadeAnimatedText('15',
+                        FadeAnimatedText('Congrats',
                             duration: Duration(seconds: 2),
                             textStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
