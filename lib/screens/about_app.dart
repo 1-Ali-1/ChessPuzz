@@ -86,7 +86,7 @@ class AboutApp extends StatelessWidget {
                     height: 15,
                   ),
                   Text(
-                    'This App is free and it works offline with a ton of great puzzles for chess players and it has a soft and relaxed music within it to keep players focus',
+                    'This App is free and it works offline with a ton of great puzzles for chess players and it has a soft and relaxed music to keep players focus',
                     style: TextStyle(color: kSecondary_color, fontSize: 18.0),
                   ),
                   SizedBox(

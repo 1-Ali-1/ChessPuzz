@@ -1372,7 +1372,7 @@ class Puzzles extends ChangeNotifier {
         description: 'Double check use your knight'),
     ChessPuzzle(
         isWhiteToMove: false,
-        puzzle: '8/8/5k1p/6pP/6P1/4b3/8/2rb1K2 w - - 0 1',
+        puzzle: '8/8/5k1p/6pP/6P1/4b3/8/2rb1K2 b - - 0 1',
         solution: [
           ['d1', 'f3']
         ],
@@ -1408,7 +1408,7 @@ class Puzzles extends ChangeNotifier {
         description: 'knights are so merciless'),
     ChessPuzzle(
         isWhiteToMove: false,
-        puzzle: '1r4k1/R6p/3p1r2/1p2n3/1Pp1Pp2/5Nn1/2B2KP1/R2Q3q w - - 0 1',
+        puzzle: '1r4k1/R6p/3p1r2/1p2n3/1Pp1Pp2/5Nn1/2B2KP1/R2Q3q b - - 0 1',
         solution: [
           ['e5', 'g4']
         ],
@@ -1569,7 +1569,7 @@ class Puzzles extends ChangeNotifier {
         description: 'Move your rook wisely '),
     ChessPuzzle(
         isWhiteToMove: false,
-        puzzle: '8/pp2k3/2ppp3/4p3/4P1rq/3P1Qb1/PPP1R3/5RK1 w - - 0 1',
+        puzzle: '8/pp2k3/2ppp3/4p3/4P1rq/3P1Qb1/PPP1R3/5RK1 b - - 0 1',
         solution: [
           ['g3', 'f2']
         ],
@@ -1692,7 +1692,7 @@ class Puzzles extends ChangeNotifier {
         description: 'Bishops are killer'),
     ChessPuzzle(
         isWhiteToMove: false,
-        puzzle: '3r3k/1p3Q1p/2b2b2/4pP2/1p2P3/1B3q2/PP5P/3RK3 w - - 0 1',
+        puzzle: '3r3k/1p3Q1p/2b2b2/4pP2/1p2P3/1B3q2/PP5P/3RK3 b - - 0 1',
         solution: [
           ['f6', 'h4']
         ],
@@ -4968,7 +4968,7 @@ class Puzzles extends ChangeNotifier {
         'Qe7',
         ['g6', 'e7']
       ],
-      description: "Your kinght and rook will do every thing",
+      description: "Your knight and rook will do every thing",
     ),
     ChessPuzzle(
       playersName: "Ruy Lopez, Open, Classical (ECO C83)",

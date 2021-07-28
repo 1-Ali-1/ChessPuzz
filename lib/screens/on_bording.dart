@@ -1,4 +1,5 @@
 import 'package:chess_puzz/constants.dart';
+import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:chess_puzz/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:fancy_on_boarding/fancy_on_boarding.dart';
@@ -64,15 +65,15 @@ class OnBording extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      
       body: FancyOnBoarding(
         doneButtonBackgroundColor: kSecondary_color,
         doneButtonText: "Done",
         skipButtonText: "Skip",
         pageList: pageList,
-        onDoneButtonPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => FirstPlace())),
-        onSkipButtonPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => FirstPlace())),
+        onDoneButtonPressed: () => StoreData().save('FT', true),
+        onSkipButtonPressed: () => StoreData().save('FT', true),
       ),
     );
   }

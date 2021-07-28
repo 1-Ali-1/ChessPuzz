@@ -58,7 +58,7 @@ flutter_native_splash:
 flutter_icons:
   android: "chess_puzz"
   ios: true
-  image_path: "assets/icon/appLogo.png"
+  image_path: "assets/icon/appLogo2.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

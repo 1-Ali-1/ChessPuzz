@@ -5,7 +5,7 @@ import 'package:chess_puzz/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 class FirstTime extends StatefulWidget {
-  const FirstTime({Key key}) : super(key: key);
+  FirstTime({Key key});
 
   _FirstTimeState createState() => _FirstTimeState();
 }
@@ -14,8 +14,8 @@ class _FirstTimeState extends State<FirstTime> {
   bool firstTime = false;
   @override
   void initState() {
-    StoreData().read('FT').then((value) => firstTime = value);
     super.initState();
+    StoreData().read('FT').then((value) => firstTime = value);
   }
 
   @override
@@ -24,12 +24,6 @@ class _FirstTimeState extends State<FirstTime> {
           firstTime = value;
         }));
 
-    return firstTime
-        ? FirstPlace()
-        : firstTime
-            ? FirstPlace()
-            : firstTime
-                ? FirstPlace()
-                : OnBording();
+    return firstTime ? FirstPlace() : OnBording();
   }
 }
