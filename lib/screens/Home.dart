@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   children: [
-                   const Text(
+                    const Text(
                       'PUZZLES',
                       style: TextStyle(fontSize: 36.0, color: kPrimary_color),
                     ),
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
                               style: TextStyle(
                                   fontSize: 25.0, color: kPrimary_color)),
                     ),
-                  const  SizedBox(
+                    const SizedBox(
                       width: 5.0,
                     ),
                     GestureDetector(
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
                                     builder: (context) => AdScreen()))
                             .then((value) => setState(() {}));
                       },
-                      child:const Icon(
+                      child: const Icon(
                         Icons.vpn_key,
                         color: kPrimary_color,
                         size: 30.0,
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                         FadeAnimatedText('YOU',
                             textStyle: TextStyle(
                                 fontSize: 20.0, color: kPrimary_color)),
-                        FadeAnimatedText('EVERY ONE',
+                        FadeAnimatedText('EVERYONE',
                             textStyle: TextStyle(
                                 fontSize: 20.0, color: kPrimary_color)),
                       ],

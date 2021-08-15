@@ -31,7 +31,7 @@ dev_dependencies:
     sdk: flutter
   animated_drawer: ^0.0.4
   animated_text_kit: ^4.2.0
-  assets_audio_player: ^3.0.3+3
+  # assets_audio_player: 3.0.2
   double_back_to_close: ^2.0.0
   fancy_on_boarding: ^1.7.0
   flutter_launcher_icons: ^0.9.0
@@ -56,7 +56,7 @@ flutter_native_splash:
   image: assets/icon/icon.png
 
 flutter_icons:
-  android: "chess_puzz"
+  android: true
   ios: true
   image_path: "assets/icon/appLogo2.png"
 

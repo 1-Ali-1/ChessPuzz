@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chess_puzz">
    <application
-        android:label="chess_puzz"
+        android:label="Chess Puzz"
         android:icon="@mipmap/chess_puzz">
         <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
         <intent-filter>

@@ -4,6 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:io';
 
 class AdScreen extends StatefulWidget {
   @override
@@ -29,11 +30,9 @@ class _AdState extends State<AdScreen> {
     isFinished = false;
 
     rewardedAd = RewardedAd(
-      // !
-      // ! test rewarded video ad real mine 'ca-app-pub-4888683541781775/1543387392'
-      adUnitId: RewardedAd.testAdUnitId,
-      // !
-      //!
+      adUnitId: Platform.isAndroid
+          ? 'ca-app-pub-4888683541781775/1543387392'
+          : 'ca-app-pub-4888683541781775/1143144096',
       request: AdRequest(),
       listener: AdListener(
         // Called when an ad is successfully received.
@@ -60,7 +59,7 @@ class _AdState extends State<AdScreen> {
           setState(() {
             isFinished = true;
           });
-          print('Reward earned: $reward');
+
           StoreData().winAttempt();
         },
       ),

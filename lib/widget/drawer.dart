@@ -155,7 +155,7 @@ class FirstPlace extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 30),
                   ),
                   const Text(
-                    "keep improving\n have fun",
+                    "Keep Improving\n have fun",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: kSecondary_color,

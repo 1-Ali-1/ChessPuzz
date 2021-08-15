@@ -34,7 +34,7 @@ class KeyInf extends StatelessWidget {
               height: 50.0,
             ),
             const Text(
-              "first you have 15 keys after solving or missing any puzzle you loose one key",
+              "First you have 15 keys after solving or missing any puzzle you will lose one key",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: kSecondary_color,
@@ -52,7 +52,7 @@ class KeyInf extends StatelessWidget {
               height: 30.0,
             ),
             const Text(
-              "by watching short video you will get 15 key any time you want by clicking key icon in the home screen or puzzle screen",
+              "By watching short video you will get 15 key any time you want by clicking key icon in the home screen or puzzle screen",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: kSecondary_color,

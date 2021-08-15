@@ -13,7 +13,7 @@ import 'package:flutter_stateless_chessboard/flutter_stateless_chessboard.dart';
 import 'package:flutter_stateless_chessboard/types.dart' as types;
 import 'package:provider/provider.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+// import 'package:assets_audio_player/assets_audio_player.dart';
 import 'GenerateAd.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
@@ -45,7 +45,7 @@ class _PuzzleState extends State<Puzzle> {
   }
 
   int turn = 0;
-  final assetsAudioPlayer = AssetsAudioPlayer();
+  //here final assetsAudioPlayer = AssetsAudioPlayer();
 
   Widget build(BuildContext context) {
     StoreData().getAttempt().then((value) => setState(() {
@@ -403,11 +403,11 @@ class _PuzzleState extends State<Puzzle> {
                                     if (Provider.of<Puzzles>(context,
                                             listen: false)
                                         .soundFx) {
-                                      assetsAudioPlayer.open(
-                                        Audio(
-                                          "assets/hero_simple-celebration-01.mp3",
-                                        ),
-                                      );
+                                      //here assetsAudioPlayer.open(
+                                         //here Audio(
+                                         //here   "assets/hero_simple-celebration-01.mp3",
+                                         //here ),
+                                      //here );
                                     }
 
                                     widget.title == 'Pin'
@@ -538,9 +538,9 @@ class _PuzzleState extends State<Puzzle> {
                                       if (Provider.of<Puzzles>(context,
                                               listen: false)
                                           .soundFx) {
-                                        assetsAudioPlayer.open(
-                                          Audio("assets/alert_error-01.mp3"),
-                                        );
+                                      //here  assetsAudioPlayer.open(
+                                          //here Audio("assets/alert_error-01.mp3"),
+                                         //here);
                                       }
                                       showDialogWrong(
                                         sORw: 'wrong',
@@ -575,11 +575,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                           //here assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here);
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -710,11 +710,11 @@ class _PuzzleState extends State<Puzzle> {
                                         if (Provider.of<Puzzles>(context,
                                                 listen: false)
                                             .soundFx) {
-                                          assetsAudioPlayer.open(
-                                            Audio(
-                                              "assets/hero_simple-celebration-01.mp3",
-                                            ),
-                                          );
+                                       //here   assetsAudioPlayer.open(
+                                            //here Audio(
+                                            //here   "assets/hero_simple-celebration-01.mp3",
+                                            //here ),
+                                          //here);
                                         }
                                         showDialogSuccess(
                                           sORw: 'success',
@@ -729,11 +729,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                        //here    assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here);
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -769,11 +769,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                            //here assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -804,11 +804,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                          //here  assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -938,11 +938,11 @@ class _PuzzleState extends State<Puzzle> {
                                         if (Provider.of<Puzzles>(context,
                                                 listen: false)
                                             .soundFx) {
-                                          assetsAudioPlayer.open(
-                                            Audio(
-                                              "assets/hero_simple-celebration-01.mp3",
-                                            ),
-                                          );
+                                        //here  assetsAudioPlayer.open(
+                                            //here Audio(
+                                            //here   "assets/hero_simple-celebration-01.mp3",
+                                            //here ),
+                                          //here );
                                         }
                                         showDialogSuccess(
                                           sORw: 'success',
@@ -957,11 +957,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                          //here  assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -998,11 +998,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                          //here  assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -1033,11 +1033,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                            //here assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here);
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -1067,11 +1067,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                            //here assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
@@ -1201,11 +1201,11 @@ class _PuzzleState extends State<Puzzle> {
                                         if (Provider.of<Puzzles>(context,
                                                 listen: false)
                                             .soundFx) {
-                                          assetsAudioPlayer.open(
-                                            Audio(
-                                              "assets/hero_simple-celebration-01.mp3",
-                                            ),
-                                          );
+                                          //here assetsAudioPlayer.open(
+                                            //here Audio(
+                                            //here   "assets/hero_simple-celebration-01.mp3",
+                                            //here ),
+                                          //here );
                                         }
                                         showDialogSuccess(
                                           sORw: 'success',
@@ -1220,11 +1220,11 @@ class _PuzzleState extends State<Puzzle> {
                                           if (Provider.of<Puzzles>(context,
                                                   listen: false)
                                               .soundFx) {
-                                            assetsAudioPlayer.open(
-                                              Audio(
-                                                "assets/alert_error-01.mp3",
-                                              ),
-                                            );
+                                            //here assetsAudioPlayer.open(
+                                              //here Audio(
+                                              //here   "assets/alert_error-01.mp3",
+                                              //here ),
+                                            //here );
                                           }
                                           showDialogWrong(
                                             sORw: 'wrong',
