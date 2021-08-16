@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    Provider.of<notifications>(context, listen: false).initialize();
+    // Provider.of<notifications>(context, listen: false).initialize();
 
     super.initState();
   }
@@ -31,7 +31,8 @@ class _HomeState extends State<Home> {
           backgroundColor: Color(0xFF407093),
           shadowColor: Colors.transparent,
         ),
-        body: Consumer<notifications>(
+        //here Consumer<notifications>
+        body: Consumer(
           builder: (context, model, _) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
