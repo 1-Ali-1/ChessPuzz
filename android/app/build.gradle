@@ -41,7 +41,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.qarya.chess_puzz"
+        applicationId "com.ali_engineer.chess_puzz"
         minSdkVersion 20
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
@@ -51,10 +51,10 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
     signingConfigs {
        release {
-           keyAlias keystoreProperties['ali']
-           keyPassword keystoreProperties['alikey']
+             keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-           storePassword keystoreProperties['alikey']
+           storePassword keystoreProperties['storePassword']
        }
    }
    buildTypes {

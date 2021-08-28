@@ -32,10 +32,10 @@ class Main extends StatelessWidget {
             create: (context) => ChessPuzzle(),
             child: Home(),
           ),
-          //here ChangeNotifierProvider(
-          //here   create: (context) => notifications(),
-          //here   child: Home(),
-          //here )
+          ChangeNotifierProvider(
+            create: (context) => notifications(),
+            child: Home(),
+          )
         ],
         child: MaterialApp(
             theme: ThemeData(

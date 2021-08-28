@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 const Color kPrimary_color = Color(0xFFDAEAEC);
 const Color kSecondary_color = Color(0xFF407093);
 const Color kthird_color = Color(0xFFBAD1E2);
@@ -24,7 +22,7 @@ const Color kredWhite = Color(0xFFF0D8BF);
 const Color ktournmentblack = Color(0xFF48916A);
 const Color ktournmentwhite = Color(0xFFE6E8E5);
 
-const Color kpinkblack = Color(0xFFDFA4C8);
+const Color kpinkblack = Color(0xFFDA81B7);
 const Color kpinkwhite = Color(0xFFFFFFFF);
 
 const Color kswitch = Color(0xFFBE6B51);
