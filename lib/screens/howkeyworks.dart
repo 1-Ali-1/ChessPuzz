@@ -34,6 +34,17 @@ class KeyInf extends StatelessWidget {
               height: 50.0,
             ),
             const Text(
+              "For now the key is unlimited",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            const Text(
               "First you have 15 keys after solving or missing any puzzle you will lose one key",
               textAlign: TextAlign.center,
               style: TextStyle(

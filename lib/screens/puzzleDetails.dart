@@ -1404,7 +1404,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Text('this section is locked you can unlock it with 30 keys',
+      content: Text(
+          'this section is locked you can unlock it by watching a short video',
           style: TextStyle(color: kSecondary_color, fontSize: 16)),
       actions: [
         ElevatedButton(
@@ -1442,7 +1443,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Text('this section is locked you can unlock it with 30 keys',
+      content: Text(
+          'this section is locked you can unlock it by watching a short vide',
           style: TextStyle(color: kSecondary_color, fontSize: 16)),
       actions: [
         ElevatedButton(
@@ -1480,7 +1482,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Text('this section is locked you can unlock it with 30 keys',
+      content: Text(
+          'this section is locked you can unlock it by watching a short vide',
           style: TextStyle(color: kSecondary_color, fontSize: 16)),
       actions: [
         ElevatedButton(
@@ -1518,7 +1521,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Text('this section is locked you can unlock it with 30 keys',
+      content: Text(
+          'this section is locked you can unlock it by watching a short vide',
           style: TextStyle(color: kSecondary_color, fontSize: 16)),
       actions: [
         ElevatedButton(
@@ -1556,7 +1560,8 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Text('this section is locked you can unlock it with 30 keys',
+      content: Text(
+          'this section is locked you can unlock it by watching a short vide',
           style: TextStyle(color: kSecondary_color, fontSize: 16)),
       actions: [
         ElevatedButton(

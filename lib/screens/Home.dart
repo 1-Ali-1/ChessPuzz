@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-     Provider.of<notifications>(context, listen: false).initialize();
+    Provider.of<notifications>(context, listen: false).initialize();
 
     super.initState();
   }
@@ -31,7 +31,6 @@ class _HomeState extends State<Home> {
           backgroundColor: Color(0xFF407093),
           shadowColor: Colors.transparent,
         ),
-       
         body: Consumer<notifications>(
           builder: (context, model, _) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -59,10 +58,10 @@ class _HomeState extends State<Home> {
                                         MaterialPageRoute(
                                             builder: (context) => AdScreen()))
                                     .then((value) => setState(() {}));
-                              },
-                              child: Text(snapshot.data.toString(),
+                              }, //snapshot.data.toString()
+                              child: Text('unlimited',
                                   style: TextStyle(
-                                      fontSize: 25.0, color: kPrimary_color)),
+                                      fontSize: 25.0, color: Colors.blue[200])),
                             )
                           : const Text('Key',
                               style: TextStyle(

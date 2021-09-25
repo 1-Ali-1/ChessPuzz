@@ -79,23 +79,23 @@ class _SettingState extends State<Setting> {
             Padding(
               padding: EdgeInsets.only(bottom: 18),
             ),
-            Padding(
-              padding: EdgeInsets.only(right: size.width * 0.48),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: kSecondary_color),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AdScreen()));
-                },
-                child: Text(
-                  "Get 15 Keys",
-                  style: TextStyle(
-                    color: kthird_color,
-                    fontSize: 19,
-                  ),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.only(right: size.width * 0.48),
+            //   child: ElevatedButton(
+            //     style: ElevatedButton.styleFrom(primary: kSecondary_color),
+            //     onPressed: () {
+            //       Navigator.push(context,
+            //           MaterialPageRoute(builder: (context) => AdScreen()));
+            //     },
+            //     child: Text(
+            //       "Get 15 Keys",
+            //       style: TextStyle(
+            //         color: kthird_color,
+            //         fontSize: 19,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Divider(

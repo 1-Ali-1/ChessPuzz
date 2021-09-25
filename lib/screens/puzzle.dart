@@ -1299,11 +1299,11 @@ class _PuzzleState extends State<Puzzle> {
                                         MaterialPageRoute(
                                             builder: (context) => AdScreen()))
                                     .then((value) => setState(() {}));
-                              },
-                              child: Text(snapshot.data.toString(),
+                              }, //snapshot.data.toString()
+                              child: Text('unlimited',
                                   style: TextStyle(
-                                      fontSize: size.width > 650 ? 35 : 28,
-                                      color: kSecondary_color,
+                                      fontSize: size.width > 650 ? 31 : 24,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold)),
                             ),
                           ),

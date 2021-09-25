@@ -12,10 +12,10 @@ class AdScreen extends StatefulWidget {
 }
 
 class _AdState extends State<AdScreen> {
-  int i = 0;
-  bool loaded = false;
-  bool isFailed = false;
-  bool isFinished = false;
+  int i;
+  bool loaded;
+  bool isFailed;
+  bool isFinished;
   bool b = false;
 
   RewardedAd rewardedAd;
@@ -56,11 +56,10 @@ class _AdState extends State<AdScreen> {
         onApplicationExit: (Ad ad) => print('Left application.'),
         // Called when a RewardedAd triggers a reward.
         onRewardedAdUserEarnedReward: (RewardedAd ad, RewardItem reward) {
+          StoreData().winAttempt();
           setState(() {
             isFinished = true;
           });
-
-          StoreData().winAttempt();
         },
       ),
     );
@@ -74,7 +73,7 @@ class _AdState extends State<AdScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: isFinished
-              ? Text('You got 15 keys',
+              ? Text('Video Ad',
                   style: TextStyle(
                     color: kSecondary_color,
                     fontSize: 26.0,
@@ -121,7 +120,7 @@ class _AdState extends State<AdScreen> {
                 : isFailed
                     ? Center(
                         child: Text(
-                          'You must have internet connection to get keys',
+                          'there is a problem with the video Ad',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: kSecondary_color,

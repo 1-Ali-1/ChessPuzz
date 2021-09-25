@@ -116,7 +116,7 @@ class StoreData {
     var value = p.getInt('attempt') ?? 15;
 
     if (value != 0) {
-      value--;
+      value;
       p.setInt('attempt', value);
     }
   }
