@@ -1,4 +1,5 @@
 import 'package:chess_puzz/constants.dart';
+import 'package:chess_puzz/models/puzzles.dart';
 import 'package:chess_puzz/screens/puzzleDetails.dart';
 import 'package:chess_puzz/services/notification.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'GenerateAd.dart';
 import 'package:provider/provider.dart';
+import '../services/notification.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -23,6 +25,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    StoreData().unlimited();
     StoreData().save('FT', true);
     return Scaffold(
         backgroundColor: Color(0xFF407093),
@@ -117,7 +120,15 @@ class _HomeState extends State<Home> {
                     children: [
                       InkWell(
                           onTap: () {
-                            model.sheduledNotification();
+                          
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
+
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -134,7 +145,14 @@ class _HomeState extends State<Home> {
                           )),
                       InkWell(
                         onTap: () {
-                          model.sheduledNotification();
+                          
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -152,7 +170,14 @@ class _HomeState extends State<Home> {
                       ),
                       InkWell(
                         onTap: () {
-                          model.sheduledNotification();
+                         
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -170,7 +195,14 @@ class _HomeState extends State<Home> {
                       ),
                       InkWell(
                           onTap: () {
-                            model.sheduledNotification();
+                           
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -187,7 +219,14 @@ class _HomeState extends State<Home> {
                           )),
                       InkWell(
                           onTap: () {
-                            model.sheduledNotification();
+                           
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -204,7 +243,14 @@ class _HomeState extends State<Home> {
                           )),
                       InkWell(
                           onTap: () {
-                            model.sheduledNotification();
+                          
+                            if (Provider.of<Puzzles>(context, listen: false)
+                                .notification) {
+                              model.sheduledNotification();
+                            } else {
+                              Provider.of<notifications>(context, listen: false)
+                                  .cancelNotification();
+                            }
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

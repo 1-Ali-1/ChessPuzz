@@ -34,14 +34,15 @@ class notifications extends ChangeNotifier {
         largeIcon: DrawableResourceAndroidBitmap("splash"),
         styleInformation: MediaStyleInformation(
             htmlFormatContent: true, htmlFormatTitle: true));
+            var ios = IOSNotificationDetails(subtitle:"Solve puzzles daily");
 
-    var platform = new NotificationDetails(android: android);
+    var platform = new NotificationDetails(android: android,iOS:ios );
 
     await _flutterLocalNotificationsPlugin.periodicallyShow(
         0, "Solve puzzles daily", "to get better at chess", interval, platform);
   }
 
-  //? this function is for mutiotificaions in the appng n
+  
 
   Future cancelNotification() async {
     await _flutterLocalNotificationsPlugin.cancelAll();

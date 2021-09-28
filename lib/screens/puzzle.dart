@@ -1289,41 +1289,44 @@ class _PuzzleState extends State<Puzzle> {
                           Spacer(
                             flex: 2,
                           ),
-                          // dummy data used for attempt
-                          FutureBuilder(
-                            future: StoreData().getAttempt(),
-                            builder: (context, snapshot) => GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => AdScreen()))
-                                    .then((value) => setState(() {}));
-                              }, //snapshot.data.toString()
-                              child: Text('unlimited',
-                                  style: TextStyle(
-                                      fontSize: size.width > 650 ? 31 : 24,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                          ),
                           SizedBox(
-                            width: 5.0,
+                            width: 8,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => AdScreen()))
-                                  .then((value) => setState(() {}));
-                            },
-                            child: Icon(
-                              Icons.vpn_key,
-                              color: kSecondary_color,
-                              size: size.width > 650 ? 45 : 30,
-                            ),
-                          )
+                          // dummy data used for attempt
+                                FutureBuilder(
+                                  future: StoreData().getAttempt(),
+                                  builder: (context, snapshot) => GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => AdScreen()))
+                                          .then((value) => setState(() {}));
+                                    }, //snapshot.data.toString()
+                                    child: Text('unlimited key',
+                                        style: TextStyle(
+                                            fontSize: size.width > 650 ? 31 : 18,
+                                            color: Colors.blue,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ),
+                                 Spacer(
+                            flex: 1,
+                          ),
+                          // GestureDetector(
+                          //   onTap: () {
+                          //     Navigator.push(
+                          //             context,
+                          //             MaterialPageRoute(
+                          //                 builder: (context) => AdScreen()))
+                          //         .then((value) => setState(() {}));
+                          //   },
+                          //   child: Icon(
+                          //     Icons.vpn_key,
+                          //     color: kSecondary_color,
+                          //     size: size.width > 650 ? 45 : 30,
+                          //   ),
+                          // )
                         ],
                       ),
                     ),

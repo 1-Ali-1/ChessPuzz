@@ -76,6 +76,20 @@ class _SettingState extends State<Setting> {
                 )
               ],
             ),
+            Row(
+              children: [
+                const Icon(Icons.notifications,
+                    size: 35.0, color: kSecondary_color),
+                Switch(
+                  value: Provider.of<Puzzles>(context).notification,
+                  onChanged: (v) {
+                    Provider.of<Puzzles>(context, listen: false).unMute();
+                  },
+                  inactiveThumbColor: kSecondary_color,
+                  activeColor:kswitch,
+                )
+              ],
+            ),
             Padding(
               padding: EdgeInsets.only(bottom: 18),
             ),

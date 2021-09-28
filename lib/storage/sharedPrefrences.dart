@@ -114,11 +114,20 @@ class StoreData {
   void looseAttempt() async {
     final p = await SharedPreferences.getInstance();
     var value = p.getInt('attempt') ?? 15;
-
     if (value != 0) {
       value;
       p.setInt('attempt', value);
     }
+  }
+
+  void unlimited() async {
+    final p = await SharedPreferences.getInstance();
+    p.setInt('attempt', 15);
+  }
+
+  void keyToZero() async {
+    final p = await SharedPreferences.getInstance();
+    p.setInt('attempt', 0);
   }
 
   void winAttempt() async {
@@ -140,7 +149,7 @@ class StoreData {
 
     if (value >= 30) {
       value = value - 30;
-      prefs.setInt('attempt', value);
+      prefs.setInt('attempt', 15);
       StoreData().save('tempbool', true);
     }
   }
@@ -151,7 +160,7 @@ class StoreData {
 
     if (value >= 30) {
       value = value - 30;
-      prefs.setInt('attempt', value);
+      prefs.setInt('attempt', 15);
 
       StoreData().save('tempboolForSacrifice', true);
     }
@@ -163,7 +172,7 @@ class StoreData {
 
     if (value >= 30) {
       value = value - 30;
-      prefs.setInt('attempt', value);
+      prefs.setInt('attempt', 15);
 
       StoreData().save('tempboolForCaroKann', true);
     }
@@ -175,7 +184,7 @@ class StoreData {
 
     if (value >= 30) {
       value = value - 30;
-      prefs.setInt('attempt', value);
+      prefs.setInt('attempt', 15);
 
       StoreData().save('tempboolForEnglish', true);
     }

@@ -1,9 +1,10 @@
 import 'dart:math';
-
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'chessPuzzels.dart';
 
 class Puzzles extends ChangeNotifier {
+  bool notification = true;
   bool soundFx = true;
   bool music = true;
   int randomIndex = Random().nextInt(6);
@@ -15,6 +16,11 @@ class Puzzles extends ChangeNotifier {
 
   void muteMusic() {
     music = !music;
+    notifyListeners();
+  }
+
+  void unMute() {
+    notification = !notification;
     notifyListeners();
   }
 
