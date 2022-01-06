@@ -107,20 +107,6 @@ class FirstPlace extends StatelessWidget {
                       )
                     ],
                   ),
-                  Row(
-                    children: [
-                      const Icon(Icons.notifications,
-                          size: 35.0, color: kSecondary_color),
-                      Switch(
-                        value: Provider.of<Puzzles>(context).notification,
-                        onChanged: (v) {
-                          Provider.of<Puzzles>(context, listen: false).unMute();
-                        },
-                        inactiveThumbColor: kSecondary_color,
-                        activeColor: Color(0xFFBE6B51),
-                      )
-                    ],
-                  ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 10),
                   ),

@@ -7,8 +7,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:io';
 
 class AdScreen extends StatefulWidget {
+  String code;
   @override
   _AdState createState() => _AdState();
+  AdScreen({String code}) {
+    this.code = code;
+  }
 }
 
 class _AdState extends State<AdScreen> {
@@ -28,7 +32,6 @@ class _AdState extends State<AdScreen> {
     loaded = false;
     isFailed = false;
     isFinished = false;
-
     rewardedAd = RewardedAd(
       adUnitId: Platform.isAndroid
           ? 'ca-app-pub-4888683541781775/1543387392'
@@ -56,7 +59,13 @@ class _AdState extends State<AdScreen> {
         onApplicationExit: (Ad ad) => print('Left application.'),
         // Called when a RewardedAd triggers a reward.
         onRewardedAdUserEarnedReward: (RewardedAd ad, RewardItem reward) {
-          StoreData().winAttempt();
+          widget.code.endsWith('nn')
+              ? StoreData().unlockingForCaroKann()
+              : widget.code.endsWith('sh')
+                  ? StoreData().unlockingForEnglish()
+                  : widget.code.endsWith('ck')
+                      ? StoreData().unlockingForSacrifice()
+                      : StoreData().unlocking();
           setState(() {
             isFinished = true;
           });
@@ -120,7 +129,7 @@ class _AdState extends State<AdScreen> {
                 : isFailed
                     ? Center(
                         child: Text(
-                          'there is a problem with the video Ad',
+                          'there is a problem',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: kSecondary_color,

@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui';
 import 'package:chess_puzz/models/chessPuzzels.dart';
 import 'package:chess_puzz/constants.dart';
 import 'package:chess_puzz/models/puzzles.dart';
-import 'package:chess_puzz/screens/levels.dart';
 import 'package:chess_puzz/screens/setting.dart';
 import 'package:chess_puzz/storage/sharedPrefrences.dart';
 import 'package:chess_puzz/widget/chess.dart';
@@ -1293,23 +1291,12 @@ class _PuzzleState extends State<Puzzle> {
                             width: 8,
                           ),
                           // dummy data used for attempt
-                                FutureBuilder(
-                                  future: StoreData().getAttempt(),
-                                  builder: (context, snapshot) => GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) => AdScreen()))
-                                          .then((value) => setState(() {}));
-                                    }, //snapshot.data.toString()
-                                    child: Text('unlimited key',
-                                        style: TextStyle(
-                                            fontSize: size.width > 650 ? 31 : 18,
-                                            color: Colors.blue,
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                ),
+                                Text('unlimited key',
+                                      style: TextStyle(
+                                          fontSize: size.width > 650 ? 31 : 18,
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold)),
+                               
                                  Spacer(
                             flex: 1,
                           ),

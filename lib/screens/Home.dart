@@ -54,18 +54,9 @@ class _HomeState extends State<Home> {
                     FutureBuilder(
                       future: StoreData().getAttempt(),
                       builder: (context, snapshot) => snapshot.hasData
-                          ? GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => AdScreen()))
-                                    .then((value) => setState(() {}));
-                              }, //snapshot.data.toString()
-                              child: Text('unlimited',
-                                  style: TextStyle(
-                                      fontSize: 25.0, color: Colors.blue[200])),
-                            )
+                          ? Text('unlimited',
+                              style: TextStyle(
+                                  fontSize: 25.0, color: Colors.blue[200]))
                           : const Text('Key',
                               style: TextStyle(
                                   fontSize: 25.0, color: kPrimary_color)),
@@ -73,19 +64,10 @@ class _HomeState extends State<Home> {
                     const SizedBox(
                       width: 5.0,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AdScreen()))
-                            .then((value) => setState(() {}));
-                      },
-                      child: const Icon(
-                        Icons.vpn_key,
-                        color: kPrimary_color,
-                        size: 30.0,
-                      ),
+                    const Icon(
+                      Icons.vpn_key,
+                      color: kPrimary_color,
+                      size: 30.0,
                     )
                   ],
                 ),

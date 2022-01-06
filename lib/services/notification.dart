@@ -26,7 +26,7 @@ class notifications extends ChangeNotifier {
   }
 
   Future sheduledNotification() async {
-    var interval = RepeatInterval.daily;
+    var interval = RepeatInterval.weekly;
     var android = AndroidNotificationDetails("id", "channel", "description",
         color: kdeafultBlack,
         enableLights: false,

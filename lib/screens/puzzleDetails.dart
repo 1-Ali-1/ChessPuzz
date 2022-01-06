@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 import 'package:chess_puzz/models/chessPuzzels.dart';
 import 'package:chess_puzz/models/puzzles.dart';
 import 'package:chess_puzz/screens/GenerateAd.dart';
@@ -228,11 +228,9 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                   return InkWell(
                     onTap: () {
                       if (!(snapshot.data[1])) {
-                        if (snapshot.data[0] < 30) {
-                          showAlertDialog(context);
-                        } else {
-                          showAlertDialogunlock(context);
-                        }
+                        // here this if have to be removed
+
+                        showAlertDialog(context, 'MateInFour');
                       } else {
                         Navigator.push(
                             context,
@@ -267,7 +265,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontWeight: FontWeight.bold),
                                         children: [
                                           const TextSpan(
-                                            text: '30 Keys neended',
+                                            text: 'you need to watch video AD',
                                             style: TextStyle(
                                                 color: kSecondary_color,
                                                 fontSize: 16),
@@ -606,11 +604,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                   return InkWell(
                     onTap: () {
                       if (!(snapshot.data[1])) {
-                        if (snapshot.data[0] < 30) {
-                          showAlertDialog(context);
-                        } else {
-                          showAlertDialogunlockForCaroKann(context);
-                        }
+                        showAlertDialog(context, 'CaroKann');
                       } else {
                         Navigator.push(
                             context,
@@ -645,7 +639,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontWeight: FontWeight.bold),
                                         children: [
                                           TextSpan(
-                                            text: '30 Keys neended',
+                                            text: 'watch a video Ad',
                                             style: TextStyle(
                                                 color: kSecondary_color,
                                                 fontSize: 16),
@@ -684,11 +678,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                   return InkWell(
                     onTap: () {
                       if (!(snapshot.data[1])) {
-                        if (snapshot.data[0] < 30) {
-                          showAlertDialog(context);
-                        } else {
-                          showAlertDialogunlockForEnglish(context);
-                        }
+                        showAlertDialog(context, 'English');
                       } else {
                         Navigator.push(
                             context,
@@ -723,7 +713,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontWeight: FontWeight.bold),
                                         children: [
                                           TextSpan(
-                                            text: '30 Keys neended',
+                                            text: 'watch a video Ad',
                                             style: TextStyle(
                                                 color: kSecondary_color,
                                                 fontSize: 16),
@@ -895,11 +885,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                   return InkWell(
                     onTap: () {
                       if (!(snapshot.data[1])) {
-                        if (snapshot.data[0] < 30) {
-                          showAlertDialog(context);
-                        } else {
-                          showAlertDialogunlockForSacrifice(context);
-                        }
+                        showAlertDialog(context, 'Sack');
                       } else {
                         Navigator.push(
                                 context,
@@ -934,7 +920,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
                                             fontWeight: FontWeight.bold),
                                         children: [
                                           TextSpan(
-                                            text: '30 Keys neended',
+                                            text: 'watch a video Ad',
                                             style: TextStyle(
                                                 color: kSecondary_color,
                                                 fontSize: 16),
@@ -1547,7 +1533,7 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
     );
   }
 
-  showAlertDialog(BuildContext context) {
+  showAlertDialog(BuildContext context, String whichSection) {
     // set up the buttons
 
     // set up the AlertDialog
@@ -1567,12 +1553,14 @@ class _PuzzleDetailState extends State<PuzzleDetail> {
         ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AdScreen()))
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdScreen(code: whichSection)))
                   .then((value) => setState(() {}));
             },
             child: Text(
-              'Get keys',
+              'Watch video',
               style: TextStyle(),
             ))
       ],

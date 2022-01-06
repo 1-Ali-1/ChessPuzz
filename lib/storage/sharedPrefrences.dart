@@ -146,47 +146,30 @@ class StoreData {
   void unlocking() async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getInt('attempt') ?? 15;
-
-    if (value >= 30) {
-      value = value - 30;
-      prefs.setInt('attempt', 15);
-      StoreData().save('tempbool', true);
-    }
+    StoreData().save('tempbool', true);
+   
   }
 
   void unlockingForSacrifice() async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getInt('attempt') ?? 15;
+          StoreData().save('tempboolForSacrifice', true);
 
-    if (value >= 30) {
-      value = value - 30;
-      prefs.setInt('attempt', 15);
 
-      StoreData().save('tempboolForSacrifice', true);
-    }
   }
 
   void unlockingForCaroKann() async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getInt('attempt') ?? 15;
-
-    if (value >= 30) {
-      value = value - 30;
-      prefs.setInt('attempt', 15);
-
       StoreData().save('tempboolForCaroKann', true);
-    }
+
+    
   }
 
   void unlockingForEnglish() async {
     final prefs = await SharedPreferences.getInstance();
     var value = prefs.getInt('attempt') ?? 15;
 
-    if (value >= 30) {
-      value = value - 30;
-      prefs.setInt('attempt', 15);
-
-      StoreData().save('tempboolForEnglish', true);
-    }
+    StoreData().save('tempboolForEnglish', true);
   }
 }
